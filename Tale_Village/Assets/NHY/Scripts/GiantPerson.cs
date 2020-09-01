@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR.WSA.Input;
 
 // 거인이 움직이는 스크립트
 
@@ -25,18 +26,20 @@ public class GiantPerson : MonoBehaviour
 
     NavMeshAgent agent;   //길찾기 ai
     Animator anim;        //애니메이션
-    Rigidbody rb;
+    CharacterController cc; //캐릭터컨트롤러
 
     public Transform playerTransform;
     Vector3 peDir; //플레이어와 에너미 사이 방향
     float peDis;  // 플레이어와 에너미 사이 거리
     public float delayTime = 8;   //플레이어에게 공격받을시 딜레이 타임
-    public float tempDT;
+    float tempDT;
     public float attackDis = 5;       //플레이어 어택할 기준 거리
     public float moveSpeed = 8;
 
     public bool duckTouch;  // 플레이어가 거위를 만졌을때 true가 되게할것
     public bool playerAttack; // 플레이어가 공격을 했을 때 true가 되게 할것
+
+
 
     void Start()
     {
@@ -45,8 +48,9 @@ public class GiantPerson : MonoBehaviour
         agent.speed = moveSpeed;
         agent.enabled = false; // move상태에서만 켜주기 위해 기본으로 꺼준다
         anim = GetComponent<Animator>();  //애니메이션
-        rb = GetComponent<Rigidbody>();   //리지드바디
-        float tempDT = delayTime;
+        cc = GetComponent<CharacterController>(); // 캐릭터 컨트롤러
+        tempDT = delayTime;
+
     }
 
     // Update is called once per frame
@@ -54,7 +58,7 @@ public class GiantPerson : MonoBehaviour
     {
         peDir = transform.position - playerTransform.position;  // 플레이어와 거인 사이 방향
         peDis = peDir.magnitude; //플레이어와 거인 사이 거리
-        
+
         switch (nowGiantState)
         {
             case GinatPersonState.Sleep:
@@ -71,7 +75,7 @@ public class GiantPerson : MonoBehaviour
                 break;
 
         }
-        
+
         Debug.Log(nowGiantState);
 
     }
@@ -105,19 +109,25 @@ public class GiantPerson : MonoBehaviour
             nowGiantState = GinatPersonState.Delay;
         if (peDis <= attackDis)   //attackDis보다 플레이어 사이 거리가 적어지면 어택으로 상태전환
             nowGiantState = GinatPersonState.Attack;
-       
+
 
     }
 
-
     private void Delay()
     {
-        rb.AddForce(-transform.forward * 1, ForceMode.Impulse);  // 뒤로 살짝 밀려나기
 
         //헤롱헤롱 애니메이션 추가할것, 애니메이션 재생시간이랑 delayTime같게 할것
-        agent.destination = transform.position;
-        
+        agent.destination = transform.position; // 딜레이에선 나자신이 목표
+
         delayTime -= Time.deltaTime;
+
+        if (delayTime >= (tempDT - 0.2f))  //뒤로 살짝 밀려나기
+        {
+            cc.Move(-transform.forward * 50 * Time.deltaTime);
+        }
+        else
+            cc.Move(transform.forward * 0);
+
         if (delayTime <= 0)      //딜레이타임이 0보다 작아지면 follow상태로 전환
         {
             nowGiantState = GinatPersonState.Follow;
@@ -131,26 +141,29 @@ public class GiantPerson : MonoBehaviour
     private void Attack()
     {
         //어택 애니메이션 실행
-      
 
-        if (peDis>attackDis)
+
+        if (peDis > attackDis)
             nowGiantState = GinatPersonState.Follow;
 
         if (playerAttack)
             nowGiantState = GinatPersonState.Delay;
-         
+
     }
 
-    private void OnCollisionEnter(Collision other)
+    void OnControllerColliderHit(ControllerColliderHit other)
     {
-        if (other.gameObject.name.Contains("axe"))  // 플레이어가 어택하는것은 도끼가 몬스터에 닿는것과 같음
+        //벌레 공격 당함
+        if (other.gameObject.name.Contains("axe"))// 플레이어가 어택하는것은 도끼가 몬스터에 닿는것과 같음
+        {
             playerAttack = true;
-
-        if(other.gameObject.name.Contains("Player"))
+           
+        }
+        if (other.gameObject.name.Contains("Player"))
         {
 
-        //플레이어 라이프 감소
+            //플레이어 라이프 감소
         }
     }
-
+   
 }

@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class Spider : MonoBehaviour
 {
 
-    //벌레 패트롤 하기
-    public float speed = 6.0F;
+    public float speed = 6.0f;
     public Transform[] bugTarget;
     Vector3 dir;
     int i = 0;
+    bool attacked;
+    float gravity = -9.8f;
+
     CharacterController controller;
     private void Start()
     {
@@ -17,28 +20,40 @@ public class Spider : MonoBehaviour
     }
     void Update()
     {
-
-        dir = bugTarget[i].position - transform.position;
-        if (dir.magnitude < 2)
+        if (attacked)
         {
-            if (i >= bugTarget.Length - 1)
-                i = 0;
-            else
-                i++;
+            controller.Move(Vector3.up * gravity * Time.deltaTime); // 떨어짐
+
         }
+        else
+        {
+            //벌레 패트롤 하기
 
-
-        dir.Normalize();
-        controller.Move(dir * speed * Time.deltaTime);
+            dir = bugTarget[i].position - transform.position;
+            if (dir.magnitude < 2)
+            {
+                if (i >= bugTarget.Length - 1)
+                    i = 0;
+                else
+                    i++;
+            }
+            dir.Normalize();
+            controller.Move(dir * speed * Time.deltaTime);
+        }
     }
 
     void OnControllerColliderHit(ControllerColliderHit other)
     {
-    //벌레 공격 당함
+        //벌레 공격 당함
         if (other.gameObject.name.Contains("axe"))
         {
-
+            attacked = true;
             Destroy(gameObject, 3);
+        }
+        if (other.gameObject.name.Contains("Player"))
+        {
+
+            //플레이어 라이프 감소
         }
     }
 }
