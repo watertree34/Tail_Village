@@ -151,7 +151,7 @@ public class GiantPerson : MonoBehaviour
         //어택 애니메이션 실행
 
         if (peDis < attackDis - 0.5f)
-            print("life down");//플레이어 라이프 감소
+            LifeManager.Instance.LIFE -= 1 ; //플레이어 라이프 감소
 
 
         if (peDis > attackDis)

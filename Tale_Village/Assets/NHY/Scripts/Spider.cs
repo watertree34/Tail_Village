@@ -45,15 +45,15 @@ public class Spider : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit other)
     {
         //벌레 공격 당함
-        if (other.gameObject.name.Contains("axe"))
+        if (other.gameObject.tag.Contains("weapon"))
         {
             attacked = true;
             Destroy(gameObject, 3);
         }
-        if (other.gameObject.name.Contains("Player"))
+        if (other.gameObject.tag.Contains("Player"))
         {
 
-            //플레이어 라이프 감소
+            LifeManager.Instance.LIFE -= 1; //플레이어 라이프 감소
         }
     }
 }
