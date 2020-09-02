@@ -58,3 +58,9 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Tale_Village/Temp/
+Tale_Village/obj/
+Tale_Village/.vs/
+Tale_Village/*.csproj
+Tale_Village/*.sln
+Tale_Village/Library/
