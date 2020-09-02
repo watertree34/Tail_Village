@@ -28,18 +28,22 @@ public class GiantPerson : MonoBehaviour
     Animator anim;        //애니메이션
     CharacterController cc; //캐릭터컨트롤러
 
+
+
     public Transform playerTransform;
     Vector3 peDir; //플레이어와 에너미 사이 방향
     float peDis;  // 플레이어와 에너미 사이 거리
-    public float delayTime = 8;   //플레이어에게 공격받을시 딜레이 타임
+    public float delayTime = 3;   //플레이어에게 공격받을시 딜레이 타임
     float tempDT;
-    public float attackDis = 5;       //플레이어 어택할 기준 거리
+    public float attackDis = 6;       //플레이어 어택할 기준 거리
     public float moveSpeed = 8;
 
     public bool duckTouch;  // 플레이어가 거위를 만졌을때 true가 되게할것
-    public bool playerAttack; // 플레이어가 공격을 했을 때 true가 되게 할것
 
-
+    public float axeAttackkDis = 7; // 플레이어가 공격하는 기준거리
+    public Transform axe;
+    Vector3 aeDir; //도끼와 거인 사이 방향
+    float aeDis;  // 도끼와 거인 사이 거리
 
     void Start()
     {
@@ -49,6 +53,7 @@ public class GiantPerson : MonoBehaviour
         agent.enabled = false; // move상태에서만 켜주기 위해 기본으로 꺼준다
         anim = GetComponent<Animator>();  //애니메이션
         cc = GetComponent<CharacterController>(); // 캐릭터 컨트롤러
+
         tempDT = delayTime;
 
     }
@@ -58,6 +63,10 @@ public class GiantPerson : MonoBehaviour
     {
         peDir = transform.position - playerTransform.position;  // 플레이어와 거인 사이 방향
         peDis = peDir.magnitude; //플레이어와 거인 사이 거리
+
+        aeDir = transform.position - axe.position;//도끼와 거인 사이 방향
+        aeDis = aeDir.magnitude;    // 도끼와 거인 사이 거리
+
 
         switch (nowGiantState)
         {
@@ -76,7 +85,7 @@ public class GiantPerson : MonoBehaviour
 
         }
 
-        Debug.Log(nowGiantState);
+        Debug.Log(nowGiantState + "," + peDis + "," + aeDis);
 
     }
 
@@ -105,7 +114,7 @@ public class GiantPerson : MonoBehaviour
         //플레이어 따라가며 길찾기 수행
         agent.destination = playerTransform.position;  //길찾기를 이용해 이동
 
-        if (playerAttack)
+        if (aeDis < axeAttackkDis)//playerAttackDis보다 도끼 사이 거리가 적어지면 어택으로 상태전환
             nowGiantState = GinatPersonState.Delay;
         if (peDis <= attackDis)   //attackDis보다 플레이어 사이 거리가 적어지면 어택으로 상태전환
             nowGiantState = GinatPersonState.Attack;
@@ -132,7 +141,6 @@ public class GiantPerson : MonoBehaviour
         {
             nowGiantState = GinatPersonState.Follow;
             delayTime = tempDT; //딜레이타임 다시 초기화
-            playerAttack = false;
         }
 
     }
@@ -142,28 +150,19 @@ public class GiantPerson : MonoBehaviour
     {
         //어택 애니메이션 실행
 
+        if (peDis < attackDis - 0.5f)
+            print("life down");//플레이어 라이프 감소
+
 
         if (peDis > attackDis)
             nowGiantState = GinatPersonState.Follow;
 
-        if (playerAttack)
+        if (aeDis < axeAttackkDis)   //playerAttackDis보다 도끼 사이 거리가 적어지면 어택으로 상태전환
             nowGiantState = GinatPersonState.Delay;
-
+      
     }
 
-    void OnControllerColliderHit(ControllerColliderHit other)
-    {
-        //벌레 공격 당함
-        if (other.gameObject.name.Contains("axe"))// 플레이어가 어택하는것은 도끼가 몬스터에 닿는것과 같음
-        {
-            playerAttack = true;
-           
-        }
-        if (other.gameObject.name.Contains("Player"))
-        {
-
-            //플레이어 라이프 감소
-        }
-    }
+   
+   
    
 }
