@@ -1,0 +1,10 @@
+
+Tale_Village/Library/
+Tale_Village/obj/
+Tale_Village/.vs/
+Tale_Village/Temp/
+*.csproj
+*.sln
+Tale_Village/Logs/
+
+
