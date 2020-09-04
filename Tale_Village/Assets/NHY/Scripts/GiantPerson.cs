@@ -12,8 +12,10 @@ using UnityEngine.XR.WSA.Input;
 //만약 플레이어가 거인에게 공격을 시행하면 움직임에 일정시간 딜레이 발생
 //거인의 집에서 빠져나와 올라왔던 콩나무에 다다르면 게임 클리어 씬으로 이동
 
-public class GiantPerson : MonoBehaviour
+public class GiantPerson : MonoBehaviour  //ItemManager상속
 {
+
+    
     enum GinatPersonState
     {
         Sleep,
@@ -38,7 +40,7 @@ public class GiantPerson : MonoBehaviour
     public float attackDis = 6;       //플레이어 어택할 기준 거리
     public float moveSpeed = 8;
 
-    public bool duckTouch;  // 플레이어가 거위를 만졌을때 true가 되게할것
+   // public bool duckTouch;  // 플레이어가 거위를 만졌을때 true가 되게할것
 
     public float axeAttackkDis = 7; // 플레이어가 공격하는 기준거리
     public Transform axe;
@@ -94,10 +96,11 @@ public class GiantPerson : MonoBehaviour
     {
         //자는 애니메이션 추가할것
 
-        if (peDis < 7 || duckTouch)  // 만약 플레이어가 거위에 닿거나 플레이어와의 거리가 1미터 이하면 follow로 상태전환
+        if (peDis < 7 || Duck.Instance.duckTouch==true)  // 만약 플레이어가 거위에 닿거나 플레이어와의 거리가 1미터 이하면 follow로 상태전환
         {
             //일어나는 상태에서는 일어나는 애니메이션 재생할것 / has exit time으로 follow 로 넘어감
             nowGiantState = GinatPersonState.Follow;
+           
         }
 
     }
