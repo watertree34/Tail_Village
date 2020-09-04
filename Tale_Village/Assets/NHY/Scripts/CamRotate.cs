@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CamRotate : MonoBehaviour
 {
+    //마우스 회전에 따라 카메라 회전
     public float rotSpeed=150;
     float mx;
     float my;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 
-public class pcPlayer : MonoBehaviour
+public class pcPlayerMove : MonoBehaviour
 {
     CharacterController cc;
     public float moveSpeed = 8; //이동속도
@@ -31,7 +31,10 @@ public class pcPlayer : MonoBehaviour
         Vector3 dir = new Vector3(h, 0, v); //(right, up, forward)
 
         //카메라가 바라보는 방향으로 이동하고 싶다.
-        dir = Camera.main.transform.TransformDirection(dir); // 메인 카메라가 향하는 방향으로 변형하겠다
+        dir = Camera.main.transform.TransformDirection(dir); // 메인 카메라가 향하는 방향으로 변형하겠다!!!
+                                                             //로컬->월드 좌표로-TransformDirection   다른 오브젝트들의 위치와 상호작용할때 많이 쓰임
+                                                             //월드->로컬좌표는 InverseTransformDirection  
+
 
         dir.Normalize(); //정규화
 
@@ -40,7 +43,7 @@ public class pcPlayer : MonoBehaviour
         if (cc.collisionFlags == CollisionFlags.Below)
         {
             yVelocity = 0;
-          
+
         }
 
         //중력적용_v = v0 + at
@@ -50,7 +53,7 @@ public class pcPlayer : MonoBehaviour
         //이동하고싶다
         cc.Move(dir * moveSpeed * Time.deltaTime);
 
-       
+
 
     }
 }
