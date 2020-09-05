@@ -53,7 +53,7 @@ public class pcPlayerMove : MonoBehaviour
         //이동하고싶다
         cc.Move(dir * moveSpeed * Time.deltaTime);
 
-
+        
 
     }
 }

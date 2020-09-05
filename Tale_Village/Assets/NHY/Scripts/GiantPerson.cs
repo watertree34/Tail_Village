@@ -87,7 +87,6 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
 
         }
 
-        Debug.Log(nowGiantState + "," + peDis + "," + aeDis);
 
     }
 
