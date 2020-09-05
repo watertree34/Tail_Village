@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 242907880306666991}
   - component: {fileID: 242907880306666990}
   - component: {fileID: 242907880306666989}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 242907880939339448}
   - component: {fileID: 242907880939339455}
   - component: {fileID: 242907880939339454}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Duck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

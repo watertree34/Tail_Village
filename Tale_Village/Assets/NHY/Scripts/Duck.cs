@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 
-public class Duck : ItemFind  //ItemManager상속
+public class Duck : MonoBehaviour
 {
 
     public static Duck Instance;

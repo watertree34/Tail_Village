@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4992648085540774372}
   - component: {fileID: 1730261939792074236}
   - component: {fileID: 3422495580574916498}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
