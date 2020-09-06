@@ -2229,7 +2229,7 @@ PrefabInstance:
     - target: {fileID: 1911651474227261302, guid: ef2587ff686676645a23a317e42d2f82,
         type: 3}
       propertyPath: m_Name
-      value: Hatchet
+      value: Axe
       objectReference: {fileID: 0}
     - target: {fileID: 1911651474227261302, guid: ef2587ff686676645a23a317e42d2f82,
         type: 3}
