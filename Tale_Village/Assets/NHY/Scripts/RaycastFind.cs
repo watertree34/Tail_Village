@@ -61,7 +61,7 @@ public class RaycastFind : MonoBehaviour
 
                 //인벤토리 될경우-
                 //인벤토리에 저장되는 함수 호출
-                //ex) iventory.Instance.AddObject(hit.transform.gameObject)
+                PickUp.Instance.PickUpItem();
 
                 ////인벤토리 안될경우-바로 아이템먹기->라이프 회복
                 ////이걸 쓰려면 도끼는 item레이어말고 다른레이어로 바꿔서 따로 지정해줘야함

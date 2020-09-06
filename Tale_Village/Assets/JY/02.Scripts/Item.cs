@@ -1,16 +1,24 @@
 ﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public enum ItemType
 {
-    void Start()
-    {
-        
-    }
+    Food,
+    Tools,
+    Etc
+}
 
-    void Update()
+[System.Serializable]
+public class Item
+{
+    public ItemType itemType;
+    public string itemName;
+    public Sprite itemImage;
+
+    public bool Use()
     {
-        
+        return false;
     }
 }
