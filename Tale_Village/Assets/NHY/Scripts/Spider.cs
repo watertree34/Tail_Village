@@ -45,7 +45,7 @@ public class Spider : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit other)
     {
         //벌레 공격 당함
-        if (other.gameObject.tag.Contains("weapon"))
+        if (other.gameObject.tag.Contains("tool"))
         {
             attacked = true;
             Destroy(gameObject, 3);

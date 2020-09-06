@@ -14,7 +14,7 @@ public class Bean : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "weapon")
+        if (other.gameObject.tag == "tool")
         {
             rb.useGravity = true;
             transform.parent = null;

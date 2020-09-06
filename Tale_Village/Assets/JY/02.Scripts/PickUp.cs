@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     public static PickUp Instance;
-    public Transform weaponPos;
+    public Transform toolPos;
     private void Awake()
     {
         Instance = this;
@@ -29,9 +29,9 @@ public class PickUp : MonoBehaviour
                 Instantiate(slotItem, inven.slots[i].slotObj.transform, false);
                 inven.slots[i].isEmpty = false;
                 this.gameObject.SetActive(false);
-                if (this.gameObject.tag == "weapon")
+                if (this.gameObject.tag == "tool")
                 {
-                    this.gameObject.transform.position = weaponPos.transform.position;
+                    this.gameObject.transform.position = toolPos.transform.position;
                 }
                 break;
             }
