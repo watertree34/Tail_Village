@@ -20,5 +20,10 @@ public class Bean : MonoBehaviour
             transform.parent = null;
         }
     }
-   
+
+   //만약 인벤토리에서 사용되면
+   //if(인벤토리에서 사용되면)
+   // {
+   //     LifeManager.Instance.LIFE += 5; // 라이프 회복
+   // }
 }
