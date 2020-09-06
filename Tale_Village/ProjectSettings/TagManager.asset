@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - weapon
+  - rope
+  - finish
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Item
   - Butterfly
   - GranPoint
-  - 
+  - Spider
   - 
   - 
   - 

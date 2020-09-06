@@ -15,11 +15,11 @@ public class RaycastFind : MonoBehaviour
     LayerMask itemLayer;
     LayerMask butterflyLayer;
     LayerMask grabPointLayer;
+    LayerMask spiderLayer;
 
     Renderer itemMat;
     Renderer grabMat;
 
-   
 
     public Transform handPoint;
     public Transform playerHandPoint;
@@ -33,6 +33,8 @@ public class RaycastFind : MonoBehaviour
         itemLayer = LayerMask.NameToLayer("Item");
         butterflyLayer = LayerMask.NameToLayer("Butterfly");
         grabPointLayer = LayerMask.NameToLayer("GranPoint");
+        spiderLayer = LayerMask.NameToLayer("Spider");
+
         moveScript = gameObject.GetComponent<pcPlayerMove>();
         moveScript.enabled = true;
     }
@@ -49,30 +51,54 @@ public class RaycastFind : MonoBehaviour
             //색깔을 흰색으로 바꾸고
             itemMat = hit.transform.gameObject.GetComponent<Renderer>();
             itemMat.material.color = Color.white;
+            //ui띄우기
+            UIText.Instance.UITEXT = "아이템을 주우려면 스페이스바를 누르세요";
 
-            //키를 누르면 인벤토리에 저장==>주연
+
+            //키를 누르면 인벤토리에 저장
+            if (Input.GetButtonDown("Jump"))
+            {
+
+                //인벤토리 될경우-
+                //인벤토리에 저장되는 함수 호출
+                //ex) iventory.Instance.AddObject(hit.transform.gameObject)
+
+                ////인벤토리 안될경우-바로 아이템먹기->라이프 회복
+                ////이걸 쓰려면 도끼는 item레이어말고 다른레이어로 바꿔서 따로 지정해줘야함
+                //LifeManager.Instance.LIFE += 10; // 라이프 회복
+                //Destroy(hit.transform.gameObject, 1);
+
+            }
 
         }
+        else
+            UIText.Instance.UITEXT = "";
 
-        if (Physics.SphereCast(ray, 2f, out hit, 5f, 1 << butterflyLayer)) //만약 나비가 레이에 검출되면
+
+        if (Physics.SphereCast(ray, 2f, out hit, 10f, 1 << butterflyLayer)) //만약 나비가 레이에 검출되면
         {
-            //색깔을 흰색으로 바꾸고
-            itemMat = hit.transform.gameObject.GetComponent<Renderer>();
-            itemMat.material.color = Color.white;
             //나비에 3d글자 출력
             Butterfly.Instance.look = true;
 
-           
-        }else
+
+        }
+        else
             Butterfly.Instance.look = false;
 
 
 
-        //pc용 클라이밍
+        //손(마우스)
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit mouseHit;
 
-        if (Physics.SphereCast(mouseRay, 1f, out mouseHit,5f, 1 << grabPointLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
+        //거미 마우스 포인트(손)이 닿았을때
+        if (Physics.SphereCast(mouseRay, 0.5f, out mouseHit, 5f, 1 << spiderLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
+        {
+            LifeManager.Instance.LIFE -= 0.1f; //플레이어 라이프 감소
+        }
+
+        //pc용 클라이밍
+        if (Physics.SphereCast(mouseRay, 1f, out mouseHit, 5f, 1 << grabPointLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
         {
             //파란색으로 색을 바꾸고
             grabMat = mouseHit.transform.gameObject.GetComponent<Renderer>();
@@ -84,11 +110,27 @@ public class RaycastFind : MonoBehaviour
             {
                 print("클릭");
                 grabPoint = mouseHit.transform;  //grabPoint 에 위치저장
-                grabPoint.forward = mouseHit.transform.gameObject.transform.right;
+
                 click = true;
             }
 
+            if (mouseHit.transform.gameObject.tag.Contains("rope"))   // 로프
+            {
+                //ui띄우기
+                UIText.Instance.UITEXT = "줄타기를 멈추려면 스페이스바를 누르세요";
+
+
+                //키를 누르면 떨어지기
+                if (Input.GetButtonDown("Jump"))
+                {
+                    click = false;
+                }
+
+            }
+
         }
+
+
         if (grabTime <= 0)   // 잡고있는거 제한시간
         {
             grabTime = 8;
@@ -97,19 +139,19 @@ public class RaycastFind : MonoBehaviour
         if (click)
         {
             grabTime -= Time.deltaTime;
-            
+
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
             grabMat.material.color = Color.green;
             handPoint.position = grabPoint.position;
+            handPoint.forward = grabPoint.right;
             transform.position = playerHandPoint.position;
 
             moveScript.enabled = false;   //movescipt는 꺼둠
         }
         else
         {
-
             moveScript.enabled = true;  //제힌시간 지나면 켜짐
         }
-       
+
     }
 }
