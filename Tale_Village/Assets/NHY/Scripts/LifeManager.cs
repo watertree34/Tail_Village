@@ -34,7 +34,7 @@ public class LifeManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        LIFE = 50;
+        LIFE = 40;
     }
    
 }

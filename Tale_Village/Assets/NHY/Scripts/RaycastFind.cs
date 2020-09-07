@@ -18,6 +18,8 @@ public class RaycastFind : MonoBehaviour
     }
 
     LayerMask itemLayer;
+    LayerMask axeLayer;
+    LayerMask duckLayer;
     LayerMask butterflyLayer;
     LayerMask grabPointLayer;
     LayerMask spiderLayer;
@@ -39,6 +41,8 @@ public class RaycastFind : MonoBehaviour
     void Start()
     {
         itemLayer = LayerMask.NameToLayer("Item");
+        axeLayer = LayerMask.NameToLayer("Axe");
+        duckLayer = LayerMask.NameToLayer("Duck");
         butterflyLayer = LayerMask.NameToLayer("Butterfly");
         grabPointLayer = LayerMask.NameToLayer("GranPoint");
         spiderLayer = LayerMask.NameToLayer("Spider");
@@ -69,20 +73,48 @@ public class RaycastFind : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
 
-                //인벤토리 될경우-
-                //인벤토리에 저장되는 함수 호출
-                isRaySearchItem = true;
-
-                ////인벤토리 안될경우-바로 아이템먹기->라이프 회복
-                ////이걸 쓰려면 도끼는 item레이어말고 다른레이어로 바꿔서 따로 지정해줘야함
-                //LifeManager.Instance.LIFE += 10; // 라이프 회복
-                //Destroy(hit.transform.gameObject, 1);
-
+                //인벤토리 안될경우-바로 아이템먹기->라이프 회복
+                //이걸 쓰려면 도끼는 item레이어말고 다른레이어로 바꿔서 따로 지정해줘야함
+                LifeManager.Instance.LIFE += 10; // 라이프 회복
+                Destroy(hit.transform.gameObject, 1);
             }
 
         }
         else
             UIText.Instance.UITEXT = "";
+
+
+
+        if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << axeLayer))  //만약 아이템이 레이에 검출되면
+        {
+            //색깔을 흰색으로 바꾸고
+            itemMat = hit.transform.gameObject.GetComponent<Renderer>();
+            itemMat.material.color = Color.white;
+            //ui띄우기
+            UIText.Instance.UITEXT = "도끼를 주우려면 스페이스바를 누르세요";
+
+
+            //키를 누르면 인벤토리에 저장
+            if (Input.GetButtonDown("Jump"))
+            {  //인벤토리 될경우-
+                //인벤토리에 저장되는 함수 호출
+                isRaySearchItem = true;
+
+            }
+
+        }
+
+        if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << duckLayer))  //만약 아이템이 레이에 검출되면
+        {       
+            //ui띄우기
+            UIText.Instance.UITEXT = "거위를 주우려면 거위에 닿으세요";
+
+            Destroy(hit.transform.gameObject,1);  // 일단 이걸로 해놓음
+
+        }
+
+
+
 
 
         if (Physics.SphereCast(ray, 3f, out hit, 10f, 1 << butterflyLayer)) //만약 나비가 레이에 검출되면
