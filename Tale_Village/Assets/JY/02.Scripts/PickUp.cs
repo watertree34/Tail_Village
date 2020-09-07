@@ -4,26 +4,35 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public static PickUp Instance;
-    public Transform toolPos;
-    private void Awake()
-    {
-        Instance = this;
-    }
+    //public static PickUp Instance;
+    //private void Awake()
+    //{
+    //    Instance = this;
+    //}
 
+    //RaycastFind Ray;
+
+    public Transform toolPos;
     public GameObject slotItem;    //UI버튼
     public GameObject Inventory_;  //인벤토리UI (인벤토리 스크립트가 달려있는 오브젝트 연결해주면 됨)
     Inventory inven;               //생성자 위해서 
 
-    bool isPickUp = false;         //주웠나 안 주웠나
+    public bool isPickUp = false;         //주웠나 안 주웠나
 
     private void Start()
     {
         inven = Inventory_.GetComponent<Inventory>();
+        //Ray = GetComponent<RaycastFind>();
+        isPickUp = false;
     }
 
     private void Update()
     {
+        if (RaycastFind.Instance.isRaySearchItem == true)
+        {
+            PickUpItem();
+        }
+
         if (isPickUp == true)
         {
             if (this.gameObject.tag == "tool")
@@ -33,7 +42,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    public void PickUpItem()
+    void PickUpItem()
     {
         for (int i = 0; i < inven.slots.Count; i++)
         {

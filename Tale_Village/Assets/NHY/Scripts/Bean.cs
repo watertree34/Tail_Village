@@ -27,11 +27,11 @@ public class Bean : MonoBehaviour
         }
 
         //임시코드 일단 플레이어와 닿으면 템먹는 걸로ㅠㅜ
-        if (other.gameObject.tag == "Player")
-        {
-            this.gameObject.SetActive(false);
-            PickUp.Instance.PickUpItem();
-        }
+        //if (other.gameObject.tag == "Player")
+        //{
+        //    this.gameObject.SetActive(false);
+        //    PickUp.Instance.isPickUp = true;
+        //}
     }
 
     public void OnClickButton()

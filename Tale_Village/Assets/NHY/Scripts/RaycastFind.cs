@@ -11,6 +11,11 @@ public class RaycastFind : MonoBehaviour
 
     //grabpoint - 마우스 클릭한 포인트의 위치로 손이동하기
 
+    public static RaycastFind Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     LayerMask itemLayer;
     LayerMask butterflyLayer;
@@ -28,6 +33,9 @@ public class RaycastFind : MonoBehaviour
     pcPlayerMove moveScript;
     float grabTime = 8;
     // Start is called before the first frame update
+
+    public bool isRaySearchItem = false;
+
     void Start()
     {
         itemLayer = LayerMask.NameToLayer("Item");
@@ -37,6 +45,8 @@ public class RaycastFind : MonoBehaviour
 
         moveScript = gameObject.GetComponent<pcPlayerMove>();
         moveScript.enabled = true;
+
+        isRaySearchItem = false;
     }
 
     // Update is called once per frame
@@ -61,7 +71,7 @@ public class RaycastFind : MonoBehaviour
 
                 //인벤토리 될경우-
                 //인벤토리에 저장되는 함수 호출
-                PickUp.Instance.PickUpItem();
+                isRaySearchItem = true;
 
                 ////인벤토리 안될경우-바로 아이템먹기->라이프 회복
                 ////이걸 쓰려면 도끼는 item레이어말고 다른레이어로 바꿔서 따로 지정해줘야함
