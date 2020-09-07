@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.XR.WSA.Input;
 
 // 거인이 움직이는 스크립트
 
