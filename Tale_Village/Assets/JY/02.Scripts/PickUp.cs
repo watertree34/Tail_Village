@@ -11,7 +11,7 @@ public class PickUp : MonoBehaviour
         Instance = this;
     }
 
-    public GameObject slotItem;
+    public GameObject slotItem;    //UI버튼
     public GameObject Inventory_;  //인벤토리UI (인벤토리 스크립트가 달려있는 오브젝트 연결해주면 됨)
     Inventory inven;               //생성자 위해서 
 

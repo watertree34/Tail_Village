@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemHatchet : MonoBehaviour
 {
-    public GameObject Hatchet;
+    //public GameObject Hatchet;
     public bool isHatchetActive = false;
 
     private void Start()
@@ -16,6 +16,6 @@ public class ItemHatchet : MonoBehaviour
     public void OnClickButton()
     {
         isHatchetActive = !isHatchetActive;
-        Hatchet.SetActive(isHatchetActive);
+        //Hatchet.SetActive(isHatchetActive);
     }
 }

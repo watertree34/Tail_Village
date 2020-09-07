@@ -7,11 +7,17 @@ using UnityEngine;
 public class Bean : MonoBehaviour
 {
     Rigidbody rb;
+
+    //public GameObject BeanPrefab;
+    public bool isBeanActive = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+        isBeanActive = false;
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "tool")
@@ -19,11 +25,24 @@ public class Bean : MonoBehaviour
             rb.useGravity = true;
             transform.parent = null;
         }
+
+        //임시코드 일단 플레이어와 닿으면 템먹는 걸로ㅠㅜ
+        if (other.gameObject.tag == "Player")
+        {
+            this.gameObject.SetActive(false);
+            PickUp.Instance.PickUpItem();
+        }
     }
 
-   //만약 인벤토리에서 사용되면
-   //if(인벤토리에서 사용되면)
-   // {
-   //     LifeManager.Instance.LIFE += 5; // 라이프 회복
-   // }
+    public void OnClickButton()
+    {
+        isBeanActive = !isBeanActive;
+        //BeanPrefab.SetActive(isBeanActive);
+    }
+
+    //만약 인벤토리에서 사용되면
+    //if(인벤토리에서 사용되면)
+    // {
+    //     LifeManager.Instance.LIFE += 5; // 라이프 회복
+    // }
 }
