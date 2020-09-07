@@ -46,7 +46,7 @@ public class RaycastFind : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(transform.position);
         RaycastHit hit;
 
-        if (Physics.SphereCast(ray, 2f, out hit, 1f, 1 << itemLayer))  //만약 아이템이 레이에 검출되면
+        if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << itemLayer))  //만약 아이템이 레이에 검출되면
         {
             //색깔을 흰색으로 바꾸고
             itemMat = hit.transform.gameObject.GetComponent<Renderer>();
@@ -75,7 +75,7 @@ public class RaycastFind : MonoBehaviour
             UIText.Instance.UITEXT = "";
 
 
-        if (Physics.SphereCast(ray, 2f, out hit, 10f, 1 << butterflyLayer)) //만약 나비가 레이에 검출되면
+        if (Physics.SphereCast(ray, 3f, out hit, 10f, 1 << butterflyLayer)) //만약 나비가 레이에 검출되면
         {
             //나비에 3d글자 출력
             Butterfly.Instance.look = true;
@@ -144,7 +144,7 @@ public class RaycastFind : MonoBehaviour
             grabMat.material.color = Color.green;
             handPoint.position = grabPoint.position;
             handPoint.forward = grabPoint.right;
-            transform.position = playerHandPoint.position;
+            transform.position = Vector3.Lerp(transform.position, playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
 
             moveScript.enabled = false;   //movescipt는 꺼둠
         }
