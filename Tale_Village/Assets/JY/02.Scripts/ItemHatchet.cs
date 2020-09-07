@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ItemHatchet : MonoBehaviour
 {
-    GameObject Hatchet;
+    public GameObject Hatchet;
     public bool isHatchetActive = false;
 
     private void Start()
     {
-        Hatchet = GameObject.Find("Hatchet");
+        //Hatchet = GameObject.Find("Hatchet");
         isHatchetActive = false;
 }
 

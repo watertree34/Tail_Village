@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db475b6b3ef879e4194fe06ade1c7f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hatchet: {fileID: 1911651474227261302}
   isHatchetActive: 1
 --- !u!1 &8106798559146575364
 GameObject:

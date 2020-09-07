@@ -13,11 +13,24 @@ public class PickUp : MonoBehaviour
 
     public GameObject slotItem;
     public GameObject Inventory_;  //인벤토리UI (인벤토리 스크립트가 달려있는 오브젝트 연결해주면 됨)
-    Inventory inven; //생성자 위해서 
+    Inventory inven;               //생성자 위해서 
+
+    bool isPickUp = false;         //주웠나 안 주웠나
 
     private void Start()
     {
         inven = Inventory_.GetComponent<Inventory>();
+    }
+
+    private void Update()
+    {
+        if (isPickUp == true)
+        {
+            if (this.gameObject.tag == "tool")
+            {
+                //this.gameObject.transform.position = toolPos.transform.position;   //위로...날아감....
+            }
+        }
     }
 
     public void PickUpItem()
@@ -28,6 +41,7 @@ public class PickUp : MonoBehaviour
             {
                 Instantiate(slotItem, inven.slots[i].slotObj.transform, false);
                 inven.slots[i].isEmpty = false;
+                isPickUp = true;
                 this.gameObject.SetActive(false);
                 if (this.gameObject.tag == "tool")
                 {
