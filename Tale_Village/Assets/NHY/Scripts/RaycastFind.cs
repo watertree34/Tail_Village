@@ -99,7 +99,14 @@ public class RaycastFind : MonoBehaviour
             //ui띄우기
             UIText.Instance.UITEXT = "거위를 주우려면 거위에 닿으세요";
 
-            Destroy(hit.transform.gameObject,1);  // 일단 이걸로 해놓음
+
+            //키를 누르면 인벤토리에 저장
+            if (Input.GetButtonDown("Jump"))
+            {  //인벤토리 될경우-
+                //인벤토리에 저장되는 함수 호출
+                PickUp.Instance.PickUpItem();
+
+            }
 
         }
 
