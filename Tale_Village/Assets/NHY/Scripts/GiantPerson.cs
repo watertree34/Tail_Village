@@ -52,7 +52,7 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
         agent = GetComponent<NavMeshAgent>();  //길찾기 ai
         agent.speed = moveSpeed;
         agent.enabled = false; // move상태에서만 켜주기 위해 기본으로 꺼준다
-        anim = GetComponent<Animator>();  //애니메이션
+        anim = GetComponentInChildren<Animator>();  //애니메이션
         cc = GetComponent<CharacterController>(); // 캐릭터 컨트롤러
 
         tempDT = delayTime;

@@ -113,8 +113,8 @@ public class RaycastFind : MonoBehaviour
             //키를 누르면 인벤토리에 저장
             if (Input.GetButtonDown("Jump"))
             {  //인벤토리 될경우-
-                //인벤토리에 저장되는 함수 호출
-                PickUp.Instance.PickUpItem();
+               //인벤토리에 저장되는 함수 호출
+                isRaySearchItem = true;
 
             }
 
