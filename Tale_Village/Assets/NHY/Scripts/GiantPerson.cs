@@ -14,10 +14,11 @@ using UnityEngine.AI;
 public class GiantPerson : MonoBehaviour  //ItemManager상속
 {
 
-    
+
     enum GinatPersonState
     {
         Sleep,
+        WakeUp,
         Follow,
         Delay,
         Attack
@@ -30,7 +31,6 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
     CharacterController cc; //캐릭터컨트롤러
 
 
-
     public Transform playerTransform;
     Vector3 peDir; //플레이어와 에너미 사이 방향
     float peDis;  // 플레이어와 에너미 사이 거리
@@ -39,7 +39,7 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
     public float attackDis = 6;       //플레이어 어택할 기준 거리
     public float moveSpeed = 8;
 
-   // public bool duckTouch;  // 플레이어가 거위를 만졌을때 true가 되게할것
+    // public bool duckTouch;  // 플레이어가 거위를 만졌을때 true가 되게할것
 
     public float axeAttackkDis = 7; // 플레이어가 공격하는 기준거리
     public Transform axe;
@@ -74,6 +74,9 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
             case GinatPersonState.Sleep:
                 Sleep();
                 break;
+            case GinatPersonState.WakeUp:
+                Wakeup();
+                break;
             case GinatPersonState.Follow:
                 Follow();
                 break;
@@ -83,26 +86,35 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
             case GinatPersonState.Attack:
                 Attack();
                 break;
-
         }
 
 
     }
 
-
+    
     private void Sleep()
     {
-        //자는 애니메이션 추가할것
 
-        if (peDis < 7 || Duck.Instance.duckTouch==true)  // 만약 플레이어가 거위에 닿거나 플레이어와의 거리가 1미터 이하면 follow로 상태전환
+        if (peDis < 7 || Duck.Instance.duckTouch == true)  // 만약 플레이어가 거위에 닿거나 플레이어와의 거리가 1미터 이하면 follow로 상태전환
         {
             //일어나는 상태에서는 일어나는 애니메이션 재생할것 / has exit time으로 follow 로 넘어감
-            nowGiantState = GinatPersonState.Follow;
+            //깨는 애니메이션 추가할것
+            anim.SetTrigger("WakeUp");
+            nowGiantState = GinatPersonState.WakeUp;
            
         }
 
     }
-
+    float awakeTime = 2;
+    void Wakeup()
+    {
+        awakeTime -= Time.deltaTime;
+        if (awakeTime <= 0)
+        {
+            anim.SetBool("AwakeFollow", true);
+            nowGiantState = GinatPersonState.Follow;
+        }
+    }
 
     //follow 상태에서는 플레이어를 따라간다 이때, 플레이어에게 공격을 당하면 delay로 넘어감/ 플레이어가 attackDis 안에 있으면 Attack으로 넘어감
     private void Follow()
@@ -116,9 +128,16 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
         agent.destination = playerTransform.position;  //길찾기를 이용해 이동
 
         if (aeDis < axeAttackkDis)//playerAttackDis보다 도끼 사이 거리가 적어지면 어택으로 상태전환
+        {
             nowGiantState = GinatPersonState.Delay;
+            //헤롱헤롱 애니메이션 추가할것, 애니메이션 재생시간이랑 delayTime같게 할것
+            anim.SetTrigger("Delay");
+        }
         if (peDis <= attackDis)   //attackDis보다 플레이어 사이 거리가 적어지면 어택으로 상태전환
+        {
             nowGiantState = GinatPersonState.Attack;
+            anim.SetTrigger("Attack");//어택 애니메이션 실행
+        }
 
 
     }
@@ -126,7 +145,6 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
     private void Delay()
     {
 
-        //헤롱헤롱 애니메이션 추가할것, 애니메이션 재생시간이랑 delayTime같게 할것
         agent.destination = transform.position; // 딜레이에선 나자신이 목표
 
         delayTime -= Time.deltaTime;
@@ -141,29 +159,39 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
         if (delayTime <= 0)      //딜레이타임이 0보다 작아지면 follow상태로 전환
         {
             nowGiantState = GinatPersonState.Follow;
+            //따라가기 애니메이션
+            anim.SetTrigger("Follow");
             delayTime = tempDT; //딜레이타임 다시 초기화
         }
 
     }
-
-
+    public Transform giantHand;
     private void Attack()
     {
-        //어택 애니메이션 실행
-
-        if (peDis < attackDis - 0.5f)
-            LifeManager.Instance.LIFE -= 0.1f ; //플레이어 라이프 감소
-
+        agent.destination = transform.position; // 어택위치에서 멈추기
+        LifeManager.Instance.LIFE -= 0.1f; //플레이어 라이프 감소
+        //만약 라이프 다 닳으면 게임오버 애니메이션(들어올리기
+        if (LifeManager.Instance.LIFE == 0)
+        {
+            anim.SetTrigger("GameOver");
+            
+            playerTransform.gameObject.GetComponent<Transform>().position = giantHand.position;
+        }
 
         if (peDis > attackDis)
+        {
             nowGiantState = GinatPersonState.Follow;
-
+            //따라가기 애니메이션
+            anim.SetTrigger("Follow");
+        }
         if (aeDis < axeAttackkDis)   //playerAttackDis보다 도끼 사이 거리가 적어지면 어택으로 상태전환
+        {
             nowGiantState = GinatPersonState.Delay;
-      
+            //헤롱헤롱 애니메이션 추가할것, 애니메이션 재생시간이랑 delayTime같게 할것
+            anim.SetTrigger("Delay");
+        }
+
+        
     }
 
-   
-   
-   
 }
