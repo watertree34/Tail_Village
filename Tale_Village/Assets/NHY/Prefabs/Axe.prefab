@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 1911651474227261299}
   - component: {fileID: 1911651474227261296}
   - component: {fileID: 1911651474227261297}
-  - component: {fileID: 9211163168722962409}
-  - component: {fileID: 3840902410820063514}
+  - component: {fileID: -5638205701548744027}
   m_Layer: 12
   m_Name: Axe
   m_TagString: Untagged
@@ -96,7 +95,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9211163168722962409
+--- !u!114 &-5638205701548744027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,26 +104,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1911651474227261302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68efb00e8e7c81479661aa989855a33, type: 3}
+  m_Script: {fileID: 11500000, guid: 2df0d764a4b779e44b6b1ba928d78448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toolPos: {fileID: 0}
-  slotItem: {fileID: 0}
-  Inventory_: {fileID: 0}
---- !u!114 &3840902410820063514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911651474227261302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db475b6b3ef879e4194fe06ade1c7f06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hatchet: {fileID: 1911651474227261302}
-  isHatchetActive: 1
+  itemType: 1
+  itemName: Axe
+  itemImage: {fileID: 21300000, guid: 40a67cc8019825749b7fda590e47d5e2, type: 3}
 --- !u!1 &8106798559146575364
 GameObject:
   m_ObjectHideFlags: 0

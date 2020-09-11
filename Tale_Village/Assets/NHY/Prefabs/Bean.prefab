@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 7605032846294124173}
   - component: {fileID: 7605032846294124172}
   - component: {fileID: 7605032846294124175}
-  - component: {fileID: 7605032846294124174}
-  - component: {fileID: -9148718545785170314}
+  - component: {fileID: -1974239988448930500}
   m_Layer: 8
   m_Name: Bean
   m_TagString: Untagged
@@ -114,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7605032846294124174
+--- !u!114 &-1974239988448930500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,23 +122,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7605032846294124168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5124b0593faddd9489fede1e4b9cdbf8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2df0d764a4b779e44b6b1ba928d78448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeanPrefab: {fileID: 7605032846294124168}
-  isBeanActive: 0
---- !u!114 &-9148718545785170314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7605032846294124168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68efb00e8e7c81479661aa989855a33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toolPos: {fileID: 0}
-  slotItem: {fileID: 0}
-  Inventory_: {fileID: 0}
+  itemType: 0
+  itemName: 
+  itemImage: {fileID: 0}

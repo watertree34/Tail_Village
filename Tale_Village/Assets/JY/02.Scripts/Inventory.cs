@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public GameObject InventoryUI;  //인벤토리UI
     bool isInvenActive = false;     //인벤활성화체크
 
@@ -13,6 +19,41 @@ public class Inventory : MonoBehaviour
     public GameObject slotPrefab;                       //슬롯프리펩
 
     public List<Item> items = new List<Item>();         //아이템 리스트
+
+    /*------------------------------------------------------------------*/
+    
+    public GameObject itemFactory;
+    public GameObject itemToolFactory;
+    
+    //public Transform[] slots;
+
+    public void AddItem(Item item_)
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (slots[i].isEmpty)
+            {
+                GameObject item;
+                if (item_.itemType == Item.ItemType.Tools)
+                {
+                    item = Instantiate(itemToolFactory, slots[i].slotObj.transform, false);
+                    slots[i].isEmpty = false;
+                }
+                else
+                {
+                    item = Instantiate(itemFactory, slots[i].slotObj.transform, false);
+                    slots[i].isEmpty = false;
+                }
+
+                //item.transform.parent = slots[i];
+                //item.transform.localPosition = Vector3.zero;
+                item.GetComponent<PickUp>().item = item_;
+                break;
+
+            }
+        }
+    }
+    /*------------------------------------------------------------------*/
 
     void Start()
     {

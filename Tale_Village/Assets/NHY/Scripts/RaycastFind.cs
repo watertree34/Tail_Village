@@ -98,7 +98,12 @@ public class RaycastFind : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {  //인벤토리 될경우-
                 //인벤토리에 저장되는 함수 호출
-                isRaySearchItem = true;
+                Item item = hit.transform.GetComponent<Item>();
+                if (item != null)
+                {
+                    Inventory.Instance.AddItem(item);
+                }
+                Destroy(hit.transform.gameObject);
 
             }
 
@@ -114,7 +119,7 @@ public class RaycastFind : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {  //인벤토리 될경우-
                 //인벤토리에 저장되는 함수 호출
-                PickUp.Instance.PickUpItem();
+                isRaySearchItem = true;
 
             }
 
