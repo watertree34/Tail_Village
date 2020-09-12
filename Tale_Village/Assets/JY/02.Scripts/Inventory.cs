@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
                 }
 
                 //item.transform.parent = slots[i];
-                //item.transform.localPosition = Vector3.zero;
+                item.transform.localPosition = Vector3.zero;
                 item.GetComponent<PickUp>().item = item_;
                 break;
 
