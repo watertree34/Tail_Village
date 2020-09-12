@@ -119,7 +119,7 @@ public class RaycastFind : MonoBehaviour
                 {
                     Inventory.Instance.AddItem(item);
                 }
-                Destroy(hit.transform.gameObject);
+                hit.transform.gameObject.SetActive(false);
 
             }
 
