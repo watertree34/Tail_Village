@@ -62,10 +62,18 @@ public class PickUp : MonoBehaviour
     //}
 
     public Item item;
+
     public void OnClickButton()
     {
         // pick이 뭐냐에 따라서 아이템 처리를 하고싶다.
-        print(item.itemName.ToString());
+        print(" [" + item.itemName.ToString() + "] 사용");
+
+        //아이템이 콩이면
+        if (item.itemName == "Bean")
+        {
+            print("콩판별 진입!");
+            LifeManager.Instance.LIFE += 10; // 라이프 회복
+        }
         Destroy(gameObject);
         //다시 이스엠티
     }

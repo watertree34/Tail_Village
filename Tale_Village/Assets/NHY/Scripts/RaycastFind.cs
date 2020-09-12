@@ -90,10 +90,14 @@ public class RaycastFind : MonoBehaviour
             //키를 누르면 인벤토리에 저장
             if (Input.GetButtonDown("Jump"))
             {
-
+                Item item = hit.transform.GetComponent<Item>();
+                if (item != null)
+                {
+                    Inventory.Instance.AddItem(item);
+                }
                 //인벤토리 안될경우-바로 아이템먹기->라이프 회복
                 //이걸 쓰려면 도끼는 item레이어말고 다른레이어로 바꿔서 따로 지정해줘야함
-                LifeManager.Instance.LIFE += 10; // 라이프 회복
+                
                 Destroy(hit.transform.gameObject, 1);
             }
 
@@ -120,7 +124,6 @@ public class RaycastFind : MonoBehaviour
                     Inventory.Instance.AddItem(item);
                 }
                 hit.transform.gameObject.SetActive(false);
-
             }
 
         }
@@ -139,8 +142,12 @@ public class RaycastFind : MonoBehaviour
                 if (Input.GetButtonDown("Jump"))
                 {  //인벤토리 될경우-
                    //인벤토리에 저장되는 함수 호출
-                    isRaySearchItem = true;
-
+                    Item item = hit.transform.GetComponent<Item>();
+                    if (item != null)
+                    {
+                        Inventory.Instance.AddItem(item);
+                    }
+                    hit.transform.gameObject.SetActive(false);
                 }
 
             }
@@ -155,6 +162,11 @@ public class RaycastFind : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 keybool = true;   //인벤토리 넣는걸로 바꿀것
+                Item item = hit.transform.GetComponent<Item>();
+                if (item != null)
+                {
+                    Inventory.Instance.AddItem(item);
+                }
             }
 
         }
@@ -200,6 +212,11 @@ public class RaycastFind : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 cheesebool = true;     //인벤토리 넣는걸로 바꿀것
+                Item item = hit.transform.GetComponent<Item>();
+                if (item != null)
+                {
+                    Inventory.Instance.AddItem(item);
+                }
 
             }
 
