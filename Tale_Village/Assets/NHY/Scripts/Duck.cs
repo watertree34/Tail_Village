@@ -13,24 +13,21 @@ public class Duck : MonoBehaviour
     }
 
     //플레이어가 오리를 터치하면 색깔이 바뀌고 거인이 깨어나게 하자
-    public bool duckTouch;
-    public Transform playerTransform;
-    Renderer mat;
-    // Start is called before the first frame update
-    void Start()
-    {
-        mat = GetComponent<Renderer>();
-    }
+    public bool openCage;
+    public Transform keyTransfom;
+    
+    
+
 
 
     private void Update()
     {
-        Vector3 dir = transform.position - playerTransform.position;
-        float pdDis = dir.magnitude;
-        if(pdDis<2)
+        Vector3 dir = keyTransfom.position-transform.position;   //열쇠랑 거위 사이 거리가 가까워지면 케이지 오픈
+        float kdDis = dir.magnitude;
+        if(kdDis<5)
         {
-            mat.material.color = Color.red;
-            duckTouch = true; //ItemManager꺼
+        
+            openCage = true; 
         }
     }
 

@@ -8,6 +8,9 @@ TagManager:
   - rope
   - finish
   - tool
+  - mouse
+  - GiantHouseEntry
+  - DuckKey
   layers:
   - Default
   - TransparentFX
@@ -23,8 +26,8 @@ TagManager:
   - Spider
   - Axe
   - Duck
-  - 
-  - 
+  - Cheese
+  - Key
   - 
   - 
   - 
