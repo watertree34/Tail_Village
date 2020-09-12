@@ -4313,6 +4313,21 @@ PrefabInstance:
       propertyPath: playerHandPoint
       value: 
       objectReference: {fileID: 502016725}
+    - target: {fileID: 725685702579812299, guid: 3198e93edb7d7b14b9ef6a17acb93730,
+        type: 3}
+      propertyPath: toolPos
+      value: 
+      objectReference: {fileID: 503985514}
+    - target: {fileID: 725685702579812299, guid: 3198e93edb7d7b14b9ef6a17acb93730,
+        type: 3}
+      propertyPath: cheeseObj
+      value: 
+      objectReference: {fileID: 400343315}
+    - target: {fileID: 725685702579812299, guid: 3198e93edb7d7b14b9ef6a17acb93730,
+        type: 3}
+      propertyPath: keyObj
+      value: 
+      objectReference: {fileID: 1240963918}
     - target: {fileID: 725685703720655499, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
       propertyPath: m_Name

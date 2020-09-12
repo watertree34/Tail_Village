@@ -42,16 +42,15 @@ public class RaycastFind : MonoBehaviour
     pcPlayerMove moveScript;  //움직이는 스크립트
     float grabTime = 8;  // 잡고있는 최대시간
 
-   
-    public bool isRaySearchItem = false; 
-
-
     public GameObject cheeseObj;  // 치즈
     bool cheesebool;
     public bool mouseGo;
 
     public GameObject keyObj;  // 열쇠
     bool keybool;
+
+    bool pickUpAxe = false;
+    GameObject axe = null;     // 도끼
 
     void Start()
     {
@@ -66,8 +65,6 @@ public class RaycastFind : MonoBehaviour
 
         moveScript = gameObject.GetComponent<pcPlayerMove>();
         moveScript.enabled = true;
-
-        isRaySearchItem = false;
     }
 
     // Update is called once per frame
@@ -122,12 +119,27 @@ public class RaycastFind : MonoBehaviour
                 if (item != null)
                 {
                     Inventory.Instance.AddItem(item);
+                    pickUpAxe = true;
                 }
-                hit.transform.gameObject.SetActive(false);
+                axe = hit.transform.gameObject;
+                axe.transform.parent = toolPos;
+                axe.transform.localPosition = Vector3.zero;
+                axe.SetActive(false);
             }
 
         }
 
+        if (pickUpAxe == true)
+        {
+            if (PickUp.Instance.isAxeUsed == true)
+            {
+                axe.SetActive(true);
+            }
+            else
+            {
+                axe.SetActive(false);
+            }
+        }
 
         /////////거위//////////////////
         if (Duck.Instance.openCage)
