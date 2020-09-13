@@ -295,22 +295,8 @@ public class RaycastFind : MonoBehaviour
             {
                 print("클릭");
                 grabPoint = mouseHit.transform;  //grabPoint 에 위치저장
-
+                grabTime = 8;
                 click = true;
-            }
-
-            if (mouseHit.transform.gameObject.tag.Contains("rope"))   // 로프
-            {
-                //ui띄우기
-                UIText.Instance.UITEXT = "줄타기를 멈추려면 스페이스바를 누르세요";
-
-
-                //키를 누르면 떨어지기
-                if (Input.GetButtonDown("Jump"))
-                {
-                    click = false;
-                }
-
             }
 
         }
@@ -324,7 +310,8 @@ public class RaycastFind : MonoBehaviour
         if (click)
         {
             grabTime -= Time.deltaTime;
-
+            print(grabTime);
+            UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않으면 손이 떨어집니다. \n 손을 임의로 떨어뜨리고 싶으면 스페이스바를 누르세요";
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
             grabMat.material.color = Color.green;
             handPoint.position = grabPoint.position;
@@ -332,10 +319,16 @@ public class RaycastFind : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
 
             moveScript.enabled = false;   //movescipt는 꺼둠
+
+            //키를 누르면 떨어지기
+            if (Input.GetButtonDown("Jump"))
+            {
+                grabTime = 0;
+            }
         }
         else
         {
-            moveScript.enabled = true;  //제힌시간 지나면 켜짐
+            moveScript.enabled = true;  //제힌시간 지나거나 스페이스바 누르면 켜짐
         }
 
     }
