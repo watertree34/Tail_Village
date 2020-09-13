@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //라이프 사용방법: LifeManager.Instance.LIFE +=( 감소 or 증가하고 싶은 라이프 숫자);   예) LifeManager.Instance.LIFE -= 1 ;--> 1만큼 라이프 감소
 
@@ -13,9 +14,13 @@ using UnityEngine.UI;
 public class LifeManager : MonoBehaviour
 {
     public static LifeManager Instance;  // 싱글톤
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public Text lifeUI;
-    float playerLife;
+    static float playerLife = 40;
 
     public float LIFE
     {
@@ -31,10 +36,17 @@ public class LifeManager : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
-        Instance = this;
-        LIFE = 40;
+        //if(SceneManager.GetActiveScene().name == "GameScene1")
+        //{
+        //    LIFE = 40;
+        //}
+        //else
+        //{
+        //    LIFE = playerLife;
+        //}
+        LIFE = playerLife;
     }
-   
+
 }

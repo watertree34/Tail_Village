@@ -95,7 +95,8 @@ public class RaycastFind : MonoBehaviour
                 //인벤토리 안될경우-바로 아이템먹기->라이프 회복
                 //이걸 쓰려면 도끼는 item레이어말고 다른레이어로 바꿔서 따로 지정해줘야함
                 
-                Destroy(hit.transform.gameObject, 1);
+                //Destroy(hit.transform.gameObject, 1);
+                Destroy(hit.transform.gameObject);
             }
 
         }
