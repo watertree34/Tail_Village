@@ -22,6 +22,8 @@ public class LifeManager : MonoBehaviour
     public Text lifeUI;
     static float playerLife = 40;
 
+    public GameObject GameOverUI;
+
     public float LIFE
     {
         get { return playerLife; }
@@ -30,9 +32,14 @@ public class LifeManager : MonoBehaviour
             playerLife = value;
             playerLife = Mathf.Clamp(playerLife, 0, 100);   // life는 0~100까지
             if (playerLife == 0)
+            {
                 lifeUI.text = "Game Over";
+                GameOverUI.SetActive(true);
+            }  
             else
+            {
                 lifeUI.text = "Life : " + playerLife.ToString();
+            } 
         }
     }
 
@@ -47,6 +54,7 @@ public class LifeManager : MonoBehaviour
         //    LIFE = playerLife;
         //}
         LIFE = playerLife;
+        GameOverUI.SetActive(false);
     }
 
 }
