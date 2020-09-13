@@ -328,7 +328,7 @@ public class RaycastFind : MonoBehaviour
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
             grabMat.material.color = Color.green;
             handPoint.position = grabPoint.position;
-            handPoint.forward = grabPoint.right;
+            handPoint.forward = grabPoint.forward;
             transform.position = Vector3.Lerp(transform.position, playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
 
             moveScript.enabled = false;   //movescipt는 꺼둠
