@@ -23,7 +23,7 @@ public class LifeManager : MonoBehaviour
         set
         {
             playerLife = value;
-            playerLife = Mathf.Clamp(playerLife, 0, 50);   // life는 0~50까지
+            playerLife = Mathf.Clamp(playerLife, 0, 100);   // life는 0~100까지
             if (playerLife == 0)
                 lifeUI.text = "Game Over";
             else
