@@ -38,7 +38,7 @@ public class LifeManager : MonoBehaviour
 
     private void Start()
     {
-        //if(SceneManager.GetActiveScene().name == "GameScene1")
+        //if(SceneManager.GetActiveScene().name == "GameScene1") //씬이름으로 현재씬 찾기
         //{
         //    LIFE = 40;
         //}

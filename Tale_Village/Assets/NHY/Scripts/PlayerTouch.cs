@@ -22,6 +22,7 @@ public class PlayerTouch : MonoBehaviour
             cc.Move(transform.forward * 10);  // 살짝 뒤로 밀려나고
             LifeManager.Instance.LIFE -= 5f; //플레이어 라이프 감소
         }
+
         if (other.gameObject.tag.Contains("GiantHouseEntry"))   // 플레이어가 거인의 집 입구에 닿으면
         {
             SceneManager.LoadScene("GameScene2");   // 게임씬1->게임씬2전환
