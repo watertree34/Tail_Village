@@ -12,6 +12,7 @@ public class PickUp : MonoBehaviour
 
     public Item item;
     public bool isAxeUsed = false;
+    public bool isKeyUsed = false;
 
     public void OnClickButton()
     {
@@ -28,10 +29,12 @@ public class PickUp : MonoBehaviour
         if (item.itemName == "Axe")
         {
             isAxeUsed = !isAxeUsed;
-            if (isAxeUsed)
-            {
-                //도끼활성화
-            }
+        }
+        //아이템이 열쇠면
+        if (item.itemName == "Key")
+        {
+            isKeyUsed = true;
+            Destroy(gameObject);
         }
     }
 }

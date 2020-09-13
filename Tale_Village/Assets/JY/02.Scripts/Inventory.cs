@@ -13,8 +13,10 @@ public class Inventory : MonoBehaviour
 
     //public List<Item> items = new List<Item>();         //아이템 리스트
     
-    public GameObject itemToolFactory;
-    public GameObject itemFactory;
+    public GameObject slotItem_Axe;
+    public GameObject slotItem_Bean;
+    public GameObject slotItem_Key;
+    public GameObject slotItem_Duck;
     public Transform[] slots;
 
     public void AddItem(Item item_)
@@ -24,15 +26,25 @@ public class Inventory : MonoBehaviour
             if (slots[i].childCount == 0)
             {
                 GameObject itemBtn;
-                if (item_.itemType == Item.ItemType.Tools)
+                if (item_.itemName == "Axe")
                 {
-                    itemBtn = Instantiate(itemToolFactory);
-                    //slots[i].isEmpty = false;
+                    itemBtn = Instantiate(slotItem_Axe);
+                }
+                else if (item_.itemName == "Bean")
+                {
+                    itemBtn = Instantiate(slotItem_Bean);
+                }
+                else if (item_.itemName == "Key")
+                {
+                    itemBtn = Instantiate(slotItem_Key);
+                }
+                else if (item_.itemName == "Duck")
+                {
+                    itemBtn = Instantiate(slotItem_Duck);
                 }
                 else
                 {
-                    itemBtn = Instantiate(itemFactory);
-                    //slots[i].isEmpty = false;
+                    itemBtn = null;
                 }
 
                 itemBtn.transform.parent = slots[i];

@@ -1869,9 +1869,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27253ab945334148bfe93b5596de510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToolFactory: {fileID: 8373362753485627849, guid: e4c56630698f89e4e980dcf36f2d8415,
+  slotItem_Axe: {fileID: 8373362753485627849, guid: e4c56630698f89e4e980dcf36f2d8415,
     type: 3}
-  itemFactory: {fileID: 6468649366145022030, guid: 0465101e0dd4fc6489dce24149869cd3,
+  slotItem_Bean: {fileID: 6468649366145022030, guid: 0465101e0dd4fc6489dce24149869cd3,
+    type: 3}
+  slotItem_Key: {fileID: 2023332681369029905, guid: 3f1edebac24b24247b80c71b858fa460,
+    type: 3}
+  slotItem_Duck: {fileID: 1635643152832558153, guid: 9ed2dcb65a7172e4987ea8665f1c92ab,
     type: 3}
   slots:
   - {fileID: 1665144470}
@@ -2281,7 +2285,8 @@ GameObject:
   - component: {fileID: 1240963921}
   - component: {fileID: 1240963920}
   - component: {fileID: 1240963919}
-  m_Layer: 0
+  - component: {fileID: 1240963923}
+  m_Layer: 15
   m_Name: TempKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2356,12 +2361,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240963918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -83.74, y: 63.61, z: -26.63}
+  m_LocalPosition: {x: 15.11, y: 1, z: -18.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1240963923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240963918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df0d764a4b779e44b6b1ba928d78448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 1
+  itemName: Key
+  itemImage: {fileID: 21300000, guid: 4aa91df57a76ec44183ec7af5e7e7213, type: 3}
 --- !u!1 &1291202485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4122,6 +4142,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 242907880306666963, guid: c408138fb417732468e4387ffdd6d84f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 242907880939339450, guid: c408138fb417732468e4387ffdd6d84f,
         type: 3}
       propertyPath: m_LocalPosition.x

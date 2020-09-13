@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 242907880939339448}
   - component: {fileID: 242907880939339455}
   - component: {fileID: 242907880939339454}
+  - component: {fileID: 8849864840759504212}
   m_Layer: 8
   m_Name: Duck
   m_TagString: Untagged
@@ -201,5 +202,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db10b7634a44cbc4fa08d9c5df9805b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duckTouch: 0
-  playerTransform: {fileID: 0}
+  openCage: 0
+  keyTransfom: {fileID: 0}
+--- !u!114 &8849864840759504212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242907880939339453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df0d764a4b779e44b6b1ba928d78448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 2
+  itemName: Duck
+  itemImage: {fileID: 21300000, guid: 8b40a16a5902d1141ae9fb141d6fd06f, type: 3}

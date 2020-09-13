@@ -48,6 +48,7 @@ public class RaycastFind : MonoBehaviour
 
     public GameObject keyObj;  // 열쇠
     bool keybool;
+    bool pickUpKey = false;     //열쇠 주웠는지 판별
 
     bool pickUpAxe = false;
     GameObject axe = null;     // 도끼
@@ -76,7 +77,7 @@ public class RaycastFind : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 5f);
 
 
-        /////////////아이템////////////
+        /////////////아이템//////////// - 음식아이템!
         if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << itemLayer))  //만약 아이템이 레이에 검출되면
         {
 
@@ -165,7 +166,6 @@ public class RaycastFind : MonoBehaviour
             }
         }
 
-
         ////////////////열쇠 //////////////////
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << keyLayer)) //만약 열쇠가  레이에 검출되면
         {
@@ -173,33 +173,52 @@ public class RaycastFind : MonoBehaviour
             UIText.Instance.UITEXT = "열쇠를 주우려면 스페이스바를 누르세요";
             if (Input.GetButtonDown("Jump"))
             {
-                keybool = true;   //인벤토리 넣는걸로 바꿀것
+                //keybool = true;   //인벤토리 넣는걸로 바꿀것
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
                 {
                     Inventory.Instance.AddItem(item);
+                    pickUpKey = true;
                 }
+                keyObj = hit.transform.gameObject;
+                keyObj.transform.parent = toolPos;
+                keyObj.transform.localPosition = Vector3.zero;
+                keyObj.SetActive(false);
             }
+        }
 
-        }
-        if (keybool)
+        if (pickUpKey == true)
         {
-            //인벤토리 넣는걸로 바꿀것
-            keyObj.transform.parent = toolPos;
-            keyObj.transform.position = toolPos.position;
-            UIText.Instance.UITEXT = "열쇠를 놓으려면 마우스 왼쪽버튼을 누르세요";
-            if (Input.GetButtonDown("Fire1"))
+            if (PickUp.Instance.isKeyUsed == true)
             {
-                UIText.Instance.UITEXT = " ";
+                keyObj.SetActive(true);
                 keyObj.transform.parent = null;
-                keybool = false;
-            }if(Duck.Instance.openCage)
+            }
+            else
             {
-                UIText.Instance.UITEXT = " ";
-                keyObj.transform.parent = null;
-                keybool = false;
+                keyObj.SetActive(false);
             }
         }
+
+
+        //if (keybool)
+        //{
+        //    //인벤토리 넣는걸로 바꿀것
+        //    keyObj.transform.parent = toolPos;
+        //    keyObj.transform.position = toolPos.position;
+        //    UIText.Instance.UITEXT = "열쇠를 놓으려면 마우스 왼쪽버튼을 누르세요";
+        //    if (Input.GetButtonDown("Fire1"))
+        //    {
+        //        UIText.Instance.UITEXT = " ";
+        //        keyObj.transform.parent = null;
+        //        keybool = false;
+        //    }if(Duck.Instance.openCage)
+        //    {
+        //        UIText.Instance.UITEXT = " ";
+        //        keyObj.transform.parent = null;
+        //        keybool = false;
+        //    }
+        //}
        
 
 
