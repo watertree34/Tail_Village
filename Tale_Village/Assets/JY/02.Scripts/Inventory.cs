@@ -17,6 +17,8 @@ public class Inventory : MonoBehaviour
     public GameObject slotItem_Bean;
     public GameObject slotItem_Key;
     public GameObject slotItem_Duck;
+    public GameObject slotItem_Cheese;
+    public GameObject slotItem_Food;
     public Transform[] slots;
 
     public void AddItem(Item item_)
@@ -26,22 +28,38 @@ public class Inventory : MonoBehaviour
             if (slots[i].childCount == 0)
             {
                 GameObject itemBtn;
+                //--------------------아이템이 도끼라면--------------------
                 if (item_.itemName == "Axe")
                 {
                     itemBtn = Instantiate(slotItem_Axe);
                 }
-                else if (item_.itemName == "Bean")
+                //------------------아이템 타입이 푸드라면------------------
+                else if (item_.itemType == Item.ItemType.Food)
                 {
-                    itemBtn = Instantiate(slotItem_Bean);
+                    if (item_.itemName == "Bean")
+                    {
+                        itemBtn = Instantiate(slotItem_Bean);
+                    }
+                    else if (item_.itemName == "Cheese")
+                    {
+                        itemBtn = Instantiate(slotItem_Cheese);
+                    }
+                    else
+                    {
+                        itemBtn = Instantiate(slotItem_Food);
+                    }
                 }
+                //--------------------아이템이 열쇠라면--------------------
                 else if (item_.itemName == "Key")
                 {
                     itemBtn = Instantiate(slotItem_Key);
                 }
+                //--------------------아이템이 거위라면--------------------
                 else if (item_.itemName == "Duck")
                 {
                     itemBtn = Instantiate(slotItem_Duck);
                 }
+                //--------------------------이외--------------------------
                 else
                 {
                     itemBtn = null;
@@ -54,15 +72,5 @@ public class Inventory : MonoBehaviour
 
             }
         }
-    }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
     }
 }

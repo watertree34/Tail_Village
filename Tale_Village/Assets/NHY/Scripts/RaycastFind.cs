@@ -43,15 +43,14 @@ public class RaycastFind : MonoBehaviour
     float grabTime = 8;  // 잡고있는 최대시간
 
     public GameObject cheeseObj;  // 치즈
-    bool cheesebool;
+    bool pickUpCheese = false; // 치즈 주웠는지 판별
     public bool mouseGo;
 
     public GameObject keyObj;  // 열쇠
-    bool keybool;
-    bool pickUpKey = false;     //열쇠 주웠는지 판별
+    bool pickUpKey = false;    // 열쇠 주웠는지 판별
 
-    bool pickUpAxe = false;
     GameObject axe = null;     // 도끼
+    bool pickUpAxe = false;    // 도끼 주웠는지 판별
 
     void Start()
     {
@@ -142,7 +141,7 @@ public class RaycastFind : MonoBehaviour
             }
         }
 
-        /////////거위//////////////////
+        ///////////////거위//////////////////
         if (Duck.Instance.openCage)
         {
             if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << duckLayer))  //만약 아이템이 레이에 검출되면
@@ -169,11 +168,9 @@ public class RaycastFind : MonoBehaviour
         ////////////////열쇠 //////////////////
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << keyLayer)) //만약 열쇠가  레이에 검출되면
         {
-            print("g");
             UIText.Instance.UITEXT = "열쇠를 주우려면 스페이스바를 누르세요";
             if (Input.GetButtonDown("Jump"))
             {
-                //keybool = true;   //인벤토리 넣는걸로 바꿀것
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
                 {
@@ -193,33 +190,13 @@ public class RaycastFind : MonoBehaviour
             {
                 keyObj.SetActive(true);
                 keyObj.transform.parent = null;
+                pickUpKey = false;
             }
             else
             {
                 keyObj.SetActive(false);
             }
         }
-
-
-        //if (keybool)
-        //{
-        //    //인벤토리 넣는걸로 바꿀것
-        //    keyObj.transform.parent = toolPos;
-        //    keyObj.transform.position = toolPos.position;
-        //    UIText.Instance.UITEXT = "열쇠를 놓으려면 마우스 왼쪽버튼을 누르세요";
-        //    if (Input.GetButtonDown("Fire1"))
-        //    {
-        //        UIText.Instance.UITEXT = " ";
-        //        keyObj.transform.parent = null;
-        //        keybool = false;
-        //    }if(Duck.Instance.openCage)
-        //    {
-        //        UIText.Instance.UITEXT = " ";
-        //        keyObj.transform.parent = null;
-        //        keybool = false;
-        //    }
-        //}
-       
 
 
         /////////////나비////////////////
@@ -235,39 +212,49 @@ public class RaycastFind : MonoBehaviour
 
 
 
-
        ////////////////치즈//////////////////
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << cheeseLayer)) //만약 치즈가 레이에 검출되면
         {
             UIText.Instance.UITEXT = "치즈를 주우려면 스페이스바를 누르세요";
             if (Input.GetButtonDown("Jump"))
             {
-                cheesebool = true;     //인벤토리 넣는걸로 바꿀것
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
                 {
                     Inventory.Instance.AddItem(item);
+                    pickUpCheese = true;
                 }
-
+                cheeseObj = hit.transform.gameObject;
+                cheeseObj.transform.parent = toolPos;
+                cheeseObj.transform.localPosition = Vector3.zero;
+                cheeseObj.SetActive(false);
             }
 
         }
-        if (cheesebool)    //인벤토리 넣는걸로 바꿀것
+
+        if (pickUpCheese == true)
         {
-            cheeseObj.transform.parent =toolPos;
-            cheeseObj.transform.position = toolPos.position;
-            UIText.Instance.UITEXT = "치즈를 자리에 놓으려면 마우스 왼쪽버튼을 누르세요";
-            if (Input.GetButtonDown("Fire1"))
+            if (PickUp.Instance.isCheeseUsed == true)
             {
-                mouseGo = true;
-                cheesebool = false;
+                cheeseObj.SetActive(true);
+                UIText.Instance.UITEXT = "치즈를 자리에 놓으려면 마우스 왼쪽버튼을 누르세요";
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    cheeseObj.transform.parent = null;
+                    mouseGo = true;
+                    pickUpCheese = false;
+                }
+            }
+            else
+            {
+                cheeseObj.SetActive(false);
             }
         }
-        if(mouseGo)
-        {
-            cheeseObj.transform.parent = null;
-           
-        }
+
+        //if(mouseGo)
+        //{
+        //    cheeseObj.transform.parent = null;
+        //}
 
         
         //////////////////////클라이밍////////////////////////////
