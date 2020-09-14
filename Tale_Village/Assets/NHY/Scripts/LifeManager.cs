@@ -35,7 +35,7 @@ public class LifeManager : MonoBehaviour
             }  
             else
             {
-                lifeUI.text = "Life : " + playerLife.ToString();
+                lifeUI.text = "Life : " + (int)(playerLife);
             } 
         }
     }

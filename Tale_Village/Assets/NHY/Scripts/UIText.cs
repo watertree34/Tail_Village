@@ -15,6 +15,7 @@ public class UIText : MonoBehaviour
 
     public Text uiText;
     public string text;
+    
 
     public string UITEXT
     {
@@ -22,10 +23,15 @@ public class UIText : MonoBehaviour
         set
         {
             text = value;
-          
             uiText.text = text;
+
         }
     }
 
-   
+
+
+
+
+
+
 }

@@ -82,7 +82,7 @@ public class RaycastFind : MonoBehaviour
 
             //ui띄우기
             UIText.Instance.UITEXT = "아이템을 주우려면 스페이스바를 누르세요";
-
+            UIText.Instance.uiText.enabled = true;
 
             //키를 누르면 인벤토리에 저장
             if (Input.GetButtonDown("Jump"))
@@ -94,14 +94,17 @@ public class RaycastFind : MonoBehaviour
                 }
                 //인벤토리 안될경우-바로 아이템먹기->라이프 회복
                 //이걸 쓰려면 도끼는 item레이어말고 다른레이어로 바꿔서 따로 지정해줘야함
-                
-                //Destroy(hit.transform.gameObject, 1);
+
+
                 Destroy(hit.transform.gameObject);
             }
 
+        }else
+        {
+            UIText.Instance.uiText.enabled = false;
         }
-        else
-            UIText.Instance.UITEXT = "";
+
+
 
 
         ////////////////도끼/////////////////
@@ -110,7 +113,7 @@ public class RaycastFind : MonoBehaviour
 
             //ui띄우기
             UIText.Instance.UITEXT = "도끼를 주우려면 스페이스바를 누르세요";
-
+            UIText.Instance.uiText.enabled = true;
 
             //키를 누르면 인벤토리에 저장
             if (Input.GetButtonDown("Jump"))
@@ -143,13 +146,13 @@ public class RaycastFind : MonoBehaviour
         }
 
         ///////////////거위//////////////////
-        if (Duck.Instance.openCage)
+        if (Duck.Instance.openCage)   // 거위케이지가 열렸을때
         {
-            if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << duckLayer))  //만약 아이템이 레이에 검출되면
+            if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << duckLayer))  //만약 거위가 레이에 검출되면
             {
                 //ui띄우기
                 UIText.Instance.UITEXT = "거위를 주우려면 스페이스바를 누르세요";
-
+                UIText.Instance.uiText.enabled = true;
 
                 //키를 누르면 인벤토리에 저장
                 if (Input.GetButtonDown("Jump"))
@@ -170,6 +173,9 @@ public class RaycastFind : MonoBehaviour
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << keyLayer)) //만약 열쇠가  레이에 검출되면
         {
             UIText.Instance.UITEXT = "열쇠를 주우려면 스페이스바를 누르세요";
+            UIText.Instance.uiText.enabled = true;
+
+
             if (Input.GetButtonDown("Jump"))
             {
                 Item item = hit.transform.GetComponent<Item>();
@@ -217,6 +223,8 @@ public class RaycastFind : MonoBehaviour
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << cheeseLayer)) //만약 치즈가 레이에 검출되면
         {
             UIText.Instance.UITEXT = "치즈를 주우려면 스페이스바를 누르세요";
+            UIText.Instance.uiText.enabled = true;
+
             if (Input.GetButtonDown("Jump"))
             {
                 Item item = hit.transform.GetComponent<Item>();
@@ -239,6 +247,8 @@ public class RaycastFind : MonoBehaviour
             {
                 cheeseObj.SetActive(true);
                 UIText.Instance.UITEXT = "치즈를 자리에 놓으려면 마우스 왼쪽버튼을 누르세요";
+                UIText.Instance.uiText.enabled = true;
+
                 if (Input.GetButtonDown("Fire1"))
                 {
                     cheeseObj.transform.parent = null;
@@ -281,7 +291,7 @@ public class RaycastFind : MonoBehaviour
             //클릭을 누르면 
             if (Input.GetButtonDown("Fire1"))
             {
-                print("클릭");
+                
                 grabPoint = mouseHit.transform;  //grabPoint 에 위치저장
                 grabTime = 8;
                 click = true;
@@ -300,6 +310,7 @@ public class RaycastFind : MonoBehaviour
             grabTime -= Time.deltaTime;
             print(grabTime);
             UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않으면 손이 떨어집니다. \n 손을 임의로 떨어뜨리고 싶으면 스페이스바를 누르세요";
+            UIText.Instance.uiText.enabled = true;
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
             grabMat.material.color = Color.green;
             handPoint.position = grabPoint.position;

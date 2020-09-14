@@ -14,20 +14,29 @@ public class Duck : MonoBehaviour
 
     //플레이어가 오리를 터치하면 색깔이 바뀌고 거인이 깨어나게 하자
     public bool openCage;
-    public Transform keyTransfom;
-    
-    
+    public Transform playerPoisition;
+    public float minPdDis = 8;
+    public GameObject cageDoor;
+    float openTime=1;
 
-
-
-    private void Update()
+    private void LateUpdate()
     {
-        Vector3 dir = keyTransfom.position-transform.position;   //열쇠랑 거위 사이 거리가 가까워지면 케이지 오픈
-        float kdDis = dir.magnitude;
-        if(kdDis<5)
+      
+        Vector3 dir = playerPoisition.position - transform.position;   //플레이어가 거위에 가까이 있을때
+        float pdDis = dir.magnitude;
+        print(pdDis);
+        if (pdDis <= minPdDis)
         {
-        
-            openCage = true; 
+            UIText.Instance.UITEXT = "열쇠를 사용해서 거위를 구출하세요";
+            UIText.Instance.uiText.enabled = true;
+
+            if (PickUp.Instance.isKeyUsed)// 열쇠를 사용하면 케이지 오픈  --> 거위 깨어남, 거위주울수 있음
+            {
+                cageDoor.transform.position += Vector3.up * 5 * Time.deltaTime;
+                openTime -= Time.deltaTime;
+                if(openTime<=0)
+                    openCage = true;
+            }
         }
     }
 
