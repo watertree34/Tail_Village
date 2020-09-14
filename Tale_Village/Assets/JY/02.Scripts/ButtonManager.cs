@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
+    public static ButtonManager Instance;  // 싱글톤
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    public bool clickStart = false;
+    public void OnClickStart()
+    {
+        clickStart = true;
+    }
+
     public void OnClickExit()
     {
 #if UNITY_EDITOR

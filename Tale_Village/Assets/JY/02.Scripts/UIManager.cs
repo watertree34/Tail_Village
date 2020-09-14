@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject GameTitleUI;  //게임타이틀UI
     public Image StartImg;         //시작UI이미지
     public Text OpeningTxt;        //오프닝텍스트
     public GameObject GamePlayUI;  //게임플레이중UI
@@ -18,6 +19,7 @@ public class UIManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "GameScene1") //씬이름으로 현재씬 찾기
         {
+            GameTitleUI.SetActive(true);
             StartImg.enabled = true;
             OpeningTxt.enabled = true;
             GamePlayUI.SetActive(true);
@@ -25,6 +27,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            GameTitleUI = null;
             StartImg = null;
             OpeningTxt = null;
             GamePlayUI.SetActive(true);
@@ -34,8 +37,12 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        //시간 쌓이다가
-        curTime += Time.deltaTime;
+        if (ButtonManager.Instance.clickStart == true)
+        {
+            GameTitleUI.SetActive(false);
+            //시간 쌓이다가
+            curTime += Time.deltaTime;
+        }
 
         /*--------------------스타트이미지, 텍스트 사라지게 하기--------------------*/
         if (fade > 0.0f && curTime >= 6.0f)
