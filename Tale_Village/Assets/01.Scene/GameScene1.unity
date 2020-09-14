@@ -2564,6 +2564,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1911651474227261296, guid: ef2587ff686676645a23a317e42d2f82,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1911651474227261298, guid: ef2587ff686676645a23a317e42d2f82,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2644,6 +2649,16 @@ PrefabInstance:
       propertyPath: Hatchet
       value: 
       objectReference: {fileID: 867434136}
+    - target: {fileID: 4472723360612572180, guid: ef2587ff686676645a23a317e42d2f82,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106798559146575364, guid: ef2587ff686676645a23a317e42d2f82,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9211163168722962409, guid: ef2587ff686676645a23a317e42d2f82,
         type: 3}
       propertyPath: toolPos
