@@ -17,9 +17,9 @@ public class Duck : MonoBehaviour
     public Transform playerPoisition;
     public float minPdDis = 8;
     public GameObject cageDoor;
-    float openTime=2;
+    float openTime=1;
 
-    private void Update()
+    private void LateUpdate()
     {
       
         Vector3 dir = playerPoisition.position - transform.position;   //플레이어가 거위에 가까이 있을때
@@ -28,7 +28,7 @@ public class Duck : MonoBehaviour
         if (pdDis <= minPdDis)
         {
             UIText.Instance.UITEXT = "열쇠를 사용해서 거위를 구출하세요";
-
+            UIText.Instance.uiText.enabled = true;
 
             if (PickUp.Instance.isKeyUsed)// 열쇠를 사용하면 케이지 오픈  --> 거위 깨어남, 거위주울수 있음
             {

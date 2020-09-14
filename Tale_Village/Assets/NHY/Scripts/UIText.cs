@@ -15,24 +15,23 @@ public class UIText : MonoBehaviour
 
     public Text uiText;
     public string text;
+    
 
     public string UITEXT
     {
         get { return text; }
         set
         {
-
             text = value;
-          
             uiText.text = text;
 
         }
     }
-   
-
-    
 
 
 
-   
+
+
+
+
 }

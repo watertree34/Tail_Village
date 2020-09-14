@@ -82,7 +82,7 @@ public class RaycastFind : MonoBehaviour
 
             //ui띄우기
             UIText.Instance.UITEXT = "아이템을 주우려면 스페이스바를 누르세요";
-
+            UIText.Instance.uiText.enabled = true;
 
             //키를 누르면 인벤토리에 저장
             if (Input.GetButtonDown("Jump"))
@@ -99,7 +99,11 @@ public class RaycastFind : MonoBehaviour
                 Destroy(hit.transform.gameObject);
             }
 
+        }else
+        {
+            UIText.Instance.uiText.enabled = false;
         }
+
 
 
 
@@ -109,7 +113,7 @@ public class RaycastFind : MonoBehaviour
 
             //ui띄우기
             UIText.Instance.UITEXT = "도끼를 주우려면 스페이스바를 누르세요";
-
+            UIText.Instance.uiText.enabled = true;
 
             //키를 누르면 인벤토리에 저장
             if (Input.GetButtonDown("Jump"))
@@ -148,7 +152,7 @@ public class RaycastFind : MonoBehaviour
             {
                 //ui띄우기
                 UIText.Instance.UITEXT = "거위를 주우려면 스페이스바를 누르세요";
-
+                UIText.Instance.uiText.enabled = true;
 
                 //키를 누르면 인벤토리에 저장
                 if (Input.GetButtonDown("Jump"))
@@ -169,6 +173,9 @@ public class RaycastFind : MonoBehaviour
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << keyLayer)) //만약 열쇠가  레이에 검출되면
         {
             UIText.Instance.UITEXT = "열쇠를 주우려면 스페이스바를 누르세요";
+            UIText.Instance.uiText.enabled = true;
+
+
             if (Input.GetButtonDown("Jump"))
             {
                 Item item = hit.transform.GetComponent<Item>();
@@ -216,6 +223,8 @@ public class RaycastFind : MonoBehaviour
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << cheeseLayer)) //만약 치즈가 레이에 검출되면
         {
             UIText.Instance.UITEXT = "치즈를 주우려면 스페이스바를 누르세요";
+            UIText.Instance.uiText.enabled = true;
+
             if (Input.GetButtonDown("Jump"))
             {
                 Item item = hit.transform.GetComponent<Item>();
@@ -238,6 +247,8 @@ public class RaycastFind : MonoBehaviour
             {
                 cheeseObj.SetActive(true);
                 UIText.Instance.UITEXT = "치즈를 자리에 놓으려면 마우스 왼쪽버튼을 누르세요";
+                UIText.Instance.uiText.enabled = true;
+
                 if (Input.GetButtonDown("Fire1"))
                 {
                     cheeseObj.transform.parent = null;
@@ -299,6 +310,7 @@ public class RaycastFind : MonoBehaviour
             grabTime -= Time.deltaTime;
             print(grabTime);
             UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않으면 손이 떨어집니다. \n 손을 임의로 떨어뜨리고 싶으면 스페이스바를 누르세요";
+            UIText.Instance.uiText.enabled = true;
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
             grabMat.material.color = Color.green;
             handPoint.position = grabPoint.position;
