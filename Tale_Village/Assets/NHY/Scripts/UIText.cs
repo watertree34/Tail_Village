@@ -21,11 +21,18 @@ public class UIText : MonoBehaviour
         get { return text; }
         set
         {
+
             text = value;
           
             uiText.text = text;
+
         }
     }
+   
+
+    
+
+
 
    
 }

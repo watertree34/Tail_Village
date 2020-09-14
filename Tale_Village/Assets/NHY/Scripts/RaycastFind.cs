@@ -94,14 +94,13 @@ public class RaycastFind : MonoBehaviour
                 }
                 //인벤토리 안될경우-바로 아이템먹기->라이프 회복
                 //이걸 쓰려면 도끼는 item레이어말고 다른레이어로 바꿔서 따로 지정해줘야함
-                
-                //Destroy(hit.transform.gameObject, 1);
+
+
                 Destroy(hit.transform.gameObject);
             }
 
         }
-        else
-            UIText.Instance.UITEXT = "";
+
 
 
         ////////////////도끼/////////////////
@@ -143,9 +142,9 @@ public class RaycastFind : MonoBehaviour
         }
 
         ///////////////거위//////////////////
-        if (Duck.Instance.openCage)
+        if (Duck.Instance.openCage)   // 거위케이지가 열렸을때
         {
-            if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << duckLayer))  //만약 아이템이 레이에 검출되면
+            if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << duckLayer))  //만약 거위가 레이에 검출되면
             {
                 //ui띄우기
                 UIText.Instance.UITEXT = "거위를 주우려면 스페이스바를 누르세요";
@@ -281,7 +280,7 @@ public class RaycastFind : MonoBehaviour
             //클릭을 누르면 
             if (Input.GetButtonDown("Fire1"))
             {
-                print("클릭");
+                
                 grabPoint = mouseHit.transform;  //grabPoint 에 위치저장
                 grabTime = 8;
                 click = true;
