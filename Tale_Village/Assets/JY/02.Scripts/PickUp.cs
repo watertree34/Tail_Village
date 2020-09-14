@@ -30,7 +30,7 @@ public class PickUp : MonoBehaviour
                 Destroy(gameObject);
             }
             //그 중에서 아이템이 치즈면
-            if (item.itemName == "Cheese")
+            else if (item.itemName == "Cheese")
             {
                 isCheeseUsed = true;
                 Destroy(gameObject);
@@ -42,11 +42,13 @@ public class PickUp : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
         //아이템이 도끼면
         if (item.itemName == "Axe")
         {
             isAxeUsed = !isAxeUsed;
         }
+
         //아이템이 열쇠면
         if (item.itemName == "Key")
         {
