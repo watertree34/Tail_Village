@@ -22,8 +22,6 @@ public class LifeManager : MonoBehaviour
     public Text lifeUI;
     static float playerLife = 40;
 
-    public GameObject GameOverUI;
-
     public float LIFE
     {
         get { return playerLife; }
@@ -34,7 +32,6 @@ public class LifeManager : MonoBehaviour
             if (playerLife == 0)
             {
                 lifeUI.text = "Game Over";
-                GameOverUI.SetActive(true);
             }  
             else
             {
@@ -45,16 +42,7 @@ public class LifeManager : MonoBehaviour
 
     private void Start()
     {
-        //if(SceneManager.GetActiveScene().name == "GameScene1") //씬이름으로 현재씬 찾기
-        //{
-        //    LIFE = 40;
-        //}
-        //else
-        //{
-        //    LIFE = playerLife;
-        //}
         LIFE = playerLife;
-        GameOverUI.SetActive(false);
     }
 
 }
