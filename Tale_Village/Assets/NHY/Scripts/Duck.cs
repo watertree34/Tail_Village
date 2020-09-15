@@ -12,7 +12,7 @@ public class Duck : MonoBehaviour
         Instance = this;
     }
 
-    //플레이어가 오리를 터치하면 색깔이 바뀌고 거인이 깨어나게 하자
+    //플레이어가 오리를 터치하면  거인이 깨어나게 하자
     public bool openCage;
     public Transform playerPoisition;
     public float minPdDis = 8;
@@ -24,7 +24,7 @@ public class Duck : MonoBehaviour
       
         Vector3 dir = playerPoisition.position - transform.position;   //플레이어가 거위에 가까이 있을때
         float pdDis = dir.magnitude;
-        print(pdDis);
+       
         if (pdDis <= minPdDis)
         {
             UIText.Instance.UITEXT = "열쇠를 사용해서 거위를 구출하세요";

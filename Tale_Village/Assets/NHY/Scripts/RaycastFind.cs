@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class RaycastFind : MonoBehaviour
 {
-    //플레이어가 아이템 발견했을때-흰색으로 색깔 바뀌기   ==> 알파때 쉐이더 바뀌는걸로 바꾸기
+    //플레이어가 아이템 발견했을때-색깔 바뀌기  
     //아이템-거위, 콩, 도끼, 음식-i키를 누르면 인벤토리로
 
 
     //치즈-쥐 유인
     //열쇠-거위 탈출
 
-    //가이드-나비 - 나비를 보면 ui띄우기
+    //가이드-나비 - 나비를 보면 글자띄우기
 
     //grabpoint - 마우스 클릭한 포인트의 위치로 손이동하기
     //grabpoint-rope-암벽 끝에서 벗어날수있게
@@ -92,11 +92,10 @@ public class RaycastFind : MonoBehaviour
                 {
                     Inventory.Instance.AddItem(item);
                 }
-                //인벤토리 안될경우-바로 아이템먹기->라이프 회복
-                //이걸 쓰려면 도끼는 item레이어말고 다른레이어로 바꿔서 따로 지정해줘야함
-
-
+                //인벤토리 -바로 아이템먹기->라이프 회복
                 Destroy(hit.transform.gameObject);
+                
+
             }
 
         }
@@ -114,7 +113,7 @@ public class RaycastFind : MonoBehaviour
 
             //키를 누르면 인벤토리에 저장
             if (Input.GetButtonDown("Jump"))
-            {  //인벤토리 될경우-
+            {  
                 //인벤토리에 저장되는 함수 호출
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
@@ -132,14 +131,15 @@ public class RaycastFind : MonoBehaviour
 
         if (pickUpAxe == true)
         {
-            if (PickUp.Instance.isAxeUsed == true)
+           if (PickUp.Instance.isAxeUsed == true)
             {
                 axe.SetActive(true);
-            }
-            else
+                
+            }else
             {
                 axe.SetActive(false);
             }
+            
         }
 
         ///////////////거위//////////////////
@@ -153,7 +153,7 @@ public class RaycastFind : MonoBehaviour
 
                 //키를 누르면 인벤토리에 저장
                 if (Input.GetButtonDown("Jump"))
-                {  //인벤토리 될경우-
+                {  
                    //인벤토리에 저장되는 함수 호출
                     Item item = hit.transform.GetComponent<Item>();
                     if (item != null)
@@ -259,10 +259,7 @@ public class RaycastFind : MonoBehaviour
             }
         }
 
-        //if(mouseGo)
-        //{
-        //    cheeseObj.transform.parent = null;
-        //}
+        
 
         
         //////////////////////클라이밍////////////////////////////

@@ -703,6 +703,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2272861972814890681, guid: 8b8c5a15cd7e56d4e99897aa155ef57d,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272861973380437485, guid: 8b8c5a15cd7e56d4e99897aa155ef57d,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272861974428223831, guid: 8b8c5a15cd7e56d4e99897aa155ef57d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2272861974495536358, guid: 8b8c5a15cd7e56d4e99897aa155ef57d,
         type: 3}
       propertyPath: m_Name

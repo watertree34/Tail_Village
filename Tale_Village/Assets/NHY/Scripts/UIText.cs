@@ -30,7 +30,7 @@ public class UIText : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UITEXT = "";
+        UITEXT = null;
     }
 
 
