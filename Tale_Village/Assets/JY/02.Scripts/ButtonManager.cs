@@ -16,6 +16,12 @@ public class ButtonManager : MonoBehaviour
         clickStart = true;
     }
 
+    public bool clickSkip = false;
+    public void OnClickSkip()
+    {
+        clickSkip = true;
+    }
+
     public void OnClickExit()
     {
 #if UNITY_EDITOR
