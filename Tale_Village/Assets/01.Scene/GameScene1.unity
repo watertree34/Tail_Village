@@ -2152,8 +2152,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.4047406, y: 2.061447, z: 3.3976166}
-  m_Center: {x: 0.03505149, y: 1.0289563, z: 0.49880785}
+  m_Size: {x: 2.4047408, y: 2.0614488, z: 3.81099}
+  m_Center: {x: 0.03505148, y: 1.0289713, z: 0.70550025}
 --- !u!1 &1291202485
 GameObject:
   m_ObjectHideFlags: 0
@@ -7653,7 +7653,7 @@ PrefabInstance:
     - target: {fileID: 1566032441640794423, guid: a2ab8354e4f8c7344be9ba72f93f3264,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 481.8
+      value: 477.7
       objectReference: {fileID: 0}
     - target: {fileID: 1566032441640794423, guid: a2ab8354e4f8c7344be9ba72f93f3264,
         type: 3}
@@ -7704,6 +7704,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: GiantHouseEntry
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748995230841586427, guid: a2ab8354e4f8c7344be9ba72f93f3264,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748995230841586427, guid: a2ab8354e4f8c7344be9ba72f93f3264,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748995230841586427, guid: a2ab8354e4f8c7344be9ba72f93f3264,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2ab8354e4f8c7344be9ba72f93f3264, type: 3}
