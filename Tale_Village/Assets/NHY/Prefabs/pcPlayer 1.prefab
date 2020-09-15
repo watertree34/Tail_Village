@@ -59,7 +59,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 660168689405874023}
   m_Father: {fileID: 725685703720655511}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -162,7 +163,6 @@ Transform:
   m_Children:
   - {fileID: 725685702180656112}
   - {fileID: 725685701803471913}
-  - {fileID: 660168689405874023}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -271,8 +271,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe321baae6917b4b95ade099da58fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolPos: {fileID: 0}
   handPoint: {fileID: 0}
   playerHandPoint: {fileID: 0}
+  cheeseObj: {fileID: 0}
+  mouseGo: 0
+  keyObj: {fileID: 0}
 --- !u!1 &6991582264343159408
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,10 +300,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6991582264343159408}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.75, y: -1, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 725685703720655511}
-  m_RootOrder: 2
+  m_Father: {fileID: 725685702180656112}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
