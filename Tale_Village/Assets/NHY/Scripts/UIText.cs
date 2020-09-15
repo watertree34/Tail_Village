@@ -28,6 +28,10 @@ public class UIText : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        UITEXT = "";
+    }
 
 
 

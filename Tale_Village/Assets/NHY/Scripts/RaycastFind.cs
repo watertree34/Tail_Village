@@ -99,11 +99,8 @@ public class RaycastFind : MonoBehaviour
                 Destroy(hit.transform.gameObject);
             }
 
-        }else
-        {
-            UIText.Instance.uiText.enabled = false;
         }
-
+       
 
 
 
