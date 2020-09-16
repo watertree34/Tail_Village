@@ -47,6 +47,7 @@ public class PickUp : MonoBehaviour
         if (item.itemName == "Axe")
         {
             isAxeUsed = !isAxeUsed;
+            print("도끼 상태 = " + isAxeUsed);
         }
 
         //아이템이 열쇠면

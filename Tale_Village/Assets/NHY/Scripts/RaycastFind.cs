@@ -135,11 +135,12 @@ public class RaycastFind : MonoBehaviour
            if (PickUp.Instance.isAxeUsed == true)
             {
                 axe.SetActive(true);
-                
+                //print("axe Active");
             }
            else
             {
                 axe.SetActive(false);
+                //print("axe Active false");
             }
             
         }
