@@ -35,6 +35,7 @@ public class RaycastFind : MonoBehaviour
     /// 암벽등반에 필요한 요소들
     Renderer grabMat;
     public Transform toolPos;  // 도구 위치
+    public Transform axePos;   // 도끼 위치
     public Transform handPoint;   //granpoint 위치
     public Transform playerHandPoint;//granpoint 플레이어 손 위치
     Transform grabPoint;
@@ -122,7 +123,7 @@ public class RaycastFind : MonoBehaviour
                     pickUpAxe = true;
                 }
                 axe = hit.transform.gameObject;
-                axe.transform.parent = toolPos;
+                axe.transform.parent = axePos;
                 axe.transform.localPosition = Vector3.zero;
                 axe.SetActive(false);
             }
@@ -135,7 +136,8 @@ public class RaycastFind : MonoBehaviour
             {
                 axe.SetActive(true);
                 
-            }else
+            }
+           else
             {
                 axe.SetActive(false);
             }
@@ -200,6 +202,10 @@ public class RaycastFind : MonoBehaviour
             {
                 keyObj.SetActive(false);
             }
+        }
+        else
+        {
+            keyObj.SetActive(true);
         }
 
 

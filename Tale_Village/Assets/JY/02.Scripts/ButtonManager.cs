@@ -10,18 +10,21 @@ public class ButtonManager : MonoBehaviour
         Instance = this;
     }
 
+    /*--------------------스타트버튼 클릭--------------------*/
     public bool clickStart = false;
     public void OnClickStart()
     {
         clickStart = true;
     }
 
+    /*--------------------스킵버튼 클릭-------------------*/
     public bool clickSkip = false;
     public void OnClickSkip()
     {
         clickSkip = true;
     }
 
+    /*--------------------엑시트버튼 클릭--------------------*/
     public void OnClickExit()
     {
 #if UNITY_EDITOR
