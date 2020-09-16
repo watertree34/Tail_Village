@@ -128,7 +128,7 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
         //플레이어 따라가며 길찾기 수행
         agent.destination = playerTransform.position;  //길찾기를 이용해 이동
 
-        if ((aeDis < axeAttackkDis)&&PickUp.Instance.isAxeUsed == true)//playerAttackDis보다 도끼 사이 거리가 적어지고 도끼가 인벤사용 되어있으면 딜레이로 상태전환
+        if ((aeDis < axeAttackkDis)&& Inventory.Instance.isAxeUsed == true)//playerAttackDis보다 도끼 사이 거리가 적어지고 도끼가 인벤사용 되어있으면 딜레이로 상태전환
         {
             nowGiantState = GinatPersonState.Delay;  //헤롱헤롱 애니메이션
             anim.SetTrigger("Delay");
@@ -190,7 +190,7 @@ public class GiantPerson : MonoBehaviour  //ItemManager상속
             //따라가기 애니메이션
             anim.SetTrigger("Follow");
         }
-        if (aeDis < axeAttackkDis&& PickUp.Instance.isAxeUsed == true)   //도끼 사이 거리가 적어지고 인벤 사용 되어있으면
+        if (aeDis < axeAttackkDis&& Inventory.Instance.isAxeUsed == true)   //도끼 사이 거리가 적어지고 인벤 사용 되어있으면
         {
             nowGiantState = GinatPersonState.Delay;   //딜레이로 상태전환
             //헤롱헤롱 애니메이션 추가할것, 애니메이션 재생시간이랑 delayTime같게 할것

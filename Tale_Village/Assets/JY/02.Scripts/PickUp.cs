@@ -4,16 +4,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public static PickUp Instance;
-    private void Awake()
-    {
-        Instance = this;
-    }
-
     public Item item;
-    public bool isAxeUsed = false;
-    public bool isKeyUsed = false;
-    public bool isCheeseUsed = false;
 
     public void OnClickButton()
     {
@@ -32,7 +23,7 @@ public class PickUp : MonoBehaviour
             //그 중에서 아이템이 치즈면
             else if (item.itemName == "Cheese")
             {
-                isCheeseUsed = true;
+                Inventory.Instance.isCheeseUsed = true;
                 Destroy(gameObject);
             }
             //그 외의 음식들이면
@@ -46,14 +37,13 @@ public class PickUp : MonoBehaviour
         //아이템이 도끼면
         if (item.itemName == "Axe")
         {
-            isAxeUsed = !isAxeUsed;
-            print("도끼 상태 = " + isAxeUsed);
+            Inventory.Instance.isAxeUsed = !Inventory.Instance.isAxeUsed;
         }
 
         //아이템이 열쇠면
         if (item.itemName == "Key")
         {
-            isKeyUsed = true;
+            Inventory.Instance.isKeyUsed = true;
             Destroy(gameObject);
         }
         

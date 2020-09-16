@@ -1368,36 +1368,6 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
---- !u!1 &171445025
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 171445026}
-  m_Layer: 0
-  m_Name: AxePos
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &171445026
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171445025}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 0.161, z: 1.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1396291578}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &190240022
 GameObject:
   m_ObjectHideFlags: 0
@@ -9033,6 +9003,9 @@ MonoBehaviour:
   - {fileID: 580502572}
   - {fileID: 25555963}
   - {fileID: 2024215207}
+  isAxeUsed: 0
+  isKeyUsed: 0
+  isCheeseUsed: 0
 --- !u!1 &928020845
 GameObject:
   m_ObjectHideFlags: 0
@@ -18316,12 +18289,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b93286b7dfa93834caec88d1044606c2, type: 3}
---- !u!4 &1396291578 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 725685702180656112, guid: 3198e93edb7d7b14b9ef6a17acb93730,
-    type: 3}
-  m_PrefabInstance: {fileID: 725685702035504772}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1424522210
 GameObject:
   m_ObjectHideFlags: 0
@@ -29596,7 +29563,7 @@ PrefabInstance:
         type: 3}
       propertyPath: axePos
       value: 
-      objectReference: {fileID: 171445026}
+      objectReference: {fileID: 0}
     - target: {fileID: 725685703720655499, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
       propertyPath: m_Name

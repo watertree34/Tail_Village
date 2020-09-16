@@ -35,7 +35,6 @@ public class RaycastFind : MonoBehaviour
     /// 암벽등반에 필요한 요소들
     Renderer grabMat;
     public Transform toolPos;  // 도구 위치
-    public Transform axePos;   // 도끼 위치
     public Transform handPoint;   //granpoint 위치
     public Transform playerHandPoint;//granpoint 플레이어 손 위치
     Transform grabPoint;
@@ -82,11 +81,11 @@ public class RaycastFind : MonoBehaviour
         {
 
             //ui띄우기
-            UIText.Instance.UITEXT = "아이템을 주우려면 스페이스바를 누르세요";
+            UIText.Instance.UITEXT = "아이템을 주우려면 B키를 누르세요";
             UIText.Instance.uiText.enabled = true;
 
             //키를 누르면 인벤토리에 저장
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
@@ -109,11 +108,11 @@ public class RaycastFind : MonoBehaviour
         {
 
             //ui띄우기
-            UIText.Instance.UITEXT = "도끼를 주우려면 스페이스바를 누르세요";
+            UIText.Instance.UITEXT = "도끼를 주우려면 B키를 누르세요";
             UIText.Instance.uiText.enabled = true;
 
             //키를 누르면 인벤토리에 저장
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(KeyCode.B))
             {  
                 //인벤토리에 저장되는 함수 호출
                 Item item = hit.transform.GetComponent<Item>();
@@ -123,7 +122,7 @@ public class RaycastFind : MonoBehaviour
                     pickUpAxe = true;
                 }
                 axe = hit.transform.gameObject;
-                axe.transform.parent = axePos;
+                axe.transform.parent = toolPos;
                 axe.transform.localPosition = Vector3.zero;
                 axe.SetActive(false);
             }
@@ -132,17 +131,15 @@ public class RaycastFind : MonoBehaviour
 
         if (pickUpAxe == true)
         {
-           if (PickUp.Instance.isAxeUsed == true)
+            if (Inventory.Instance.isAxeUsed == true)
             {
                 axe.SetActive(true);
-                //print("axe Active");
             }
            else
             {
+                //print("raycast 도끼 상태 = " + PickUp.Instance.isAxeUsed);
                 axe.SetActive(false);
-                //print("axe Active false");
             }
-            
         }
 
         ///////////////거위//////////////////
@@ -151,11 +148,11 @@ public class RaycastFind : MonoBehaviour
             if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << duckLayer))  //만약 거위가 레이에 검출되면
             {
                 //ui띄우기
-                UIText.Instance.UITEXT = "거위를 주우려면 스페이스바를 누르세요";
+                UIText.Instance.UITEXT = "거위를 주우려면 B키를 누르세요";
                 UIText.Instance.uiText.enabled = true;
 
                 //키를 누르면 인벤토리에 저장
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetKeyDown(KeyCode.B))
                 {  
                    //인벤토리에 저장되는 함수 호출
                     Item item = hit.transform.GetComponent<Item>();
@@ -172,11 +169,11 @@ public class RaycastFind : MonoBehaviour
         ////////////////열쇠 //////////////////
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << keyLayer)) //만약 열쇠가  레이에 검출되면
         {
-            UIText.Instance.UITEXT = "열쇠를 주우려면 스페이스바를 누르세요";
+            UIText.Instance.UITEXT = "열쇠를 주우려면 B키를 누르세요";
             UIText.Instance.uiText.enabled = true;
 
 
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
@@ -193,7 +190,7 @@ public class RaycastFind : MonoBehaviour
 
         if (pickUpKey == true)
         {
-            if (PickUp.Instance.isKeyUsed == true)
+            if (Inventory.Instance.isKeyUsed == true)
             {
                 keyObj.SetActive(true);
                 keyObj.transform.parent = null;
@@ -226,10 +223,10 @@ public class RaycastFind : MonoBehaviour
        ////////////////치즈//////////////////
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << cheeseLayer)) //만약 치즈가 레이에 검출되면
         {
-            UIText.Instance.UITEXT = "치즈를 주우려면 스페이스바를 누르세요";
+            UIText.Instance.UITEXT = "치즈를 주우려면 B키를 누르세요";
             UIText.Instance.uiText.enabled = true;
 
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
@@ -247,7 +244,7 @@ public class RaycastFind : MonoBehaviour
 
         if (pickUpCheese == true)
         {
-            if (PickUp.Instance.isCheeseUsed == true)
+            if (Inventory.Instance.isCheeseUsed == true)
             {
                 cheeseObj.SetActive(true);
                 UIText.Instance.UITEXT = "치즈를 자리에 놓으려면 마우스 왼쪽버튼을 누르세요";

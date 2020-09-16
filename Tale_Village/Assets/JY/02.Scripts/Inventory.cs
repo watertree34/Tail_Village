@@ -8,7 +8,13 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance;
     private void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+        {
+            Instance = this;
+        }else
+        {
+            DestroyImmediate(this);
+        }
     }
 
     //public List<Item> items = new List<Item>();         //아이템 리스트
@@ -20,6 +26,10 @@ public class Inventory : MonoBehaviour
     public GameObject slotItem_Cheese;
     public GameObject slotItem_Food;
     public Transform[] slots;
+
+    public bool isAxeUsed = false;
+    public bool isKeyUsed = false;
+    public bool isCheeseUsed = false;
 
     public void AddItem(Item item_)
     {
