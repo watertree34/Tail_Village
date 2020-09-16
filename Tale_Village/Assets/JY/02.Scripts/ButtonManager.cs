@@ -7,7 +7,14 @@ public class ButtonManager : MonoBehaviour
     public static ButtonManager Instance;  // 싱글톤
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            DestroyImmediate(this);
+        }
     }
 
     /*--------------------스타트버튼 클릭--------------------*/

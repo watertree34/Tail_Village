@@ -19,7 +19,14 @@ public class RaycastFind : MonoBehaviour
     public static RaycastFind Instance;  //싱글톤
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            DestroyImmediate(this);
+        }
     }
 
     LayerMask itemLayer;

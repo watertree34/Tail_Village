@@ -16,7 +16,14 @@ public class LifeManager : MonoBehaviour
     public static LifeManager Instance;  // 싱글톤
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            DestroyImmediate(this);
+        }
     }
 
     public Text lifeUI;
