@@ -273,9 +273,9 @@ public class RaycastFind : MonoBehaviour
             }
         }
 
-        
 
-        
+
+#if UNITY_EDITOR
         //////////////////////클라이밍////////////////////////////
 
         //손(마우스)
@@ -337,6 +337,7 @@ public class RaycastFind : MonoBehaviour
         {
             moveScript.enabled = true;  //제힌시간 지나거나 스페이스바 누르면 켜짐
         }
+#endif
 
     }
 }
