@@ -252,6 +252,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7153501}
   m_CullTransparentMesh: 0
+--- !u!1 &14409549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3745171978303763970, guid: 3198e93edb7d7b14b9ef6a17acb93730,
+    type: 3}
+  m_PrefabInstance: {fileID: 725685702035504772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &25555962
 GameObject:
   m_ObjectHideFlags: 0
@@ -4376,6 +4382,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165341160}
   m_CullTransparentMesh: 0
+--- !u!4 &1179479501 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5305329330627984532, guid: 3198e93edb7d7b14b9ef6a17acb93730,
+    type: 3}
+  m_PrefabInstance: {fileID: 725685702035504772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1184092233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1308768604508290924, guid: a2ab8354e4f8c7344be9ba72f93f3264,
@@ -6183,7 +6195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PcCam: {fileID: 641307460}
-  VrObj: {fileID: 0}
+  VrObj: {fileID: 14409549}
 --- !u!114 &1690215442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7714,6 +7726,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888679543}
   m_CullTransparentMesh: 0
+--- !u!1 &1893141072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1893141073}
+  m_Layer: 0
+  m_Name: VRToolPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1893141073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893141072}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.75, y: 0, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1179479501}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1901623095
 GameObject:
   m_ObjectHideFlags: 0
