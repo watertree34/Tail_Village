@@ -24,10 +24,9 @@ public class Mouse : MonoBehaviour
             cc.Move(cheeseDir * 1 * Time.deltaTime);
             transform.forward = cheeseDir;
 
-            print(cheeseDir.magnitude);
-            if(cheeseDir.magnitude<=1)
+            if(cheeseDir.magnitude<=2)
             {
-                cc.Move(cheeseDir * 0);
+                cc.Move(cheeseDir*0*Time.deltaTime);
             }
         }
     }

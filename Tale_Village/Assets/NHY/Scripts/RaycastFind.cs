@@ -172,28 +172,31 @@ public class RaycastFind : MonoBehaviour
 
             }
         }
-
-        ////////////////열쇠 //////////////////
-        if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << keyLayer)) //만약 열쇠가  레이에 검출되면
+        else
         {
-            UIText.Instance.UITEXT = "열쇠를 주우려면 B키를 누르세요";
-            UIText.Instance.uiText.enabled = true;
-
-
-            if (Input.GetKeyDown(KeyCode.B))
+            ////////////////열쇠 //////////////////
+            if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << keyLayer)) //만약 열쇠가  레이에 검출되면
             {
-                Item item = hit.transform.GetComponent<Item>();
-                if (item != null)
+                UIText.Instance.UITEXT = "열쇠를 주우려면 B키를 누르세요";
+                UIText.Instance.uiText.enabled = true;
+
+
+                if (Input.GetKeyDown(KeyCode.B))
                 {
-                    Inventory.Instance.AddItem(item);
-                    pickUpKey = true;
+                    Item item = hit.transform.GetComponent<Item>();
+                    if (item != null)
+                    {
+                        Inventory.Instance.AddItem(item);
+                        pickUpKey = true;
+                    }
+                    keyObj = hit.transform.gameObject;
+                    keyObj.transform.parent = toolPos;
+                    keyObj.transform.localPosition = Vector3.zero;
+                    keyObj.SetActive(false);
                 }
-                keyObj = hit.transform.gameObject;
-                keyObj.transform.parent = toolPos;
-                keyObj.transform.localPosition = Vector3.zero;
-                keyObj.SetActive(false);
             }
         }
+       
 
         if (pickUpKey == true)
         {
