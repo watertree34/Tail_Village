@@ -23,6 +23,12 @@ public class Mouse : MonoBehaviour
             cheeseDir = (playerRay.cheeseObj.transform.position - transform.position);
             cc.Move(cheeseDir * 1 * Time.deltaTime);
             transform.forward = cheeseDir;
+
+            print(cheeseDir.magnitude);
+            if(cheeseDir.magnitude<=1)
+            {
+                cc.Move(cheeseDir * 0);
+            }
         }
     }
 
