@@ -88,25 +88,35 @@ public class RaycastFind : MonoBehaviour
         {
 
             //ui띄우기
-            UIText.Instance.UITEXT = "아이템을 주우려면 B키를 누르세요";
+            UIText.Instance.UITEXT = "아이템을 주우려면 A를 누르세요";
             UIText.Instance.uiText.enabled = true;
 
             //키를 누르면 인벤토리에 저장
-            if (Input.GetKeyDown(KeyCode.B))
+            //VR
+            if (OVRInput.Get(OVRInput.Button.One))
             {
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
                 {
                     Inventory.Instance.AddItem(item);
                 }
-                //인벤토리 -바로 아이템먹기->라이프 회복
+                //인벤토리
                 Destroy(hit.transform.gameObject);
-                
-
             }
-
+            //컴퓨터
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                Item item = hit.transform.GetComponent<Item>();
+                if (item != null)
+                {
+                    Inventory.Instance.AddItem(item);
+                }
+                //인벤토리
+                Destroy(hit.transform.gameObject);
+            }
         }
-       
+
+
 
 
 
