@@ -4376,13 +4376,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690215439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5e9e56de9667bb4ab115f7f4c3bb6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PcCam: {fileID: 641307460}
-  VrObj: {fileID: 0}
+  VrObj: {fileID: 1069914931}
 --- !u!114 &1690215442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6471,7 +6471,7 @@ PrefabInstance:
     - target: {fileID: 725685702180656117, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 725685702180656118, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
