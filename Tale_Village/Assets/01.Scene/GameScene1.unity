@@ -8940,6 +8940,11 @@ PrefabInstance:
       propertyPath: axePos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 725685702579812299, guid: 3198e93edb7d7b14b9ef6a17acb93730,
+        type: 3}
+      propertyPath: vrToolPos
+      value: 
+      objectReference: {fileID: 1893141073}
     - target: {fileID: 725685703720655499, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
       propertyPath: m_Name
