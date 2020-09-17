@@ -14,8 +14,15 @@ public class InvenOnOff : MonoBehaviour
 
     void Update()
     {
-        // i키 누르면 인벤 활성/비활성화
-        if (Input.GetKeyDown(KeyCode.I))
+        // Y키 누르면 인벤 활성/비활성화
+        //VR
+        if (OVRInput.GetDown(OVRInput.Button.Four))
+        {
+            isInvenActive = !isInvenActive;
+            InventoryUI.SetActive(isInvenActive);
+        }
+        //PC
+        else if (Input.GetKeyDown(KeyCode.Y))
         {
             isInvenActive = !isInvenActive;
             InventoryUI.SetActive(isInvenActive);
