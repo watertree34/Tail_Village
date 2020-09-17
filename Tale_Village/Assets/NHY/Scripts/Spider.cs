@@ -37,6 +37,8 @@ public class Spider : MonoBehaviour
                     i++;
             }
             dir.Normalize();
+            transform.forward = -dir;
+
             controller.Move(dir * speed * Time.deltaTime);
         }
     }
