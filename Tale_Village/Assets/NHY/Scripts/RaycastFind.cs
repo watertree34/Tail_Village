@@ -93,7 +93,7 @@ public class RaycastFind : MonoBehaviour
 
             //키를 누르면 인벤토리에 저장
             //VR
-            if (OVRInput.Get(OVRInput.Button.One))
+            if (OVRInput.GetDown(OVRInput.Button.One))
             {
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
@@ -103,8 +103,8 @@ public class RaycastFind : MonoBehaviour
                 //인벤토리
                 Destroy(hit.transform.gameObject);
             }
-            //컴퓨터
-            if (Input.GetKeyDown(KeyCode.A))
+            //PC
+            else if (Input.GetKeyDown(KeyCode.A))
             {
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
@@ -125,11 +125,27 @@ public class RaycastFind : MonoBehaviour
         {
 
             //ui띄우기
-            UIText.Instance.UITEXT = "도끼를 주우려면 B키를 누르세요";
+            UIText.Instance.UITEXT = "도끼를 주우려면 A를 누르세요";
             UIText.Instance.uiText.enabled = true;
 
             //키를 누르면 인벤토리에 저장
-            if (Input.GetKeyDown(KeyCode.B))
+            //VR
+            if (OVRInput.GetDown(OVRInput.Button.One))
+            {
+                //인벤토리에 저장되는 함수 호출
+                Item item = hit.transform.GetComponent<Item>();
+                if (item != null)
+                {
+                    Inventory.Instance.AddItem(item);
+                    pickUpAxe = true;
+                }
+                axe = hit.transform.gameObject;
+                axe.transform.parent = toolPos;
+                axe.transform.localPosition = Vector3.zero;
+                axe.SetActive(false);
+            }
+            //PC
+            else if (Input.GetKeyDown(KeyCode.A))
             {  
                 //인벤토리에 저장되는 함수 호출
                 Item item = hit.transform.GetComponent<Item>();
@@ -165,11 +181,23 @@ public class RaycastFind : MonoBehaviour
             if (Physics.SphereCast(ray, 3f, out hit, 3f, 1 << duckLayer))  //만약 거위가 레이에 검출되면
             {
                 //ui띄우기
-                UIText.Instance.UITEXT = "거위를 주우려면 B키를 누르세요";
+                UIText.Instance.UITEXT = "거위를 주우려면 A를 누르세요";
                 UIText.Instance.uiText.enabled = true;
 
                 //키를 누르면 인벤토리에 저장
-                if (Input.GetKeyDown(KeyCode.B))
+                //VR
+                if (OVRInput.GetDown(OVRInput.Button.One))
+                {
+                    //인벤토리에 저장되는 함수 호출
+                    Item item = hit.transform.GetComponent<Item>();
+                    if (item != null)
+                    {
+                        Inventory.Instance.AddItem(item);
+                    }
+                    hit.transform.gameObject.SetActive(false);
+                }
+                //PC
+                else if (Input.GetKeyDown(KeyCode.A))
                 {  
                    //인벤토리에 저장되는 함수 호출
                     Item item = hit.transform.GetComponent<Item>();
@@ -187,11 +215,25 @@ public class RaycastFind : MonoBehaviour
             ////////////////열쇠 //////////////////
             if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << keyLayer)) //만약 열쇠가  레이에 검출되면
             {
-                UIText.Instance.UITEXT = "열쇠를 주우려면 B키를 누르세요";
+                UIText.Instance.UITEXT = "열쇠를 주우려면 A를 누르세요";
                 UIText.Instance.uiText.enabled = true;
 
-
-                if (Input.GetKeyDown(KeyCode.B))
+                //VR
+                if (OVRInput.GetDown(OVRInput.Button.One))
+                {
+                    Item item = hit.transform.GetComponent<Item>();
+                    if (item != null)
+                    {
+                        Inventory.Instance.AddItem(item);
+                        pickUpKey = true;
+                    }
+                    keyObj = hit.transform.gameObject;
+                    keyObj.transform.parent = toolPos;
+                    keyObj.transform.localPosition = Vector3.zero;
+                    keyObj.SetActive(false);
+                }
+                //PC
+                else if (Input.GetKeyDown(KeyCode.A))
                 {
                     Item item = hit.transform.GetComponent<Item>();
                     if (item != null)
@@ -243,10 +285,25 @@ public class RaycastFind : MonoBehaviour
        ////////////////치즈//////////////////
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << cheeseLayer)) //만약 치즈가 레이에 검출되면
         {
-            UIText.Instance.UITEXT = "치즈를 주우려면 B키를 누르세요";
+            UIText.Instance.UITEXT = "치즈를 주우려면 A를 누르세요";
             UIText.Instance.uiText.enabled = true;
 
-            if (Input.GetKeyDown(KeyCode.B))
+            //VR
+            if (OVRInput.GetDown(OVRInput.Button.One))
+            {
+                Item item = hit.transform.GetComponent<Item>();
+                if (item != null)
+                {
+                    Inventory.Instance.AddItem(item);
+                    pickUpCheese = true;
+                }
+                cheeseObj = hit.transform.gameObject;
+                cheeseObj.transform.parent = toolPos;
+                cheeseObj.transform.localPosition = Vector3.zero;
+                cheeseObj.SetActive(false);
+            }
+            //PC
+            else if (Input.GetKeyDown(KeyCode.A))
             {
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
@@ -267,10 +324,18 @@ public class RaycastFind : MonoBehaviour
             if (Inventory.Instance.isCheeseUsed == true)
             {
                 cheeseObj.SetActive(true);
-                UIText.Instance.UITEXT = "치즈를 자리에 놓으려면 마우스 왼쪽버튼을 누르세요";
+                UIText.Instance.UITEXT = "치즈를 자리에 놓으려면 B를 누르세요";
                 UIText.Instance.uiText.enabled = true;
 
-                if (Input.GetButtonDown("Fire1"))
+                //VR
+                if (OVRInput.GetDown(OVRInput.Button.Two))
+                {
+                    cheeseObj.transform.parent = null;
+                    mouseGo = true;
+                    pickUpCheese = false;
+                }
+                //PC
+                else if (Input.GetKeyDown(KeyCode.B))
                 {
                     cheeseObj.transform.parent = null;
                     mouseGo = true;
