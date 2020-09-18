@@ -359,7 +359,7 @@ public class RaycastFind : MonoBehaviour
         RaycastHit mouseHit;
 
         //거미 마우스 포인트(손)이 닿았을때
-        if (Physics.SphereCast(mouseRay, 0.5f, out mouseHit, 5f, 1 << spiderLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
+        if (Physics.SphereCast(mouseRay, 0.5f, out mouseHit,10f, 1 << spiderLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
         {
             LifeManager.Instance.LIFE -= 0.1f; //플레이어 라이프 감소
         }
@@ -371,7 +371,7 @@ public class RaycastFind : MonoBehaviour
             grabMat = mouseHit.transform.gameObject.GetComponent<Renderer>();
             grabMat.material.color = Color.blue;
 
-
+           
             //클릭을 누르면 
             if (Input.GetButtonDown("Fire1"))
             {
@@ -392,7 +392,7 @@ public class RaycastFind : MonoBehaviour
         if (click)
         {
             grabTime -= Time.deltaTime;
-            print(grabTime);
+            
             UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않으면 손이 떨어집니다. \n 손을 임의로 떨어뜨리고 싶으면 스페이스바를 누르세요";
             UIText.Instance.uiText.enabled = true;
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
