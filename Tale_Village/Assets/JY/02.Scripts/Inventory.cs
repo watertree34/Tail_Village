@@ -77,6 +77,8 @@ public class Inventory : MonoBehaviour
 
                 itemBtn.transform.parent = slots[i];
                 itemBtn.transform.localPosition = Vector3.zero;
+                itemBtn.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                itemBtn.transform.localScale = new Vector3(1, 1, 1);
                 itemBtn.GetComponent<PickUp>().item = item_;
                 break;
 
