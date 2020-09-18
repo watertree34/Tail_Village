@@ -424,6 +424,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 725685702035504772}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &214861502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214861501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 085048c31e9cf0145b3a4ded0307c928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolPos: {fileID: 0}
+  vrToolPos: {fileID: 0}
+  handPoint: {fileID: 0}
+  playerHandPoint: {fileID: 0}
 --- !u!114 &214861503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2573,6 +2589,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 725685702035504772}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1182039093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182039092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 085048c31e9cf0145b3a4ded0307c928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolPos: {fileID: 0}
+  vrToolPos: {fileID: 0}
+  handPoint: {fileID: 0}
+  playerHandPoint: {fileID: 0}
 --- !u!114 &1182039094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4137,7 +4169,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690215439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f07515ada089df47868559a20dd6783, type: 3}
   m_Name: 
@@ -6124,6 +6156,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 725685703720655504, guid: 3198e93edb7d7b14b9ef6a17acb93730,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 725685703720655505, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
       propertyPath: m_SlopeLimit
@@ -6199,6 +6236,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 784296576539306645, guid: 3198e93edb7d7b14b9ef6a17acb93730,
+        type: 3}
+      propertyPath: slotItem_Axe
+      value: 
+      objectReference: {fileID: 2614536296316107835, guid: e4c56630698f89e4e980dcf36f2d8415,
+        type: 3}
     - target: {fileID: 890788345153255325, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6277,7 +6320,7 @@ PrefabInstance:
     - target: {fileID: 3303893437273267465, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 4.6
       objectReference: {fileID: 0}
     - target: {fileID: 3303893437273267465, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
