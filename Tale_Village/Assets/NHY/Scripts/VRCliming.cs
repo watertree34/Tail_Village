@@ -12,15 +12,14 @@ public class VRCliming : MonoBehaviour
     public Transform playerHandPoint;//granpoint 플레이어 손 위치
     Transform grabPoint;
     bool click;  //암벽 클릭
-    pcPlayerMove moveScript;  //움직이는 스크립트
+   
     float grabTime = 8;  // 잡고있는 최대시간
     // Start is called before the first frame update
     void Start()
     {
         grabPointLayer = LayerMask.NameToLayer("GranPoint");
         spiderLayer = LayerMask.NameToLayer("Spider");
-        moveScript = gameObject.GetComponentInParent<pcPlayerMove>();
-        moveScript.enabled = true;
+      
     }
 
     // Update is called once per frame
@@ -47,12 +46,20 @@ public class VRCliming : MonoBehaviour
             grabMat.material.color = Color.blue;
 
             //그립   버튼을 누르면
-            if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))  // vr
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))  // vr
             {
-                
+               /* if(VRPlayerPos.Instance.grab)
+                {
+                    return;
+                }*/
+
+                VRPlayerPos.Instance.grab = true;
                 grabPoint = hit.transform;  //grabPoint 에 위치저장
+                VRPlayerPos.Instance.MoveTargetPoint(hit.transform.position);
                 grabTime = 8;
                 click = true;
+
+                print("잡았다!!!!!!!!!!!!!!");
             }
             
 
@@ -76,17 +83,17 @@ public class VRCliming : MonoBehaviour
             handPoint.forward = grabPoint.forward;
             transform.position = Vector3.Lerp(transform.position, playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
 
-            moveScript.enabled = false;   //movescipt는 꺼둠
 
             //키를 누르면 떨어지기
-            if (!(OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger)))
+            /*if (!(OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger)))
             {
                 grabTime = 0;
-            }
+            }*/
         }
         else
         {
-            moveScript.enabled = true;  //제힌시간 지나거나 스페이스바 누르면 켜짐
+             //제힌시간 지나거나 스페이스바 누르면 켜짐
+            VRPlayerPos.Instance.grab = false;
         }
     }
 }

@@ -16,7 +16,7 @@ public class VRHandCtrl : MonoBehaviour
         // 라인이 가지개될 색상 표현
         //layser.startColor=Color.white;
         Material material = new Material(Shader.Find("Standard"));
-        material.color = Color.white;
+        material.color = new Color(1, 1, 1, 1f);
         layser.material = material;
         // 레이저의 꼭지점 2개
         layser.positionCount = 2;
@@ -69,7 +69,7 @@ public class VRHandCtrl : MonoBehaviour
         else
         {
             // 레이저에 감지된 것이 없기 때문에 레이저 초기 설정 길이만큼 길게 만든다.
-            layser.SetPosition(0, transform.position + (transform.forward * raycastDistance));
+            layser.SetPosition(1, transform.position + (transform.forward * raycastDistance));
 
             // 최근 감지된 오브젝트가 Button인 경우
             // 버튼은 현재 눌려있는 상태이므로 이것을 풀어준다.
