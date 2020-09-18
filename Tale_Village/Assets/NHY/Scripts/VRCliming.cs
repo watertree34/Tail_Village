@@ -7,8 +7,7 @@ public class VRCliming : MonoBehaviour
     LayerMask grabPointLayer;
     LayerMask spiderLayer;
     Renderer grabMat;
-    public Transform toolPos;  // 도구 위치
-    public Transform vrToolPos;  // VR도구 위치
+   
     public Transform handPoint;   //granpoint 위치
     public Transform playerHandPoint;//granpoint 플레이어 손 위치
     Transform grabPoint;
@@ -20,19 +19,24 @@ public class VRCliming : MonoBehaviour
     {
         grabPointLayer = LayerMask.NameToLayer("GranPoint");
         spiderLayer = LayerMask.NameToLayer("Spider");
-        moveScript = gameObject.GetComponent<pcPlayerMove>();
+        moveScript = gameObject.GetComponentInParent<pcPlayerMove>();
         moveScript.enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))  // vr
+        {
+            print("구랩");
+            
+        }
         //////////////////////클라이밍////////////////////////////
 
         //손(마우스)
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-
+        
         //거미 마우스 포인트(손)이 닿았을때
         if (Physics.SphereCast(ray, 0.5f, out hit, 10f, 1 << spiderLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
         {
@@ -49,6 +53,7 @@ public class VRCliming : MonoBehaviour
             //그립   버튼을 누르면
             if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))  // vr
             {
+                print("구랩");
                 grabPoint = hit.transform;  //grabPoint 에 위치저장
                 grabTime = 8;
                 click = true;

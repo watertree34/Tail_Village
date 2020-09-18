@@ -62,6 +62,8 @@ public class VRHandCtrl : MonoBehaviour
                     click = false;
                 }
             }
+
+
         }
         // 충돌 감지 X
         else
