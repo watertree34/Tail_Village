@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2759914117666040880
+--- !u!1 &4821873108821066981
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7608081498466422631}
-  - component: {fileID: 4741360475359618972}
-  - component: {fileID: 5404122160202827957}
-  - component: {fileID: 427462542077997961}
-  - component: {fileID: 2117902619535539411}
+  - component: {fileID: 485916380465023124}
+  - component: {fileID: 3978000627033646737}
+  - component: {fileID: 488550639803050899}
+  - component: {fileID: 9148450384507161030}
+  - component: {fileID: 5645375784784347574}
+  - component: {fileID: 8328653310954647106}
   m_Layer: 5
   m_Name: slotItem_Food
   m_TagString: Untagged
@@ -20,13 +21,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7608081498466422631
+--- !u!224 &485916380465023124
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2759914117666040880}
+  m_GameObject: {fileID: 4821873108821066981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -39,21 +40,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4741360475359618972
+--- !u!222 &3978000627033646737
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2759914117666040880}
+  m_GameObject: {fileID: 4821873108821066981}
   m_CullTransparentMesh: 0
---- !u!114 &5404122160202827957
+--- !u!114 &488550639803050899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2759914117666040880}
+  m_GameObject: {fileID: 4821873108821066981}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -76,13 +77,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &427462542077997961
+--- !u!114 &9148450384507161030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2759914117666040880}
+  m_GameObject: {fileID: 4821873108821066981}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -115,11 +116,11 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 5404122160202827957}
+  m_TargetGraphic: {fileID: 488550639803050899}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2117902619535539411}
+      - m_Target: {fileID: 5645375784784347574}
         m_MethodName: OnClickButton
         m_Mode: 1
         m_Arguments:
@@ -130,18 +131,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2117902619535539411
+--- !u!114 &5645375784784347574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2759914117666040880}
+  m_GameObject: {fileID: 4821873108821066981}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e68efb00e8e7c81479661aa989855a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  isAxeUsed: 0
-  isKeyUsed: 0
+--- !u!65 &8328653310954647106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821873108821066981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 120.037506, y: 120.10246, z: 0.017705206}
+  m_Center: {x: 0.19165516, y: -0.13713837, z: 0.0009764228}
