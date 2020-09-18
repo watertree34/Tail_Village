@@ -147,7 +147,7 @@ public class RaycastFind : MonoBehaviour
             }
             //PC
             else if (Input.GetKeyDown(KeyCode.A))
-            {  
+            {
                 //인벤토리에 저장되는 함수 호출
                 Item item = hit.transform.GetComponent<Item>();
                 if (item != null)
@@ -169,7 +169,7 @@ public class RaycastFind : MonoBehaviour
             {
                 axe.SetActive(true);
             }
-           else
+            else
             {
                 //print("raycast 도끼 상태 = " + PickUp.Instance.isAxeUsed);
                 axe.SetActive(false);
@@ -199,8 +199,8 @@ public class RaycastFind : MonoBehaviour
                 }
                 //PC
                 else if (Input.GetKeyDown(KeyCode.A))
-                {  
-                   //인벤토리에 저장되는 함수 호출
+                {
+                    //인벤토리에 저장되는 함수 호출
                     Item item = hit.transform.GetComponent<Item>();
                     if (item != null)
                     {
@@ -249,7 +249,7 @@ public class RaycastFind : MonoBehaviour
                 }
             }
         }
-       
+
 
         if (pickUpKey == true)
         {
@@ -283,7 +283,7 @@ public class RaycastFind : MonoBehaviour
 
 
 
-       ////////////////치즈//////////////////
+        ////////////////치즈//////////////////
         if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << cheeseLayer)) //만약 치즈가 레이에 검출되면
         {
             UIText.Instance.UITEXT = "치즈를 주우려면 A를 누르세요";
@@ -359,7 +359,7 @@ public class RaycastFind : MonoBehaviour
         RaycastHit mouseHit;
 
         //거미 마우스 포인트(손)이 닿았을때
-        if (Physics.SphereCast(mouseRay, 0.5f, out mouseHit,10f, 1 << spiderLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
+        if (Physics.SphereCast(mouseRay, 0.5f, out mouseHit, 10f, 1 << spiderLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
         {
             LifeManager.Instance.LIFE -= 0.1f; //플레이어 라이프 감소
         }
@@ -373,9 +373,9 @@ public class RaycastFind : MonoBehaviour
 
            
             //클릭을 누르면 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1"))  // pc
             {
-                
+
                 grabPoint = mouseHit.transform;  //grabPoint 에 위치저장
                 grabTime = 8;
                 click = true;
@@ -392,7 +392,7 @@ public class RaycastFind : MonoBehaviour
         if (click)
         {
             grabTime -= Time.deltaTime;
-            
+
             UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않으면 손이 떨어집니다. \n 손을 임의로 떨어뜨리고 싶으면 스페이스바를 누르세요";
             UIText.Instance.uiText.enabled = true;
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다

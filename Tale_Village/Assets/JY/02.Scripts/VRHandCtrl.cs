@@ -14,10 +14,10 @@ public class VRHandCtrl : MonoBehaviour
     {
         layser = gameObject.AddComponent<LineRenderer>();
         // 라인이 가지개될 색상 표현
-        layser.startColor=Color.white;
-        //Material material = new Material(Shader.Find("Standard"));
-        //material.color = Color.white;
-        //layser.material = material;
+        //layser.startColor=Color.white;
+        Material material = new Material(Shader.Find("Standard"));
+        material.color = Color.white;
+        layser.material = material;
         // 레이저의 꼭지점 2개
         layser.positionCount = 2;
         // 레이저 굵기 표현
