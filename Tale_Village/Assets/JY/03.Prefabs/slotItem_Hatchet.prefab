@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8373362753485627849
+--- !u!1 &2614536296316107835
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6872376404216761900}
-  - component: {fileID: 8481676067223773479}
-  - component: {fileID: 6745604914497452767}
-  - component: {fileID: 6085076694309994073}
-  - component: {fileID: -9132367561348080704}
+  - component: {fileID: 8638364999832270256}
+  - component: {fileID: 7391911462270949378}
+  - component: {fileID: 7876384478066960159}
+  - component: {fileID: 9011568999715491241}
+  - component: {fileID: 1256166011658599800}
+  - component: {fileID: 497883424624593063}
   m_Layer: 5
   m_Name: slotItem_Hatchet
   m_TagString: Untagged
@@ -20,13 +21,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6872376404216761900
+--- !u!224 &8638364999832270256
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8373362753485627849}
+  m_GameObject: {fileID: 2614536296316107835}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -39,21 +40,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &8481676067223773479
+--- !u!222 &7391911462270949378
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8373362753485627849}
+  m_GameObject: {fileID: 2614536296316107835}
   m_CullTransparentMesh: 0
---- !u!114 &6745604914497452767
+--- !u!114 &7876384478066960159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8373362753485627849}
+  m_GameObject: {fileID: 2614536296316107835}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -76,13 +77,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6085076694309994073
+--- !u!114 &9011568999715491241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8373362753485627849}
+  m_GameObject: {fileID: 2614536296316107835}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -115,11 +116,11 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 6745604914497452767}
+  m_TargetGraphic: {fileID: 7876384478066960159}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -9132367561348080704}
+      - m_Target: {fileID: 1256166011658599800}
         m_MethodName: OnClickButton
         m_Mode: 1
         m_Arguments:
@@ -130,16 +131,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-9132367561348080704
+--- !u!114 &1256166011658599800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8373362753485627849}
+  m_GameObject: {fileID: 2614536296316107835}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e68efb00e8e7c81479661aa989855a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+--- !u!65 &497883424624593063
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2614536296316107835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 120.135056, y: 120.707855, z: 0.02213279}
+  m_Center: {x: -0.93946457, y: 0.104599, z: -0.0005401028}
