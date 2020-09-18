@@ -26,11 +26,7 @@ public class VRCliming : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))  // vr
-        {
-            print("구랩");
-            
-        }
+        
         //////////////////////클라이밍////////////////////////////
 
         //손(마우스)
@@ -51,9 +47,9 @@ public class VRCliming : MonoBehaviour
             grabMat.material.color = Color.blue;
 
             //그립   버튼을 누르면
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))  // vr
+            if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))  // vr
             {
-                print("구랩");
+                
                 grabPoint = hit.transform;  //grabPoint 에 위치저장
                 grabTime = 8;
                 click = true;
@@ -83,7 +79,7 @@ public class VRCliming : MonoBehaviour
             moveScript.enabled = false;   //movescipt는 꺼둠
 
             //키를 누르면 떨어지기
-            if (Input.GetButtonDown("Jump"))
+            if (!(OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger)))
             {
                 grabTime = 0;
             }
