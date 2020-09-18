@@ -18,7 +18,7 @@ public class VrUIManager : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "GameScene1") //씬이름으로 현재씬 찾기
+        if (SceneManager.GetActiveScene().name == "GameScene1" || SceneManager.GetActiveScene().name == "GameScene1_UI조정씬") //씬이름으로 현재씬 찾기
         {
             GameTitleUI.SetActive(true);
             StartImg.enabled = true;
