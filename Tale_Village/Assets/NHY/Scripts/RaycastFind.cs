@@ -68,7 +68,7 @@ public class RaycastFind : MonoBehaviour
         keyLayer = LayerMask.NameToLayer("Key");
         butterflyLayer = LayerMask.NameToLayer("Butterfly");
         cheeseLayer = LayerMask.NameToLayer("Cheese");
-        grabPointLayer = LayerMask.NameToLayer("GranPoint");
+        grabPointLayer = LayerMask.NameToLayer("GrabPoint");
         spiderLayer = LayerMask.NameToLayer("Spider");
 
         moveScript = gameObject.GetComponent<pcPlayerMove>();
