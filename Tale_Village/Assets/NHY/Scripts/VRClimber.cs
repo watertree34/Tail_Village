@@ -23,6 +23,7 @@ public class VRClimber : MonoBehaviour
         {
             moveDir += currentHand.beforeAfterDir * 45;  //나중위치=현재 위치+이동할 방향*속도<- (0,0,0)=(0,0,0)+beforAfterDir*45
             cc.Move(moveDir * Time.deltaTime);    //손이 움직인 위치로 이동
+           // transform.up = currentHand.beforeAfterDir;  // 방향 이상하거나 충돌될경우
         }
       
     }
