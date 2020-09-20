@@ -12,11 +12,13 @@ public class VrColliderClimbing : MonoBehaviour
     public Vector3 beforeAfterDir;  //손의 직전 위치와 현재 위치의방향(직전위치-현재위치)
 
     float grabTime = 8;
-
+  //  MeshRenderer handMesh;
     void Start()
     {
         lastPos = transform.position;   //손의 위치 판정을 위해 lastPos에 시작할때 손 위치를 저장한다
 
+        //handMesh = GetComponentInChildren<MeshRenderer>();
+        //handMesh.enabled = true;
     }
     private void FixedUpdate()
     {
@@ -61,7 +63,7 @@ public class VrColliderClimbing : MonoBehaviour
         climber.SetHand(this);  //손 셋팅-방금 잡은 손을 플레이어에 정보를 전달해서 손이 움직이면 플레이어는 그 반대방향으로 움직이게 함(손은 어차피 플레이어 따라다님)
 
         //손 투명하게 하기
-
+        //handMesh.enabled=false;
         //transform.parent = grabPoint.transform; //손 모양만 그랩포인트를 부모로 해서 
         //transform.localPosition = Vector3.forward * 0.5f; //forward 0.5f 떨어진곳으로 손을 위치시킨다
     }
@@ -77,7 +79,7 @@ public class VrColliderClimbing : MonoBehaviour
 
 
         //손 다시 불투명하게
-
+       // handMesh.enabled = true;
         //transform.parent = null;   //손 모양만 붙어있는거 떨어뜨리고 초기화
     }
 
