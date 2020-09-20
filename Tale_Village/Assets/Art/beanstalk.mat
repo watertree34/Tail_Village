@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: beanstalk
   m_Shader: {fileID: 4800000, guid: 3e3093d2c3fb57f4483a13f48685e76c, type: 3}
-  m_ShaderKeywords: OUTLINES TCP2_BUMP TCP2_OUTLINE_TEXTURED TCP2_SPEC_TOON _METALLICGLOSSMAP
+  m_ShaderKeywords: OUTLINES TCP2_OUTLINE_TEXTURED TCP2_SPEC_TOON _METALLICGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -88,7 +88,7 @@ Material:
     m_Colors:
     - _Color: {r: 0.04819329, g: 0.5377358, b: 0.17873795, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 0.41037738, g: 1, b: 0.5158384, a: 1}
+    - _HColor: {r: 1, g: 0.95832175, b: 0.19339621, a: 1}
     - _OutlineColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _SColor: {r: 0.015686275, g: 0.18431373, b: 0.058823533, a: 1}
+    - _SColor: {r: 0.2924528, g: 0.14545126, b: 0.031728376, a: 1}
     - _SpecColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
