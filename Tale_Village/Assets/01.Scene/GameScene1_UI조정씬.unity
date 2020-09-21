@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085048c31e9cf0145b3a4ded0307c928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: 0
   handPoint: {fileID: 0}
   playerHandPoint: {fileID: 0}
 --- !u!114 &214861503
@@ -3014,6 +3015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085048c31e9cf0145b3a4ded0307c928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: 0
   handPoint: {fileID: 0}
   playerHandPoint: {fileID: 0}
 --- !u!114 &1182039094
@@ -8723,7 +8725,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2090204955}
         m_MethodName: OnClickSkip
         m_Mode: 1
         m_Arguments:
