@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class VRCliming : MonoBehaviour
 {
+    public OVRInput.Controller controller = OVRInput.Controller.None;
     LayerMask grabPointLayer;
     LayerMask spiderLayer;
     Renderer grabMat;
-   
+
     public Transform handPoint;   //granpoint 위치
     public Transform playerHandPoint;//granpoint 플레이어 손 위치
     Transform grabPoint;
     bool click;  //암벽 클릭
-   
+
     float grabTime = 8;  // 잡고있는 최대시간
     // Start is called before the first frame update
     void Start()
     {
         grabPointLayer = LayerMask.NameToLayer("GranPoint");
         spiderLayer = LayerMask.NameToLayer("Spider");
-      
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         //////////////////////클라이밍////////////////////////////
 
         //손(마우스)
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-        
+
         //거미 마우스 포인트(손)이 닿았을때
         if (Physics.SphereCast(ray, 0.5f, out hit, 10f, 1 << spiderLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
         {
@@ -48,20 +49,20 @@ public class VRCliming : MonoBehaviour
             //그립   버튼을 누르면
             if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))  // vr
             {
-               /* if(VRPlayerPos.Instance.grab)
-                {
-                    return;
-                }*/
+                /* if(VRPlayerPos.Instance.grab)
+                 {
+                     return;
+                 }*/
 
                 VRPlayerPos.Instance.grab = true;
                 grabPoint = hit.transform;  //grabPoint 에 위치저장
-                VRPlayerPos.Instance.MoveTargetPoint(hit.transform.position);
+               
                 grabTime = 8;
                 click = true;
 
                 print("잡았다!!!!!!!!!!!!!!");
             }
-            
+
 
         }
 
@@ -81,19 +82,20 @@ public class VRCliming : MonoBehaviour
             grabMat.material.color = Color.green;
             handPoint.position = grabPoint.position;
             handPoint.forward = grabPoint.forward;
-            transform.position = Vector3.Lerp(transform.position, playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
-
+            
+            VRPlayerPos.Instance.MoveTargetPoint(playerHandPoint.position);
 
             //키를 누르면 떨어지기
-            /*if (!(OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger)))
+            if (!(OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger)))
             {
                 grabTime = 0;
-            }*/
+            }
         }
         else
         {
-             //제힌시간 지나거나 스페이스바 누르면 켜짐
+            //제힌시간 지나거나 스페이스바 누르면 켜짐
             VRPlayerPos.Instance.grab = false;
         }
     }
 }
+
