@@ -18,7 +18,7 @@ public class VRCliming : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        grabPointLayer = LayerMask.NameToLayer("GranPoint");
+        grabPointLayer = LayerMask.NameToLayer("GrabPoint");
         spiderLayer = LayerMask.NameToLayer("Spider");
 
     }
@@ -42,6 +42,7 @@ public class VRCliming : MonoBehaviour
         //pc용 클라이밍
         if (Physics.SphereCast(ray, 1f, out hit, 5f, 1 << grabPointLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
         {
+            print("111111111111111111111");
             //파란색으로 색을 바꾸고
             grabMat = hit.transform.gameObject.GetComponent<Renderer>();
             grabMat.material.color = Color.blue;

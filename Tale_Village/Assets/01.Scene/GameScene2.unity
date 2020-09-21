@@ -6001,6 +6001,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78dec3a2e9e50fc46882f9cc3751f692, type: 3}
+--- !u!1 &632331978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8016881015205191947, guid: 3198e93edb7d7b14b9ef6a17acb93730,
+    type: 3}
+  m_PrefabInstance: {fileID: 725685702035504772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &632331980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632331978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271eecd21f726b44dab685cff3026b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastDistance: 100
 --- !u!1001 &644491990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10902,6 +10921,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050239233}
   m_Mesh: {fileID: 4300000, guid: 8c2fd13962f039745b79f9df3024ef59, type: 3}
+--- !u!1 &1060278188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4104750052026296994, guid: 3198e93edb7d7b14b9ef6a17acb93730,
+    type: 3}
+  m_PrefabInstance: {fileID: 725685702035504772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1060278190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060278188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271eecd21f726b44dab685cff3026b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastDistance: 100
 --- !u!1 &1107803452
 GameObject:
   m_ObjectHideFlags: 0
@@ -30407,7 +30445,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 550865418}
         m_MethodName: OnClickExit
         m_Mode: 1
         m_Arguments:
@@ -43157,7 +43195,7 @@ PrefabInstance:
         type: 3}
       propertyPath: uiText
       value: 
-      objectReference: {fileID: 859530695}
+      objectReference: {fileID: 7946573937679036456}
     - target: {fileID: 4754577944766235767, guid: 0b202adc3c8d9ed4ba67d235160c72af,
         type: 3}
       propertyPath: m_Name
