@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class TxtFade : MonoBehaviour
 {
     public Text text;
+    public bool isOpeningEnd = false;
 
-    void Awake()
+    private void Awake()
     {
         StartCoroutine(FadeTextToFullAlpha());
     }
@@ -20,7 +21,7 @@ public class TxtFade : MonoBehaviour
             text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a + (Time.deltaTime / 2.0f));
             yield return null;
         }
-        //StartCoroutine(FadeTextToZero());
+        StartCoroutine(FadeTextToZero());
     }
 
     public IEnumerator FadeTextToZero()  // 알파값 1에서 0으로 전환
@@ -31,12 +32,15 @@ public class TxtFade : MonoBehaviour
             text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime / 2.0f));
             yield return null;
         }
-        //StartCoroutine(FadeTextToFullAlpha());
+        StartCoroutine(FadeTextToFullAlpha());
     }
 
     private void Update()
     {
-        StartCoroutine(FadeTextToZero());
+        if (ButtonManager.Instance.clickStart == true)
+        {
+            //isOpeningEnd = true;
+        }
         //text.text = "길게 뻗은 콩나무는 하늘에 있는 거인의 집까지 닿았고,";
         //StartCoroutine(FadeTextToFullAlpha());
         //StartCoroutine(FadeTextToZero());
