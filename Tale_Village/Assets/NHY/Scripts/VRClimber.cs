@@ -18,11 +18,12 @@ public class VRClimber : MonoBehaviour
 
     void Update()
     {
-        Vector3 moveDir = Vector3.zero;   //move벡터는(0,0,0) // 안되면 Vector3 move=transform.position;
+       // Vector3 moveDir = new Vector3(0, 0, 0);   //move벡터는(0,0,0) // 안되면 Vector3 move=transform.position;
         if (currentHand)  // 만약 grab한 손이 있으면
         {
-            moveDir += currentHand.beforeAfterDir * 45;  //나중위치=현재 위치+이동할 방향*속도<- (0,0,0)=(0,0,0)+beforAfterDir*45
-            cc.Move(moveDir * Time.deltaTime);    //손이 움직인 위치로 이동
+           
+          //  moveDir = currentHand.beforeAfterDir * 45;  //나중위치=현재 위치+이동할 방향*속도<- (0,0,0)=(0,0,0)+beforAfterDir*45
+            cc.Move(currentHand.beforeAfterDir.normalized*45 * Time.deltaTime);    //손이 움직인 위치로 이동
            // transform.up = currentHand.beforeAfterDir;  // 방향 이상하거나 충돌될경우
         }
       

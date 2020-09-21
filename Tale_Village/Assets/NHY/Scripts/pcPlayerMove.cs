@@ -12,12 +12,13 @@ public class pcPlayerMove : MonoBehaviour
     public float gravity = -9.8f; //중력
     float yVelocity; //수직속도
 
-
+    Transform camera;
 
 
     void Start()
     {
         cc = gameObject.GetComponent<CharacterController>();
+        camera = Camera.main.transform;
 
     }
 
@@ -31,7 +32,7 @@ public class pcPlayerMove : MonoBehaviour
         Vector3 dir = new Vector3(h, 0, v); //(right, up, forward)
 
         //카메라가 바라보는 방향으로 이동하고 싶다.
-        dir = Camera.main.transform.TransformDirection(dir); // 메인 카메라가 향하는 방향으로 변형하겠다!!!
+        dir = camera.TransformDirection(dir); // 메인 카메라가 향하는 방향으로 변형하겠다!!!
                                                              //로컬->월드 좌표로-TransformDirection   다른 오브젝트들의 위치와 상호작용할때 많이 쓰임
                                                              //월드->로컬좌표는 InverseTransformDirection  
 

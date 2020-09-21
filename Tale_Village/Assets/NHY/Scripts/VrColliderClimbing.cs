@@ -30,7 +30,7 @@ public class VrColliderClimbing : MonoBehaviour
         {
             UIText.Instance.UITEXT = "그립 버튼(중지 손가락)을 누르며 물체를 잡으세요";
             UIText.Instance.uiText.enabled = true;
-            if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, controller))  // 트리거 버튼을 누르고있으면
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, controller))  // 트리거 버튼을 누르고있으면
             {
                 Grab();
                 UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않거나 그립버튼에서 손가락을 떼면 손이 물체에서 떨어집니다";
@@ -92,7 +92,7 @@ public class VrColliderClimbing : MonoBehaviour
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("GrabPoint"))  // 오브젝트가 그랩포인트 레이어이면
             {
-                print("잡았ㄷㅏ");
+                
                 grabPoint = other.gameObject; //그랩 포인트 저장
             }
         }
