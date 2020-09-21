@@ -30,7 +30,7 @@ public class VrUIManager : MonoBehaviour
         else
         {
             GameTitleUI = null;
-            InvertedSphere.SetActive(false);
+            InvertedSphere = null;
             OpeningTxt = null;
             Btn_OpeningSkip = null;
             GamePlayUI.SetActive(true);
