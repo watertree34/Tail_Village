@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VrColliderClimbing : MonoBehaviour
+public class VrClimbingHand : MonoBehaviour
 {
     public OVRInput.Controller controller = OVRInput.Controller.None;    // ovr 컨트롤러(무슨 손인지)
+    List<GameObject> contactPoints = new List<GameObject>();
     GameObject grabPoint;  //각각 손이 가지고있는 그랩포인트
     public VRClimber climber;     //오르는 사람(플레이어)
 
@@ -26,6 +27,11 @@ public class VrColliderClimbing : MonoBehaviour
     }
     private void Update()
     {
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, controller))
+            Grab();
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger, controller))   //트리거 버튼에서 손을 떼면
+            NoGrab();
+        
         if (grabPoint)  //업데이트에서는 그랩포인트가 있으면 그랩함수를 실행함
         {
             UIText.Instance.UITEXT = "그립 버튼(중지 손가락)을 누르며 물체를 잡으세요";
@@ -59,47 +65,74 @@ public class VrColliderClimbing : MonoBehaviour
     void Grab()   // 그랩포인트 잡기
     {
 
-
-        climber.SetHand(this);  //손 셋팅-방금 잡은 손을 플레이어에 정보를 전달해서 손이 움직이면 플레이어는 그 반대방향으로 움직이게 함(손은 어차피 플레이어 따라다님)
+        grabPoint = VrGrabPlayerDis.GetNearest(transform.position, contactPoints);
+        if(grabPoint)
+            climber.SetHand(this);  //손 셋팅-방금 잡은 손을 플레이어에 정보를 전달해서 손이 움직이면 플레이어는 그 반대방향으로 움직이게 함(손은 어차피 플레이어 따라다님)
 
         //손 투명하게 하기
-        //handMesh.enabled=false;
-        //transform.parent = grabPoint.transform; //손 모양만 그랩포인트를 부모로 해서 
-        //transform.localPosition = Vector3.forward * 0.5f; //forward 0.5f 떨어진곳으로 손을 위치시킨다
+        //if(grabPoint)
+        //    handMesh.enabled=false;
+       
     }
 
     void NoGrab()
     {
-        if (grabTime <= 0)   // 제한시간 다돼서 호출된 경우 다시 초기화
-        {
-            grabTime = 8;
-        }
-        climber.ClearHand();  //climber에서 clearhand함수 실행(movescript작동)
-                              //    grabPoint = null;   //그랩포인트도 초기화
+        //if (grabTime <= 0)   // 제한시간 다돼서 호출된 경우 다시 초기화
+        //{
+        //    grabTime = 8;
+        //}
+        if(grabPoint)
+            climber.ClearHand();  //climber에서 clearhand함수 실행(movescript작동)
+
+        grabPoint = null;   //그랩포인트도 초기화
 
 
         //손 다시 불투명하게
         // handMesh.enabled = true;
-        //transform.parent = null;   //손 모양만 붙어있는거 떨어뜨리고 초기화
+        
     }
-
-
-
     private void OnTriggerEnter(Collider other)
     {
-        // 손이 감지충돌 될때 현재 그랩포인트가 없고
-
-        if (other.gameObject.layer == LayerMask.NameToLayer("GrabPoint"))  // 오브젝트가 그랩포인트 레이어이면
-        {
-
-            grabPoint = other.gameObject; //그랩 포인트 저장
-        }
-
+        AddPoint(other.gameObject);
     }
+    void AddPoint(GameObject newObject)
+    {
+        if(newObject.layer == LayerMask.NameToLayer("GrabPoint"))
+        {
+            contactPoints.Add(newObject);
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
-        //if (other.gameObject.layer == LayerMask.NameToLayer("GrabPoint"))
-            //grabPoint = null; //그랩 포인트 삭제
+        RemovePoint(other.gameObject);
     }
 
+    void RemovePoint(GameObject newObject)
+    {
+        if (newObject.layer == LayerMask.NameToLayer("GrabPoint"))
+            contactPoints.Remove(newObject);
+    }
+
+
+    #region 충돌로 하려고 했던거
+    ///vrGrabPlayerDis를 안해서 콜라이더 충돌이 일어났을때만 되고 안됐던것
+
+    //private void OnTriggerEnter(Collider other)
+    //
+    //    // 손이 감지충돌 될때 현재 그랩포인트가 없고
+
+    //    if (other.gameObject.layer == LayerMask.NameToLayer("GrabPoint"))  // 오브젝트가 그랩포인트 레이어이면
+    //    {
+
+    //        grabPoint = other.gameObject; //그랩 포인트 저장
+    //    }
+
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    //if (other.gameObject.layer == LayerMask.NameToLayer("GrabPoint"))
+    //        //grabPoint = null; //그랩 포인트 삭제
+    //}
+    #endregion
 }

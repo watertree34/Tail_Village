@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VRClimber : MonoBehaviour
 {
-    VrColliderClimbing currentHand=null;  //현재 그랩포인트 잡은 손(플레이어가 움직일 기준)
+    VrClimbingHand currentHand=null;  //현재 그랩포인트 잡은 손(플레이어가 움직일 기준)
     OVRPlayerController moveScript;  //그냥 이동(중력포함)하는 플레이어의 이동 스크립트
     CharacterController cc;
 
@@ -31,7 +31,7 @@ public class VRClimber : MonoBehaviour
       
     }
 
-    public void SetHand(VrColliderClimbing hand)
+    public void SetHand(VrClimbingHand hand)
     {
         if (currentHand)       //만약 현재 저장된 손이 있으면 
             currentHand = null;  //없애고

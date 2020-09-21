@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VRCliming : MonoBehaviour
+public class VR_ray_Climing : MonoBehaviour
 {
     public OVRInput.Controller controller = OVRInput.Controller.None;
     LayerMask grabPointLayer;
@@ -55,7 +55,7 @@ public class VRCliming : MonoBehaviour
                      return;
                  }*/
 
-                VRPlayerPos.Instance.grab = true;
+                VR_ray_PlayerPos.Instance.grab = true;
                 grabPoint = hit.transform;  //grabPoint 에 위치저장
                
                 grabTime = 8;
@@ -84,7 +84,7 @@ public class VRCliming : MonoBehaviour
             handPoint.position = grabPoint.position;
             handPoint.forward = grabPoint.forward;
             
-            VRPlayerPos.Instance.MoveTargetPoint(playerHandPoint.position);
+            VR_ray_PlayerPos.Instance.MoveTargetPoint(playerHandPoint.position);
 
             //키를 누르면 떨어지기
             if (!(OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger)))
@@ -95,7 +95,7 @@ public class VRCliming : MonoBehaviour
         else
         {
             //제힌시간 지나거나 스페이스바 누르면 켜짐
-            VRPlayerPos.Instance.grab = false;
+            VR_ray_PlayerPos.Instance.grab = false;
         }
     }
 }

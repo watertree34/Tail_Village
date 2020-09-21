@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class VRPlayerPos : MonoBehaviour
+public class VR_ray_PlayerPos : MonoBehaviour
 {
     public Transform leftHand;
     public Transform rightHand;
 
     public bool grab = false;
 
-    public static VRPlayerPos Instance;
+    public static VR_ray_PlayerPos Instance;
     private void Awake()
     {
         if (Instance == null)
