@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class VrUIManager : MonoBehaviour
 {
     public GameObject GameTitleUI;     //게임타이틀UI
-    public Image StartImg;             //시작UI이미지
+    public GameObject InvertedSphere;  //게임스크립트배경
     public Text OpeningTxt;            //오프닝텍스트
     public GameObject Btn_OpeningSkip; //오프닝 스킵 버튼
     public GameObject GamePlayUI;      //게임플레이중UI
@@ -21,16 +21,16 @@ public class VrUIManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameScene1" || SceneManager.GetActiveScene().name == "GameScene1_UI조정씬") //씬이름으로 현재씬 찾기
         {
             GameTitleUI.SetActive(true);
-            StartImg.enabled = true;
-            OpeningTxt.enabled = true;
-            Btn_OpeningSkip.SetActive(true);
+            InvertedSphere.SetActive(false);
+            OpeningTxt.enabled = false;
+            Btn_OpeningSkip.SetActive(false);
             GamePlayUI.SetActive(true);
             GameOverUI.SetActive(false);
         }
         else
         {
             GameTitleUI = null;
-            StartImg = null;
+            InvertedSphere.SetActive(false);
             OpeningTxt = null;
             Btn_OpeningSkip = null;
             GamePlayUI.SetActive(true);
@@ -44,6 +44,9 @@ public class VrUIManager : MonoBehaviour
         if (ButtonManager.Instance.clickStart == true)
         {
             GameTitleUI.SetActive(false);
+            InvertedSphere.SetActive(true);
+            OpeningTxt.enabled = true;
+            Btn_OpeningSkip.SetActive(true);
             //시간 쌓이다가
             curTime += Time.deltaTime;
         }
@@ -51,10 +54,11 @@ public class VrUIManager : MonoBehaviour
         /*--------------------스타트이미지, 텍스트 사라지게 하기--------------------*/
         if (fade > 0.0f && curTime >= 6.0f)
         {
+            InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
             Btn_OpeningSkip.SetActive(false);
             fade -= 0.01f;
-            StartImg.color = new Color(1, 1, 1, fade);
+            //StartImg.color = new Color(1, 1, 1, fade);
             if (fade < 0.0f)
             {
                 fade = 0.0f;
@@ -65,9 +69,9 @@ public class VrUIManager : MonoBehaviour
         /*--------------------스킵버튼으로 스킵하기--------------------*/
         if (ButtonManager.Instance.clickSkip == true)
         {
-            Btn_OpeningSkip.SetActive(false);
+            InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
-            StartImg.enabled = false;
+            Btn_OpeningSkip.SetActive(false);
             ButtonManager.Instance.clickSkip = false;
         }
 
