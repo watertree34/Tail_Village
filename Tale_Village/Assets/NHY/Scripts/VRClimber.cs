@@ -22,10 +22,11 @@ public class VRClimber : MonoBehaviour
         if (currentHand)  // 만약 grab한 손이 있으면
         {
             moveDir = currentHand.beforeAfterDir * 45;  //나중위치=현재 위치+이동할 방향*속도<- (0,0,0)=(0,0,0)+beforAfterDir*45
-            cc.enabled = false;    //손이 움직인 위치로 이동
-            transform.position += moveDir * 20 * Time.deltaTime;
             if (moveDir == new Vector3(0, 0, 0))
                 return;
+            cc.enabled = false;    //손이 움직인 위치로 이동
+            transform.position += moveDir * 20 * Time.deltaTime;
+            
             // transform.up = currentHand.beforeAfterDir;  // 방향 이상하거나 충돌될경우
         }
       
@@ -47,7 +48,7 @@ public class VRClimber : MonoBehaviour
             UIText.Instance.UITEXT = "추락으로 데미지를 입었습니다";
             UIText.Instance.uiText.enabled = true;
         }
-    //    currentHand = null;  //현재 손 초기화
+        currentHand = null;  //현재 손 초기화
         moveScript.enabled = true;  //이동 가능
     }
 }
