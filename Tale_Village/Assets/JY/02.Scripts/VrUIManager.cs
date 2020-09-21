@@ -13,7 +13,7 @@ public class VrUIManager : MonoBehaviour
     public GameObject GamePlayUI;      //게임플레이중UI
     public GameObject GameOverUI;      //게임오버UI
 
-    float curTime = 0.0f;          //현재시간
+    //float curTime = 0.0f;          //현재시간
     float fade = 1.0f;             //페이드인/아웃용 상수
 
     void Start()
@@ -48,11 +48,11 @@ public class VrUIManager : MonoBehaviour
             OpeningTxt.enabled = true;
             Btn_OpeningSkip.SetActive(true);
             //시간 쌓이다가
-            curTime += Time.deltaTime;
+            //curTime += Time.deltaTime;
         }
 
         /*--------------------스타트이미지, 텍스트 사라지게 하기--------------------*/
-        if (fade > 0.0f && curTime >= 6.0f)
+        if (/*fade > 0.0f && curTime >= 6.0f*/GetComponent<TxtFade>().isOpeningEnd == true)
         {
             InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
@@ -62,7 +62,7 @@ public class VrUIManager : MonoBehaviour
             if (fade < 0.0f)
             {
                 fade = 0.0f;
-                curTime = 0;
+                //curTime = 0;
             }
         }
 
