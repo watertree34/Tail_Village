@@ -1809,7 +1809,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2090204955}
         m_MethodName: OnClickStart
         m_Mode: 1
         m_Arguments:
@@ -13782,7 +13782,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2090204955}
         m_MethodName: OnClickExit
         m_Mode: 1
         m_Arguments:
@@ -18847,7 +18847,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2090204955}
         m_MethodName: OnClickExit
         m_Mode: 1
         m_Arguments:
@@ -31218,7 +31218,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2090204955}
         m_MethodName: OnClickSkip
         m_Mode: 1
         m_Arguments:
