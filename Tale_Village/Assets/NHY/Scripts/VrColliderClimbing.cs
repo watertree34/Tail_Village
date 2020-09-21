@@ -6,7 +6,7 @@ public class VrColliderClimbing : MonoBehaviour
 {
     public OVRInput.Controller controller = OVRInput.Controller.None;    // ovr 컨트롤러(무슨 손인지)
     GameObject grabPoint;  //각각 손이 가지고있는 그랩포인트
-    VRClimber climber;     //오르는 사람(플레이어)
+    public VRClimber climber;     //오르는 사람(플레이어)
 
     Vector3 lastPos;   // 손의 직전 위치
     public Vector3 beforeAfterDir;  //손의 직전 위치와 현재 위치의방향(직전위치-현재위치)
@@ -92,6 +92,7 @@ public class VrColliderClimbing : MonoBehaviour
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("GrabPoint"))  // 오브젝트가 그랩포인트 레이어이면
             {
+                print("잡았ㄷㅏ");
                 grabPoint = other.gameObject; //그랩 포인트 저장
             }
         }
