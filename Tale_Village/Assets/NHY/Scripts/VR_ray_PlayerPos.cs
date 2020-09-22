@@ -35,15 +35,17 @@ public class VR_ray_PlayerPos : MonoBehaviour
     }
 
 
-    public void MoveTargetPoint(Vector3 targetPos)
+    private void Update()
     {
         if (currentHand)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * 6);   // 타겟으로 러프이동
-
+            transform.position = Vector3.Lerp(transform.position, currentHand.playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
+            print("이동");
         }
-
     }
+        
+
+    
 
     public void SetHand(VR_ray_Climing hand)
     {

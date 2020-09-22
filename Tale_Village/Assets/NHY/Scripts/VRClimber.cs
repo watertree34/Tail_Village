@@ -24,7 +24,7 @@ public class VRClimber : MonoBehaviour
             moveDir = currentHand.beforeAfterDir * 45;  //나중위치=현재 위치+이동할 방향*속도<- (0,0,0)=(0,0,0)+beforAfterDir*45
             if (moveDir == new Vector3(0, 0, 0))
                 return;
-            cc.enabled = false;    //손이 움직인 위치로 이동
+            //cc.enabled = false;    //손이 움직인 위치로 이동
             transform.position += moveDir * 20 * Time.deltaTime;
             
             // transform.up = currentHand.beforeAfterDir;  // 방향 이상하거나 충돌될경우
