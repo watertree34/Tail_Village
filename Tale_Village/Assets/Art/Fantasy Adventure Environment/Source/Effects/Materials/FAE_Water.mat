@@ -80,7 +80,7 @@ Material:
     - _DstBlend: 0
     - _FlowSpeed: 0.3
     - _Fresnelexponent: 4
-    - _Glossiness: 1
+    - _Glossiness: 0.53
     - _HighlightPanning: 0
     - _Metallic: 0
     - _Mode: 0

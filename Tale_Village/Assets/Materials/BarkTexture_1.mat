@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: BarkTexture_1
   m_Shader: {fileID: 4800000, guid: fdcc1f820770fb24da5893988fbe0a8d, type: 3}
-  m_ShaderKeywords: OUTLINES TCP2_OUTLINE_TEXTURED TCP2_SPEC_TOON TCP2_ZSMOOTH_ON
+  m_ShaderKeywords: OUTLINES TCP2_BUMP TCP2_OUTLINE_TEXTURED TCP2_SPEC_TOON TCP2_ZSMOOTH_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,8 +20,8 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 3bf0b025a8eedc74a8307e7f8f914a15, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
@@ -78,7 +78,7 @@ Material:
     - _RampThreshold: 0.158
     - _Shininess: 0.04
     - _SmoothnessTextureChannel: 0
-    - _SpecSmooth: 0
+    - _SpecSmooth: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _TexLod: 0
