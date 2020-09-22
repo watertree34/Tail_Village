@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class VR_ray_Climing : MonoBehaviour
 {
-    public VR_ray_PlayerPos player;  // 플레이어
-
+    
     public OVRInput.Controller controller = OVRInput.Controller.None;
     LayerMask grabPointLayer;
     LayerMask spiderLayer;
@@ -61,9 +60,9 @@ public class VR_ray_Climing : MonoBehaviour
                
                 grabTime = 8;
                 click = true;
-                player.SetHand(this); // 플레이어 손
+                VR_ray_PlayerPos.Instance.SetHand(this); // 플레이어 손
 
-                print("잡았다!!!!!!!!!!!!!!");
+                print("잡았다!");
             }
 
 
@@ -87,17 +86,17 @@ public class VR_ray_Climing : MonoBehaviour
             handPoint.position = grabPoint.position;
             handPoint.forward = grabPoint.forward;
             
-            VR_ray_PlayerPos.Instance.MoveTargetPoint(playerHandPoint.position);
+          //  VR_ray_PlayerPos.Instance.MoveTargetPoint(playerHandPoint.position);
 
-            //키를 누르면 떨어지기
-            if (!(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
+            //버튼에서 손 떼면 떨어지기
+            if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
             {
                 grabTime = 0;
             }
         }
         else
         {
-            player.ClearHand();  // 플레이어 손 클리어
+            VR_ray_PlayerPos.Instance.ClearHand();  // 플레이어 손 클리어
         }
     }
 }
