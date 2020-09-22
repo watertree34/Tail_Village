@@ -24,7 +24,7 @@ public class VrUIManager : MonoBehaviour
             InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
             Btn_OpeningSkip.SetActive(false);
-            GamePlayUI.SetActive(true);
+            GamePlayUI.SetActive(false);
             GameOverUI.SetActive(false);
         }
         else
@@ -52,11 +52,12 @@ public class VrUIManager : MonoBehaviour
         }
 
         /*--------------------스타트이미지, 텍스트 사라지게 하기--------------------*/
-        if (/*fade > 0.0f && curTime >= 6.0f*/GetComponent<TxtFade>().isOpeningEnd == true)
+        if (GetComponent<TxtFade>().isOpeningEnd == true)
         {
             InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
             Btn_OpeningSkip.SetActive(false);
+            GamePlayUI.SetActive(true);
             fade -= 0.01f;
             //StartImg.color = new Color(1, 1, 1, fade);
             if (fade < 0.0f)
@@ -72,6 +73,7 @@ public class VrUIManager : MonoBehaviour
             InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
             Btn_OpeningSkip.SetActive(false);
+            GamePlayUI.SetActive(true);
             ButtonManager.Instance.clickSkip = false;
         }
 
