@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class VR_ray_Climing : MonoBehaviour
 {
+    public VR_ray_PlayerPos player;  // 플레이어
+
     public OVRInput.Controller controller = OVRInput.Controller.None;
     LayerMask grabPointLayer;
     LayerMask spiderLayer;
@@ -20,7 +22,7 @@ public class VR_ray_Climing : MonoBehaviour
     {
         grabPointLayer = LayerMask.NameToLayer("GrabPoint");
         spiderLayer = LayerMask.NameToLayer("Spider");
-
+        
     }
 
     // Update is called once per frame
@@ -55,11 +57,11 @@ public class VR_ray_Climing : MonoBehaviour
                      return;
                  }*/
 
-                VR_ray_PlayerPos.Instance.grab = true;
                 grabPoint = hit.transform;  //grabPoint 에 위치저장
                
                 grabTime = 8;
                 click = true;
+                player.SetHand(this); // 플레이어 손
 
                 print("잡았다!!!!!!!!!!!!!!");
             }
@@ -75,9 +77,10 @@ public class VR_ray_Climing : MonoBehaviour
         }
         if (click)
         {
+            
             grabTime -= Time.deltaTime;
 
-            UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않으면 손이 떨어집니다. \n 손을 임의로 떨어뜨리고 싶으면 스페이스바를 누르세요";
+            UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않으면 손이 떨어집니다. \n 손을 임의로 떨어뜨리고 싶으면 버튼에서 손을 떼세요";
             UIText.Instance.uiText.enabled = true;
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
             grabMat.material.color = Color.green;
@@ -87,15 +90,14 @@ public class VR_ray_Climing : MonoBehaviour
             VR_ray_PlayerPos.Instance.MoveTargetPoint(playerHandPoint.position);
 
             //키를 누르면 떨어지기
-            if (!(OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger)))
+            if (!(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
             {
                 grabTime = 0;
             }
         }
         else
         {
-            //제힌시간 지나거나 스페이스바 누르면 켜짐
-            VR_ray_PlayerPos.Instance.grab = false;
+            player.ClearHand();  // 플레이어 손 클리어
         }
     }
 }
