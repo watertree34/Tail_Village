@@ -27,7 +27,7 @@ public class VrClimbingHand : MonoBehaviour
     }
     private void Update()
     {
-        if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, controller))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, controller))
             Grab();
         if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger, controller))   //트리거 버튼에서 손을 떼면
             NoGrab();
