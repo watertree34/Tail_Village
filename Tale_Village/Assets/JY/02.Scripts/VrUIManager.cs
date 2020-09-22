@@ -12,9 +12,15 @@ public class VrUIManager : MonoBehaviour
     public GameObject Btn_OpeningSkip; //오프닝 스킵 버튼
     public GameObject GamePlayUI;      //게임플레이중UI
     public GameObject GameOverUI;      //게임오버UI
+    
+    bool isOpeningEnd = false;         //스크립트 엔딩 판별
+    bool isFadeMax = false;            //글자 알파값 판별
+    bool timeToTxtChange = false;      //스크립트 변경
 
-    //float curTime = 0.0f;          //현재시간
-    float fade = 1.0f;             //페이드인/아웃용 상수
+    int txtLineIdx = 0;                //인트로 스크립트 변경용
+
+    float fade = 0.0f;                 //페이드인/아웃용 상수
+    float curTime = 0.0f;              //현재 시간
 
     void Start()
     {
@@ -23,6 +29,7 @@ public class VrUIManager : MonoBehaviour
             GameTitleUI.SetActive(true);
             InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
+            OpeningTxt.color = new Color(OpeningTxt.color.r, OpeningTxt.color.g, OpeningTxt.color.b, 0);
             Btn_OpeningSkip.SetActive(false);
             GamePlayUI.SetActive(false);
             GameOverUI.SetActive(false);
@@ -47,34 +54,43 @@ public class VrUIManager : MonoBehaviour
             InvertedSphere.SetActive(true);
             OpeningTxt.enabled = true;
             Btn_OpeningSkip.SetActive(true);
-            //시간 쌓이다가
-            //curTime += Time.deltaTime;
+            if (isFadeMax == false)
+            {
+                FadeIn(OpeningTxt);
+            }
+            if (isFadeMax == true)
+            {
+                FadeOut(OpeningTxt);
+            }
         }
 
-        /*--------------------스타트이미지, 텍스트 사라지게 하기--------------------*/
-        if (GetComponent<TxtFade>().isOpeningEnd == true)
+        /*--------------------텍스트 변경할 때가 오면 (페이드아웃 함수 안에서 관리)--------------------*/
+        if (timeToTxtChange)
         {
-            InvertedSphere.SetActive(false);
-            OpeningTxt.enabled = false;
-            Btn_OpeningSkip.SetActive(false);
-            GamePlayUI.SetActive(true);
-            fade -= 0.01f;
-            //StartImg.color = new Color(1, 1, 1, fade);
-            if (fade < 0.0f)
+            txtLineIdx += 1;
+            ChangeTxt(txtLineIdx);
+            timeToTxtChange = false;
+            if (txtLineIdx > 4)
             {
-                fade = 0.0f;
-                //curTime = 0;
+                isOpeningEnd = true;
             }
         }
 
         /*--------------------스킵버튼으로 스킵하기--------------------*/
         if (ButtonManager.Instance.clickSkip == true)
         {
+            isOpeningEnd = true;
+            ButtonManager.Instance.clickSkip = false;
+        }
+
+        /*--------------------오프닝 끝나면 스타트이미지, 텍스트 사라지게 하기--------------------*/
+        if (isOpeningEnd == true)
+        {
             InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
             Btn_OpeningSkip.SetActive(false);
             GamePlayUI.SetActive(true);
-            ButtonManager.Instance.clickSkip = false;
+            ButtonManager.Instance.clickStart = false;
         }
 
         /*--------------------라이프 0되면 게임오버창 띄우기--------------------*/
@@ -84,4 +100,74 @@ public class VrUIManager : MonoBehaviour
             GameOverUI.SetActive(true);
         }
     }
+
+    /*--------------------페이드인 함수--------------------*/
+    void FadeIn(Text text)
+    {
+        fade += 0.02f;
+        text.color = new Color(text.color.r, text.color.g, text.color.b, fade);
+        if (fade >= 1.0f)
+        {
+            fade = 1.0f;
+            curTime += Time.deltaTime;
+            print("time " + curTime);
+            if (curTime >= 2.3f)
+            {
+                curTime = 0;
+                isFadeMax = true;
+            }
+        }
+    }
+
+    /*--------------------페이드아웃 함수--------------------*/
+    void FadeOut(Text text)
+    {
+        fade -= 0.02f;
+        text.color = new Color(text.color.r, text.color.g, text.color.b, fade);
+        if (fade <= 0.0f)
+        {
+            fade = 0.0f;
+            curTime += Time.deltaTime;
+            print("time " + curTime);
+            if (curTime >= 0.7f)
+            {
+                curTime = 0;
+                timeToTxtChange = true;
+                isFadeMax = false;
+            }
+        }
+    }
+
+    /*--------------------오프닝 스크립트 바꿔주는 함수--------------------*/
+    void ChangeTxt(int idx)
+    {
+        switch (idx)
+        {
+            default:
+                OpeningTxt.text = "어느날 마을 한구석에 자라난, 거대한 콩나무.";
+                break;
+            case 1:
+                OpeningTxt.text = "길게 뻗은 콩나무는 하늘에 있는 거인의 집까지 닿았고,";
+                break;
+            case 2:
+                OpeningTxt.text = "이를 발견한 거인은 마을에 내려와 난동을 피우다\n황금알을 낳는 거위를 훔쳐가버렸어요.";
+                break;
+            case 3:
+                OpeningTxt.text = "다행히도 다친 사람은 없었지만 소중한 거위를 빼앗겼으니 큰일이에요.";
+                break;
+            case 4:
+                OpeningTxt.text = "자 그럼, 거인이 잠든 틈을 타 거위를 구출하러 가볼까요?";
+                break;
+        }
+    }
 }
+
+/* 어느날 마을 한구석에 자라난, 거대한 콩나무.
+길게 뻗은 콩나무는 하늘에 있는 거인의 집까지 닿았고,
+이를 발견한 거인은 마을에 내려와 난동을 피우다
+황금알을 낳는 거위를 훔쳐가버렸어요.
+
+다행히도 다친 사람은 없었지만 소중한 거위를 빼았겼으니 큰일이에요.
+자 그럼, 거인이 잠든 틈을 타 거위를 구출하러 가볼까요?*/
+
+/*엔딩멘트*/
