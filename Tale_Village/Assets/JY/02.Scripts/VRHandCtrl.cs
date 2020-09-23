@@ -44,7 +44,7 @@ public class VRHandCtrl : MonoBehaviour
             {
 
                 print("버튼 충돌");
-                if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
                 {
                     print("클릭");
                     // 버튼에 등록된 onClick 메소드를 실행한다.
