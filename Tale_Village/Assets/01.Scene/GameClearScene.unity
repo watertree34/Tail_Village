@@ -61462,6 +61462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd69d32ead0ef5499217e6a028e7d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InvertedSphere: {fileID: 1068884304}
+  backGroundImg: {fileID: 636078067270243770}
+  endingTxt: {fileID: 7195515192106853609}
+  Btn_Exit: {fileID: 9178826021033449626}
 --- !u!4 &9114990971048265246
 Transform:
   m_ObjectHideFlags: 0
