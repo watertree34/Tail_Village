@@ -39,18 +39,16 @@ public class VR_ray_PlayerPos : MonoBehaviour
     {
         if (currentHand)
         {
-            transform.position = Vector3.Lerp(transform.position, currentHand.playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
+            transform.position = currentHand.playerHandPoint.position;
+            // transform.position = Vector3.Lerp(transform.position, currentHand.playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
             print("이동");
         }
     }
-        
-
-    
 
     public void SetHand(VR_ray_Climing hand)
     {
-        if (currentHand)       //만약 현재 저장된 손이 있으면 
-            currentHand = null;  //없애고
+        //if (currentHand)
+        //    currentHand = null;
         currentHand = hand;      //새로운 손을 현재 손에 갱신저장
         moveScript.enabled = false;   //이동 스크립트는 끄기
     }
