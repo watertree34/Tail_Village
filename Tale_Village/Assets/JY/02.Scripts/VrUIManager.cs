@@ -24,7 +24,7 @@ public class VrUIManager : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "GameScene1" || SceneManager.GetActiveScene().name == "GameScene1_UI조정씬") //씬이름으로 현재씬 찾기
+        if (SceneManager.GetActiveScene().name == "GameScene1") //씬이름으로 현재씬 찾기
         {
             GameTitleUI.SetActive(true);
             InvertedSphere.SetActive(false);
@@ -169,5 +169,3 @@ public class VrUIManager : MonoBehaviour
 
 다행히도 다친 사람은 없었지만 소중한 거위를 빼았겼으니 큰일이에요.
 자 그럼, 거인이 잠든 틈을 타 거위를 구출하러 가볼까요?*/
-
-/*엔딩멘트*/
