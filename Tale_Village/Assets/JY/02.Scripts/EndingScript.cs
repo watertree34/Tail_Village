@@ -21,8 +21,6 @@ public class EndingScript : MonoBehaviour
 
     void Start()
     {
-        InvertedSphere.SetActive(false);
-        endingTxt.enabled = false;
         InvertedSphere.SetActive(true);
         endingTxt.enabled = true;
         endingTxt.color = new Color(endingTxt.color.r, endingTxt.color.g, endingTxt.color.b, 0);
