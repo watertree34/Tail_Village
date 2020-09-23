@@ -19977,7 +19977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085048c31e9cf0145b3a4ded0307c928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1690215441}
   controller: 1
   handPoint: {fileID: 568634362}
   playerHandPoint: {fileID: 502016725}
@@ -19993,7 +19992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085048c31e9cf0145b3a4ded0307c928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1690215441}
   controller: 2
   handPoint: {fileID: 2127963358}
   playerHandPoint: {fileID: 2127963359}
@@ -21298,7 +21296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1817510787825498967
 Transform:
   m_ObjectHideFlags: 0
