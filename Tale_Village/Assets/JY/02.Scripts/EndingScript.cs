@@ -8,6 +8,7 @@ public class EndingScript : MonoBehaviour
     public GameObject InvertedSphere;  //인버티드 스피어
     public Image backGroundImg;        //배경이미지
     public Text endingTxt;             //오프닝텍스트
+    public Outline txtOutline;         //아웃라인 컴포넌트
     public GameObject Btn_Exit;        //종료 버튼
 
     bool isEndingEnd = false;         //스크립트 엔딩 판별
@@ -17,6 +18,7 @@ public class EndingScript : MonoBehaviour
     int txtLineIdx = 0;                //인트로 스크립트 변경용
 
     float fade = 0.0f;                 //페이드인/아웃용 상수
+    float olFade = 0.0f;               //아웃라인 페이드인/아웃용 상수
     float curTime = 0.0f;              //현재 시간
 
     void Start()
@@ -25,6 +27,7 @@ public class EndingScript : MonoBehaviour
         backGroundImg.enabled = false;
         endingTxt.enabled = true;
         endingTxt.color = new Color(endingTxt.color.r, endingTxt.color.g, endingTxt.color.b, 0);
+        txtOutline.effectColor = new Color(txtOutline.effectColor.r, txtOutline.effectColor.g, txtOutline.effectColor.b, 0f);
         Btn_Exit.SetActive(false);
     }
 
@@ -33,11 +36,11 @@ public class EndingScript : MonoBehaviour
         /*--------------------페이드 인 / 아웃--------------------*/
         if (isFadeMax == false)
         {
-            FadeIn(endingTxt);
+            FadeIn(endingTxt, txtOutline);
         }
         if (isFadeMax == true)
         {
-            FadeOut(endingTxt);
+            FadeOut(endingTxt, txtOutline);
         }
 
         /*--------------------텍스트 변경할 때가 오면 (페이드아웃 함수 안에서 관리)--------------------*/
@@ -61,13 +64,16 @@ public class EndingScript : MonoBehaviour
     }
 
     /*--------------------페이드인 함수--------------------*/
-    void FadeIn(Text text)
+    void FadeIn(Text text, Outline outL)
     {
         fade += 0.02f;
+        olFade += 0.01f;
         text.color = new Color(text.color.r, text.color.g, text.color.b, fade);
+        outL.effectColor = new Color(outL.effectColor.r, outL.effectColor.g, outL.effectColor.b, olFade);
         if (fade >= 1.0f)
         {
             fade = 1.0f;
+            olFade = 0.5f;
             curTime += Time.deltaTime;
             if (curTime >= 2.3f)
             {
@@ -78,15 +84,18 @@ public class EndingScript : MonoBehaviour
     }
 
     /*--------------------페이드아웃 함수--------------------*/
-    void FadeOut(Text text)
+    void FadeOut(Text text, Outline outL)
     {
         fade -= 0.02f;
+        olFade -= 0.01f;
         text.color = new Color(text.color.r, text.color.g, text.color.b, fade);
+        outL.effectColor = new Color(outL.effectColor.r, outL.effectColor.g, outL.effectColor.b, olFade);
         if (fade <= 0.0f)
         {
             fade = 0.0f;
+            olFade = 0.0f;
             curTime += Time.deltaTime;
-            if (curTime >= 0.7f)
+            if (curTime >= 0.6f)
             {
                 curTime = 0;
                 timeToTxtChange = true;

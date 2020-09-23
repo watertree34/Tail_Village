@@ -127,7 +127,7 @@ public class VrUIManager : MonoBehaviour
         {
             fade = 0.0f;
             curTime += Time.deltaTime;
-            if (curTime >= 0.7f)
+            if (curTime >= 0.6f)
             {
                 curTime = 0;
                 timeToTxtChange = true;
