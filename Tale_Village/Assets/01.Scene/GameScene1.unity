@@ -12920,7 +12920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03838c8cf810ec84f884b76c688b11a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiText: {fileID: 0}
+  uiText: {fileID: 7946573937679036456}
   text: 
 --- !u!4 &1647780938
 Transform:
