@@ -23,26 +23,22 @@ public class EndingScript : MonoBehaviour
     {
         InvertedSphere.SetActive(false);
         endingTxt.enabled = false;
+        InvertedSphere.SetActive(true);
+        endingTxt.enabled = true;
         endingTxt.color = new Color(endingTxt.color.r, endingTxt.color.g, endingTxt.color.b, 0);
         Btn_Exit.SetActive(false);
     }
 
     void Update()
     {
-        /*--------------------스타트 버튼 누르면--------------------*/
-        if (ButtonManager.Instance.clickStart == true)
+        /*--------------------페이드 인 / 아웃--------------------*/
+        if (isFadeMax == false)
         {
-            InvertedSphere.SetActive(true);
-            endingTxt.enabled = true;
-            Btn_Exit.SetActive(true);
-            if (isFadeMax == false)
-            {
-                FadeIn(endingTxt);
-            }
-            if (isFadeMax == true)
-            {
-                FadeOut(endingTxt);
-            }
+            FadeIn(endingTxt);
+        }
+        if (isFadeMax == true)
+        {
+            FadeOut(endingTxt);
         }
 
         /*--------------------텍스트 변경할 때가 오면 (페이드아웃 함수 안에서 관리)--------------------*/

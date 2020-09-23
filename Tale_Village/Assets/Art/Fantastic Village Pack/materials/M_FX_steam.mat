@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_FX_steam
-  m_Shader: {fileID: 4800000, guid: 9ec7ccbd4289d0543939f61121224d93, type: 3}
-  m_ShaderKeywords: TCP2_SPEC _ALPHAPREMULTIPLY_ON _RECEIVE_SHADOWS_OFF
-  m_LightmapFlags: 4
+  m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: TCP2_SPEC _RECEIVE_SHADOWS_OFF
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -67,13 +67,16 @@ Material:
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
     - _DistortionStrengthScaled: 0.1
-    - _DstBlend: 10
+    - _DstBlend: 0
+    - _EmissionEnabled: 0
     - _EnvironmentReflections: 0
     - _FlipbookBlending: 0
     - _FlipbookMode: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _InvFade: 1
+    - _LightingEnabled: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -93,7 +96,7 @@ Material:
     - _SrcBlend: 1
     - _Surface: 1
     - _WorkflowMode: 1
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
@@ -104,6 +107,7 @@ Material:
     - _SColor: {r: 0.195, g: 0.195, b: 0.195, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
 --- !u!114 &7173180921772886255
 MonoBehaviour:
   m_ObjectHideFlags: 11
