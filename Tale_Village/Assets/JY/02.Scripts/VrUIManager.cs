@@ -110,7 +110,6 @@ public class VrUIManager : MonoBehaviour
         {
             fade = 1.0f;
             curTime += Time.deltaTime;
-            print("time " + curTime);
             if (curTime >= 2.3f)
             {
                 curTime = 0;
@@ -128,7 +127,6 @@ public class VrUIManager : MonoBehaviour
         {
             fade = 0.0f;
             curTime += Time.deltaTime;
-            print("time " + curTime);
             if (curTime >= 0.7f)
             {
                 curTime = 0;
