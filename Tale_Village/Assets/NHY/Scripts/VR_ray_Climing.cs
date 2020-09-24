@@ -43,13 +43,13 @@ public class VR_ray_Climing : MonoBehaviour
         //pc용 클라이밍
         if (Physics.SphereCast(ray, 1f, out hit, 5f, 1 << grabPointLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
         {
-            print("111111111111111111111");
+
             //파란색으로 색을 바꾸고
             grabMat = hit.transform.gameObject.GetComponent<Renderer>();
             grabMat.material.color = Color.blue;
 
             //그립   버튼을 누르면
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))  // vr
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)|| OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))  // vr
             {
                 /* if(VRPlayerPos.Instance.grab)
                  {
@@ -60,7 +60,8 @@ public class VR_ray_Climing : MonoBehaviour
                
                 grabTime = 8;
                 click = true;
-                VR_ray_PlayerPos.Instance.SetHand(this); // 플레이어 손
+                //  VR_ray_PlayerPos.Instance.SetHand(this); // 플레이어 손
+                
 
                 print("잡았다!");
             }
@@ -85,8 +86,8 @@ public class VR_ray_Climing : MonoBehaviour
             grabMat.material.color = Color.green;
             handPoint.position = grabPoint.position;
             handPoint.forward = grabPoint.forward;
-            
-          //  VR_ray_PlayerPos.Instance.MoveTargetPoint(playerHandPoint.position);
+            VR_ray_PlayerPos.Instance.SetHand(this);
+
 
             //버튼에서 손 떼면 떨어지기
             if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
@@ -96,7 +97,8 @@ public class VR_ray_Climing : MonoBehaviour
         }
         else
         {
-            VR_ray_PlayerPos.Instance.ClearHand();  // 플레이어 손 클리어
+            //VR_ray_PlayerPos.Instance.ClearHand();  // 플레이어 손 클리어
+            VR_ray_PlayerPos.Instance.ClearHand();
         }
     }
 }

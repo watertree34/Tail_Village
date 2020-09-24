@@ -1,6 +1,7 @@
 ﻿
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -10,10 +11,12 @@ public class VR_ray_PlayerPos : MonoBehaviour
 
     public Transform leftHand;
     public Transform rightHand;
-
-    //public bool grab = false;
+    CharacterController cc;
+    
+   
 
     public static VR_ray_PlayerPos Instance;
+    
     private void Awake()
     {
         if (Instance == null)
@@ -32,25 +35,32 @@ public class VR_ray_PlayerPos : MonoBehaviour
     {
         moveScript = GetComponent<OVRPlayerController>();
         moveScript.enabled = true;
+        cc = GetComponent<CharacterController>();
     }
 
 
-    private void Update()
+   
+
+    void MovePosition()
     {
-        if (currentHand)
+        if (currentHand != null)
         {
-            transform.position = currentHand.playerHandPoint.position;
-            // transform.position = Vector3.Lerp(transform.position, currentHand.playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
+            transform.position = Vector3.Lerp(transform.position, currentHand.playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
+
             print("이동");
         }
+        else
+            print("currentHand가 없습니다...");
     }
-
     public void SetHand(VR_ray_Climing hand)
     {
-        //if (currentHand)
-        //    currentHand = null;
+        if (currentHand)
+            currentHand = null;
         currentHand = hand;      //새로운 손을 현재 손에 갱신저장
         moveScript.enabled = false;   //이동 스크립트는 끄기
+        cc.enabled = false;  // 캐릭터 콜라이더도 끄기
+        print("저장 ");
+        MovePosition();
     }
 
     public void ClearHand()  //그립버튼에서 손을 떼거나 제한시간이 지나면
@@ -58,5 +68,6 @@ public class VR_ray_PlayerPos : MonoBehaviour
 
         currentHand = null;  //현재 손 초기화
         moveScript.enabled = true;  //이동 가능
+        cc.enabled = true;
     }
 }
