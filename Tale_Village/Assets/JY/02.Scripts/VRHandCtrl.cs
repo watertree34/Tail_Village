@@ -12,31 +12,31 @@ public class VRHandCtrl : MonoBehaviour
 
     void Start()
     {
-        layser = gameObject.AddComponent<LineRenderer>();
+        layser = gameObject.GetComponent<LineRenderer>();
         // 라인이 가지개될 색상 표현
         //layser.startColor=Color.white;
-        Material material = new Material(Shader.Find("Standard"));
-        material.color = new Color(1, 1, 1, 1f);
-        layser.material = material;
+        //Material material = new Material(Shader.Find("Standard"));
+        //material.color = new Color(1, 1, 1, 1f);
+        //layser.material = material;
         // 레이저의 꼭지점 2개
         layser.positionCount = 2;
         // 레이저 굵기 표현
-        layser.startWidth = 0.05f;
-        layser.endWidth = 0.05f;
+        layser.startWidth = 0.02f;
+        layser.endWidth = 0.02f;
     }
 
     void Update()
     {
         layser.SetPosition(0, transform.position);
         //layser.SetPosition(0, ARAVRInput.RHandPosition); // 첫번째 시작점 위치
-                                                   // 업데이트에 넣어 줌으로써, 플레이어가 이동하면 이동을 따라가게 된다.
+        // 업데이트에 넣어 줌으로써, 플레이어가 이동하면 이동을 따라가게 된다.
 
         //선 만들기(충돌 감지를 위한)
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hitInfo;
 
         // 충돌 감지 시
-        if (Physics.Raycast(ray, out hitInfo, 5))
+        if (Physics.Raycast(ray, out hitInfo, 100))
         {
             layser.SetPosition(1, hitInfo.point);
 
