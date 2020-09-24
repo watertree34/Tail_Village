@@ -284,7 +284,7 @@ public class RaycastFind : MonoBehaviour
 
 
         ////////////////치즈//////////////////
-        if (Physics.SphereCast(ray, 1f, out hit, 0.5f, 1 << cheeseLayer)) //만약 치즈가 레이에 검출되면
+        if (Physics.SphereCast(ray, 5f, out hit,3f, 1 << cheeseLayer)) //만약 치즈가 레이에 검출되면
         {
             UIText.Instance.UITEXT = "치즈를 주우려면 A를 누르세요";
             UIText.Instance.uiText.enabled = true;
