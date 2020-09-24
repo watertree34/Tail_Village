@@ -15669,7 +15669,7 @@ PrefabInstance:
     - target: {fileID: 725685703720655511, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 784296576539306645, guid: 3198e93edb7d7b14b9ef6a17acb93730,
         type: 3}
@@ -26964,7 +26964,7 @@ RectTransform:
   m_GameObject: {fileID: 9079452695386669721}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.00625, y: 0.003125, z: 1}
+  m_LocalScale: {x: 0.00625, y: 0.00625, z: 1}
   m_Children:
   - {fileID: 8820846690549138877}
   - {fileID: 8137553324952299188}
@@ -61466,8 +61466,8 @@ MonoBehaviour:
   InvertedSphere: {fileID: 1068884304}
   backGroundImg: {fileID: 636078067270243770}
   endingTxt: {fileID: 7195515192106853609}
-  Btn_Exit: {fileID: 9178826021033449626}
   txtOutline: {fileID: 8785373120070686628}
+  Btn_Exit: {fileID: 9178826021033449626}
 --- !u!4 &9114990971048265246
 Transform:
   m_ObjectHideFlags: 0

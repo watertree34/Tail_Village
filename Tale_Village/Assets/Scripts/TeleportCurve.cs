@@ -45,10 +45,10 @@ public class TeleportCurve : MonoBehaviour
         }
     }
 
-    
+
     void Update()
     {
-        
+
         // 왼쪽 컨트롤러의 One 버튼을 누르면
         if (ARAVRInput.GetDown(ARAVRInput.Button.One, ARAVRInput.Controller.LTouch))
         {
@@ -129,7 +129,7 @@ public class TeleportCurve : MonoBehaviour
         Vector3 rayDir = pos - lastPos;
         Ray ray = new Ray(lastPos, rayDir);
         RaycastHit hitInfo;
-        
+
         // Raycast 할때 Ray 의 크기를 앞점과 다음점 사이의 거리로 한정한다.
         if (Physics.Raycast(ray, out hitInfo, rayDir.magnitude))
         {
@@ -155,7 +155,7 @@ public class TeleportCurve : MonoBehaviour
         return false;
     }
 
-    
+
     private void OnDrawGizmos()
     {
         //MakeLines();
@@ -165,5 +165,5 @@ public class TeleportCurve : MonoBehaviour
         //    Gizmos.DrawSphere(pos, 0.5f);
         //}
     }
-    
+
 }
