@@ -27,11 +27,12 @@ public class VRHandCtrl : MonoBehaviour
 
     void Update()
     {
-        layser.SetPosition(0, ARAVRInput.RHandPosition); // 첫번째 시작점 위치
+        layser.SetPosition(0, transform.position);
+        //layser.SetPosition(0, ARAVRInput.RHandPosition); // 첫번째 시작점 위치
                                                    // 업데이트에 넣어 줌으로써, 플레이어가 이동하면 이동을 따라가게 된다.
 
         //선 만들기(충돌 감지를 위한)
-        Ray ray = new Ray(ARAVRInput.RHandPosition, ARAVRInput.RHandDirection);
+        Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hitInfo;
 
         // 충돌 감지 시
@@ -42,7 +43,6 @@ public class VRHandCtrl : MonoBehaviour
             // 충돌 객체의 태그가 Button인 경우
             if (hitInfo.collider.gameObject.CompareTag("Button"))
             {
-
                 print("버튼 충돌");
                 if (ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.LTouch) || ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.RTouch))
                 {
@@ -54,7 +54,6 @@ public class VRHandCtrl : MonoBehaviour
                         click = true;
                     }
                 }
-
                 else
                 {
                     hitInfo.transform.gameObject.GetComponent<Button>().OnPointerEnter(null);
