@@ -66,6 +66,8 @@ public class TeleportCurve : MonoBehaviour
                 GetComponent<CharacterController>().enabled = false;
                 // 텔레포트 UI 위치로 순간이동
                 transform.position = teleportCircleUI.position + Vector3.up;
+                //** transform.position = Vector3.Lerp(transform.position, (teleportCircleUI.position + Vector3.up),Time.deltaTime*6);
+                //** LifeManager.Instance.LIFE -= 10;
                 GetComponent<CharacterController>().enabled = true;
             }
             // 텔레포트 UI 비활성화

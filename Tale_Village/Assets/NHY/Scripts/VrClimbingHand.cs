@@ -31,26 +31,26 @@ public class VrClimbingHand : MonoBehaviour
             Grab();
         if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger, controller))   //트리거 버튼에서 손을 떼면
             NoGrab();
-        
-        //if (grabPoint)  //업데이트에서는 그랩포인트가 있으면 그랩함수를 실행함
-        //{
-        //    UIText.Instance.UITEXT = "그립 버튼(중지 손가락)을 누르며 물체를 잡으세요";
-        //    UIText.Instance.uiText.enabled = true;
-        //    if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, controller))  // 트리거 버튼을 누르고있으면
-        //    {
-        //        Grab();
-        //        UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않거나 그립버튼에서 손가락을 떼면 손이 물체에서 떨어집니다";
-        //        UIText.Instance.uiText.enabled = true;
-        //        grabTime -= Time.deltaTime;
-        //        if (grabTime <= 0)
-        //            NoGrab();
-        //    }
-        //    if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger, controller))   //트리거 버튼에서 손을 떼면
-        //    {
-        //        NoGrab();
-        //    }
 
-        //}
+        if (grabPoint)  //업데이트에서는 그랩포인트가 있으면 그랩함수를 실행함
+        {
+            UIText.Instance.UITEXT = "그립 버튼(중지 손가락)을 누르며 물체를 잡으세요";
+            UIText.Instance.uiText.enabled = true;
+            if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, controller))  // 트리거 버튼을 누르고있으면
+            {
+                Grab();
+                UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않거나 그립버튼에서 손가락을 떼면 손이 물체에서 떨어집니다";
+                UIText.Instance.uiText.enabled = true;
+                grabTime -= Time.deltaTime;
+                if (grabTime <= 0)
+                    NoGrab();
+            }
+            if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger, controller))   //트리거 버튼에서 손을 떼면
+            {
+                NoGrab();
+            }
+
+        }
 
 
     }
