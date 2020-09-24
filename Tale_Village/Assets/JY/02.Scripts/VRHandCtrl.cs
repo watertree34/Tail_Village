@@ -42,7 +42,6 @@ public class VRHandCtrl : MonoBehaviour
             // 충돌 객체의 태그가 Button인 경우
             if (hitInfo.collider.gameObject.CompareTag("Button"))
             {
-
                 print("버튼 충돌");
                 if (ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.LTouch) || ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger, ARAVRInput.Controller.RTouch))
                 {
@@ -54,7 +53,6 @@ public class VRHandCtrl : MonoBehaviour
                         click = true;
                     }
                 }
-
                 else
                 {
                     hitInfo.transform.gameObject.GetComponent<Button>().OnPointerEnter(null);
