@@ -45,7 +45,10 @@ public class TeleportCurve : MonoBehaviour
         }
     }
 
-
+    public bool isWarp = false;
+    // 워프에 걸리는 시간
+    public float warpTime = 0.1f;
+    float currentTime;
     void Update()
     {
 
@@ -63,13 +66,23 @@ public class TeleportCurve : MonoBehaviour
             // 텔레포트 UI 가 활성화 되어 있을 때
             if (teleportCircleUI.gameObject.activeSelf)
             {
-                GetComponent<CharacterController>().enabled = false;
-                // 텔레포트 UI 위치로 순간이동
-                transform.position = teleportCircleUI.position + Vector3.up;
-                GetComponent<CharacterController>().enabled = true;
+                if (isWarp == false)
+                {
+                    GetComponent<CharacterController>().enabled = false;
+                    // 텔레포트 UI 위치로 순간이동
+                    transform.position = teleportCircleUI.position + Vector3.up;
+                    //** transform.position = Vector3.Lerp(transform.position, (teleportCircleUI.position + Vector3.up),Time.deltaTime*6);
+                    //** LifeManager.Instance.LIFE -= 10;
+                    GetComponent<CharacterController>().enabled = true;
+                    // 텔레포트 UI 비활성화
+                    teleportCircleUI.gameObject.SetActive(false);
+                }
+                else
+                {
+                    StartCoroutine(Warp());
+                }
             }
-            // 텔레포트 UI 비활성화
-            teleportCircleUI.gameObject.SetActive(false);
+           
         }
         // 왼쪽 컨트롤러의 One 버튼을 누르고 있을때
         else if (ARAVRInput.Get(ARAVRInput.Button.One, ARAVRInput.Controller.LTouch))
@@ -78,6 +91,33 @@ public class TeleportCurve : MonoBehaviour
             MakeLines();
         }
     }
+
+    IEnumerator Warp()
+    {
+
+        currentTime = 0;
+        GetComponent<CharacterController>().enabled = false;
+        // 텔레포트 UI 위치로 순간이동
+        Vector3 targetPos = teleportCircleUI.position + Vector3.up;
+        Vector3 startPos = transform.position;
+
+        
+        while (currentTime < warpTime)
+        {
+            currentTime += Time.deltaTime;
+            print("currentTime / warpTime : " + (currentTime / warpTime));
+            transform.position = Vector3.Lerp(targetPos, startPos, currentTime / warpTime);
+
+            yield return null;
+        
+        }  
+        transform.position = startPos;
+        //** LifeManager.Instance.LIFE -= 10;
+        GetComponent<CharacterController>().enabled = true;
+        // 텔레포트 UI 비활성화
+        teleportCircleUI.gameObject.SetActive(false);
+    }
+
     // 라인렌더러를 이용한 점을 만들고 선을 그린다.
     void MakeLines()
     {

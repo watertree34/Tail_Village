@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class Mouse : MonoBehaviour
@@ -26,8 +27,10 @@ public class Mouse : MonoBehaviour
 
             if(cheeseDir.magnitude<=2)
             {
-                cc.Move(cheeseDir*0*Time.deltaTime);
+                playerRay.mouseGo = false;
+
             }
+
         }
     }
 
