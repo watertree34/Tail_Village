@@ -71,8 +71,8 @@ public class RaycastFind : MonoBehaviour
         grabPointLayer = LayerMask.NameToLayer("GrabPoint");
         spiderLayer = LayerMask.NameToLayer("Spider");
 
-        moveScript = gameObject.GetComponent<pcPlayerMove>();
-        moveScript.enabled = true;
+        //moveScript = gameObject.GetComponent<pcPlayerMove>();
+        //moveScript.enabled = true;
     }
 
     // Update is called once per frame

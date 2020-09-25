@@ -264,7 +264,6 @@ GameObject:
   - component: {fileID: 7850477759156893810}
   - component: {fileID: 2840461071428990312}
   - component: {fileID: 2840461071428990318}
-  - component: {fileID: 2840461071428990319}
   - component: {fileID: 2840461071428990325}
   - component: {fileID: 2840461071428990326}
   m_Layer: 0
@@ -319,21 +318,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2840461071428990319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123182053136077964}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c320f27e0228bdb4ebae928da885b88d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: 2
-  climber: {fileID: 7239801892191526132}
-  beforeAfterDir: {x: 0, y: 0, z: 0}
 --- !u!114 &2840461071428990325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +333,7 @@ MonoBehaviour:
   controller: 2
   handPoint: {fileID: 0}
   playerHandPoint: {fileID: 0}
+  beforeAfterDir: {x: 0, y: 0, z: 0}
 --- !u!114 &2840461071428990326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271eecd21f726b44dab685cff3026b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: 0
   raycastDistance: 100
 --- !u!1 &1380975670672851324
 GameObject:
@@ -1286,7 +1272,6 @@ GameObject:
   - component: {fileID: 1223841070699049822}
   - component: {fileID: 7448724779950823178}
   - component: {fileID: 2669828179497333609}
-  - component: {fileID: 7239801892191526132}
   - component: {fileID: 3464183334129099379}
   - component: {fileID: 3276789871728979964}
   - component: {fileID: 3276789871728979965}
@@ -1576,18 +1561,6 @@ MonoBehaviour:
   fadeInTexture: {fileID: 0}
   speedRotationIncrement: 0.05
   layerName: Default
---- !u!114 &7239801892191526132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3276789871728979947}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46d3c2c789402be44ab7a4f5d5691f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3464183334129099379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1605,6 +1578,8 @@ MonoBehaviour:
   curveLength: 50
   gravity: -60
   simulateTime: 0.02
+  isWarp: 0
+  warpTime: 0.1
 --- !u!114 &3276789871728979964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2745,7 +2720,6 @@ GameObject:
   - component: {fileID: 6294108237511943804}
   - component: {fileID: 7351664416677472588}
   - component: {fileID: 4828173516690706354}
-  - component: {fileID: 1632057874762130623}
   m_Layer: 5
   m_Name: Vr_Canvas
   m_TagString: Untagged
@@ -2836,19 +2810,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1632057874762130623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6015064286865525117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c91cb9e4d913b004bb86ff983e75eeee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InventoryUI: {fileID: 8873408554255008699}
 --- !u!1 &6108603319889772858
 GameObject:
   m_ObjectHideFlags: 0
@@ -3284,7 +3245,6 @@ GameObject:
   - component: {fileID: 2840461071428990313}
   - component: {fileID: 2840461071428990324}
   - component: {fileID: 2840461071428990327}
-  - component: {fileID: 2840461071428990321}
   m_Layer: 0
   m_Name: LeftHandAnchor
   m_TagString: Untagged
@@ -3351,6 +3311,7 @@ MonoBehaviour:
   controller: 1
   handPoint: {fileID: 0}
   playerHandPoint: {fileID: 0}
+  beforeAfterDir: {x: 0, y: 0, z: 0}
 --- !u!114 &2840461071428990327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3363,22 +3324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271eecd21f726b44dab685cff3026b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: 0
   raycastDistance: 100
---- !u!114 &2840461071428990321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8651583485095826095}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c320f27e0228bdb4ebae928da885b88d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: 1
-  climber: {fileID: 7239801892191526132}
-  beforeAfterDir: {x: 0, y: 0, z: 0}
 --- !u!1 &8873408554255008699
 GameObject:
   m_ObjectHideFlags: 0
