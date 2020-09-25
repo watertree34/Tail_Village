@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class VRHandCtrl : MonoBehaviour
 {
-    //public OVRInput.Controller controller = OVRInput.Controller.None;
+    public OVRInput.Controller controller = OVRInput.Controller.None;
     LineRenderer layser;
     GameObject currentObject;
     public float raycastDistance = 100f;
@@ -15,7 +15,7 @@ public class VRHandCtrl : MonoBehaviour
     {
         layser = gameObject.GetComponent<LineRenderer>();
         // 레이저의 꼭지점 2개
-        layser.positionCount = 2;
+       // layser.positionCount = 2;
         // 레이저 굵기 표현
         layser.startWidth = 0.02f;
         layser.endWidth = 0.02f;

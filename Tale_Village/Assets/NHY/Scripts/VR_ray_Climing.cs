@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VR_ray_Climing : MonoBehaviour
 {
-    
+
     public OVRInput.Controller controller = OVRInput.Controller.None;
     LayerMask grabPointLayer;
     LayerMask spiderLayer;
@@ -17,27 +17,18 @@ public class VR_ray_Climing : MonoBehaviour
 
     float grabTime = 8;  // 잡고있는 최대시간
 
-    //** Vector3 lastPos;   // 손의 직전 위치
-    //**public Vector3 beforeAfterDir;
-    // Start is called before the first frame update
+    
+
+    public Vector3 beforeAfterDir;
+
     void Start()
     {
         grabPointLayer = LayerMask.NameToLayer("GrabPoint");
         spiderLayer = LayerMask.NameToLayer("Spider");
-        
+ 
     }
-    //**private void FixedUpdate()
-    //{
-    //    lastPos = transform.position;   //손의 위치 판정을 위해 FixedUpdate에서 매 프레임 lastPos에 손 위치를 저장한다
-    //}
-    //**private void LateUpdate()
-    //{
-    //    beforeAfterDir = lastPos - transform.position;   //update작업을 끝낸 lateupdate에서 lastPos에 저장된 손 위치와 현재 손 위치를 비교한다
-    //                                                     //-손의 이동방향과 반대방향인(몸이 위로 올라가려면 손을 아래로 내리므로) 직전위치-나중위치를 한다
-    //                                                     //-이것은 vrclimber에서 사용된다
-    //}
 
-    // Update is called once per frame
+
     void Update()
     {
 
@@ -62,15 +53,12 @@ public class VR_ray_Climing : MonoBehaviour
             grabMat.material.color = Color.blue;
 
             //그립   버튼을 누르면
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)|| OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))  // vr
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))  // vr
             {
-                
 
                 grabPoint = hit.transform;  //grabPoint 에 위치저장
-               
                 grabTime = 8;
                 click = true;
-               
 
                 print("잡았다!");
             }
@@ -86,7 +74,7 @@ public class VR_ray_Climing : MonoBehaviour
         }
         if (click)
         {
-            
+
             grabTime -= Time.deltaTime;
 
             UIText.Instance.UITEXT = (int)(grabTime) + "초 안에 다른것을 잡지 않으면 손이 떨어집니다. \n 손을 임의로 떨어뜨리고 싶으면 버튼에서 손을 떼세요";
@@ -96,10 +84,13 @@ public class VR_ray_Climing : MonoBehaviour
             handPoint.position = grabPoint.position;
             handPoint.forward = grabPoint.forward;
             VR_ray_PlayerPos.Instance.SetHand(this);
+           
+
+
 
 
             //* 버튼에서 두 손 다 떼면 떨어지기 *
-            if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger)&& OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
+            if (!(OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) || OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)))
             {
                 grabTime = 0;
             }
