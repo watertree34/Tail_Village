@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_metal_01
-  m_Shader: {fileID: 4800000, guid: 9ec7ccbd4289d0543939f61121224d93, type: 3}
-  m_ShaderKeywords: TCP2_OUTLINE_TEXTURED TCP2_SPEC_TOON
+  m_Shader: {fileID: 4800000, guid: d6a8acbf22ad87b468b8f2b8aa8ec97e, type: 3}
+  m_ShaderKeywords: OUTLINE_BLENDING TCP2_SPEC_TOON TCP2_ZSMOOTH_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -75,6 +75,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _DstBlendOutline: 10
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0.378
     - _Glossiness: 0
@@ -84,7 +85,7 @@ Material:
     - _OcclusionStrength: 1
     - _Offset1: 0
     - _Offset2: 0
-    - _Outline: 1
+    - _Outline: 0.06
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _RampSmooth: 0.394
@@ -96,6 +97,7 @@ Material:
     - _SpecSmooth: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _SrcBlendOutline: 5
     - _Surface: 0
     - _TexLod: 5
     - _UVSec: 0
@@ -107,7 +109,7 @@ Material:
     - _Color: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _SColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
 --- !u!114 &4665834042333633126

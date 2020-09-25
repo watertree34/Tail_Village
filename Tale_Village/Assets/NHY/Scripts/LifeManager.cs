@@ -26,8 +26,10 @@ public class LifeManager : MonoBehaviour
         }
     }
 
-    public Text lifeUI;
+    //public Text lifeUI;
+    public Slider lifeUI;
     static float playerLife = 40;
+
 
     public float LIFE
     {
@@ -36,19 +38,17 @@ public class LifeManager : MonoBehaviour
         {
             playerLife = value;
             playerLife = Mathf.Clamp(playerLife, 0, 100);   // life는 0~100까지
-            if (playerLife == 0)
-            {
-                lifeUI.text = "Game Over";
-            }  
-            else
-            {
-                lifeUI.text = "Life : " + (int)(playerLife);
-            } 
+
+
+            lifeUI.value = (playerLife);
+
         }
     }
 
     private void Start()
     {
+        lifeUI.maxValue = 100;
+        lifeUI.minValue = 0;
         LIFE = playerLife;
     }
 

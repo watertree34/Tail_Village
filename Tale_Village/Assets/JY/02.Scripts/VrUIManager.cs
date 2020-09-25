@@ -11,6 +11,7 @@ public class VrUIManager : MonoBehaviour
     public Text OpeningTxt;            //오프닝텍스트
     public GameObject Btn_OpeningSkip; //오프닝 스킵 버튼
     public GameObject GamePlayUI;      //게임플레이중UI
+    public GameObject lifeGage;        //라이프게이지
     public GameObject GameOverUI;      //게임오버UI
     
     bool isOpeningEnd = false;         //스크립트 엔딩 판별
@@ -32,6 +33,7 @@ public class VrUIManager : MonoBehaviour
             OpeningTxt.color = new Color(OpeningTxt.color.r, OpeningTxt.color.g, OpeningTxt.color.b, 0);
             Btn_OpeningSkip.SetActive(false);
             GamePlayUI.SetActive(false);
+            lifeGage.SetActive(false);
             GameOverUI.SetActive(false);
         }
         else
@@ -41,6 +43,7 @@ public class VrUIManager : MonoBehaviour
             OpeningTxt = null;
             Btn_OpeningSkip = null;
             GamePlayUI.SetActive(true);
+            lifeGage.SetActive(true);
             GameOverUI.SetActive(false);
         }
     }
@@ -90,6 +93,7 @@ public class VrUIManager : MonoBehaviour
             OpeningTxt.enabled = false;
             Btn_OpeningSkip.SetActive(false);
             GamePlayUI.SetActive(true);
+            lifeGage.SetActive(true);
             ButtonManager.Instance.clickStart = false;
         }
 
