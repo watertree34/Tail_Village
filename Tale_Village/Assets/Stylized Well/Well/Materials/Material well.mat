@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Material well
-  m_Shader: {fileID: 4800000, guid: 9ec7ccbd4289d0543939f61121224d93, type: 3}
-  m_ShaderKeywords: TCP2_SPEC_TOON _NORMALMAP
+  m_Shader: {fileID: 4800000, guid: 6782973e3ca8b2543beddb0a3dc3175e, type: 3}
+  m_ShaderKeywords: _NORMALMAP
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -74,7 +74,7 @@ Material:
     - _Parallax: 0.02
     - _RampSmooth: 0.043
     - _RampThreshold: 0.426
-    - _Shininess: 0.33
+    - _Shininess: 1.31
     - _SmoothnessTextureChannel: 0
     - _SpecSmooth: 0.577
     - _SpecularHighlights: 1

@@ -142,16 +142,16 @@ public class VrUIManager : MonoBehaviour
         switch (idx)
         {
             default:
-                OpeningTxt.text = "어느날 마을 한구석에 자라난, 거대한 콩나무.";
+                OpeningTxt.text = "어느날 마을 한구석에 자라난\n거대한 콩나무.";
                 break;
             case 1:
-                OpeningTxt.text = "길게 뻗은 콩나무는 하늘에 있는 거인의 집까지 닿았고,";
+                OpeningTxt.text = "길게 뻗은 콩나무는\n하늘에 있는 거인의 집까지 닿았고,";
                 break;
             case 2:
                 OpeningTxt.text = "이를 발견한 거인은 마을에 내려와 난동을 피우다\n황금알을 낳는 거위를 훔쳐가버렸어요.";
                 break;
             case 3:
-                OpeningTxt.text = "다행히도 다친 사람은 없었지만 소중한 거위를 빼앗겼으니 큰일이에요.";
+                OpeningTxt.text = "다행히도 다친 사람은 없었지만\n소중한 거위를 빼앗겼으니 큰일이에요.";
                 break;
             case 4:
                 OpeningTxt.text = "자 그럼, 거인이 잠든 틈을 타 거위를 구출하러 가볼까요?";

@@ -17,7 +17,7 @@ public class VR_ray_Climing : MonoBehaviour
 
     float grabTime = 8;  // 잡고있는 최대시간
 
-    
+    Vector3 nowForward;
 
     public Vector3 beforeAfterDir;
 
@@ -55,8 +55,10 @@ public class VR_ray_Climing : MonoBehaviour
             //그립   버튼을 누르면
             if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))  // vr
             {
+                
 
                 grabPoint = hit.transform;  //grabPoint 에 위치저장
+                nowForward = hit.normal;
                 grabTime = 8;
                 click = true;
 
@@ -82,7 +84,7 @@ public class VR_ray_Climing : MonoBehaviour
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
             grabMat.material.color = Color.green;
             handPoint.position = grabPoint.position;
-            handPoint.forward = grabPoint.forward;
+            handPoint.forward = nowForward;
             VR_ray_PlayerPos.Instance.SetHand(this);
            
 
