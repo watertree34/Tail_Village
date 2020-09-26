@@ -26,7 +26,7 @@ public class LifeManager : MonoBehaviour
         }
     }
 
-    //public Text lifeUI;
+    public Text lifeText;
     public Slider lifeUI;
     static float playerLife = 40;
 
@@ -41,6 +41,7 @@ public class LifeManager : MonoBehaviour
 
 
             lifeUI.value = (playerLife);
+            lifeText.text = ((int)(lifeUI.value)).ToString() + " / 100";
 
         }
     }

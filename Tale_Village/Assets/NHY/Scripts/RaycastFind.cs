@@ -43,8 +43,8 @@ public class RaycastFind : MonoBehaviour
     Renderer grabMat;
     public Transform toolPos;  // 도구 위치
     public Transform vrToolPos;  // VR도구 위치
-    public Transform handPoint;   //granpoint 위치
-    public Transform playerHandPoint;//granpoint 플레이어 손 위치
+    //public Transform handPoint;   //granpoint 위치
+    //public Transform playerHandPoint;//granpoint 플레이어 손 위치
     Transform grabPoint;
     bool click;  //암벽 클릭
     pcPlayerMove moveScript;  //움직이는 스크립트
