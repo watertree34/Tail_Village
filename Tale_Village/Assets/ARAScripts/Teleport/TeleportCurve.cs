@@ -71,8 +71,8 @@ public class TeleportCurve : MonoBehaviour
                     GetComponent<CharacterController>().enabled = false;
                     // 텔레포트 UI 위치로 순간이동
                     transform.position = teleportCircleUI.position + Vector3.up;
-                    //** transform.position = Vector3.Lerp(transform.position, (teleportCircleUI.position + Vector3.up),Time.deltaTime*6);
-                    //** LifeManager.Instance.LIFE -= 10;
+                    //라이프 10 깎기
+                    LifeManager.Instance.LIFE -= 10;
                     GetComponent<CharacterController>().enabled = true;
                     // 텔레포트 UI 비활성화
                     teleportCircleUI.gameObject.SetActive(false);
@@ -89,6 +89,8 @@ public class TeleportCurve : MonoBehaviour
         {
             // 주어진 길이크기의 커브를 만들고 싶다.
             MakeLines();
+            UIText.Instance.UITEXT =  "텔레포트를 사용하면 라이프가 10만큼 차감됩니다.";
+            UIText.Instance.uiText.enabled = true;
         }
     }
 
@@ -100,7 +102,6 @@ public class TeleportCurve : MonoBehaviour
         // 텔레포트 UI 위치로 순간이동
         Vector3 targetPos = teleportCircleUI.position + Vector3.up;
         Vector3 startPos = transform.position;
-
         
         while (currentTime < warpTime)
         {
@@ -112,7 +113,8 @@ public class TeleportCurve : MonoBehaviour
         
         }  
         transform.position = startPos;
-        //** LifeManager.Instance.LIFE -= 10;
+        //라이프 10 깎기
+        LifeManager.Instance.LIFE -= 10;
         GetComponent<CharacterController>().enabled = true;
         // 텔레포트 UI 비활성화
         teleportCircleUI.gameObject.SetActive(false);

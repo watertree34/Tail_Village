@@ -18,6 +18,11 @@ public class VR_ray_PlayerPos : MonoBehaviour
     Vector3 handMoveDir;
     Collider playerCol;
 
+    OVRPlayerController moveScript;
+
+    float currentTime = 0;
+    float warpTime = 0.5f;
+
 
     public static VR_ray_PlayerPos Instance;
 
@@ -32,8 +37,6 @@ public class VR_ray_PlayerPos : MonoBehaviour
             DestroyImmediate(this);
         }
     }
-    OVRPlayerController moveScript;
-
 
     void Start()
     {
@@ -43,21 +46,34 @@ public class VR_ray_PlayerPos : MonoBehaviour
         playerCol = GetComponent<CapsuleCollider>();
     }
 
-
-    void MovePosition()
+    //그랩포인트 앞으로 이동하기(워프로)
+    IEnumerator MovePosition()
     {
+        currentTime = 0;
         if (currentHand != null)
         {
-            transform.position = Vector3.Lerp(transform.position, currentHand.playerHandPoint.position, Time.deltaTime * 6);   // 타겟으로 러프이동
+            while (currentTime < warpTime)
+            {
+                currentTime += Time.deltaTime;
 
-            print("이동");
-            handMove = true;
+                transform.position = Vector3.Lerp(transform.position, (currentHand.grabPoint.position + currentHand.grabPoint.forward * 5), currentTime / warpTime);   // 타겟으로 러프이동
+
+                print("이동");
+                handMove = true;
+            }
+            yield return null;
+            transform.position = currentHand.grabPoint.position + currentHand.grabPoint.forward * 5;
         }
-        else
-            print("currentHand가 없습니다");
 
+        else
+        {
+            print("currentHand가 없습니다");
+            
+        }
 
     }
+
+    //손 스크립트를 통해 손 받아오기
     public void SetHand(VR_ray_Climing hand)
     {
         if (currentHand)
@@ -70,15 +86,16 @@ public class VR_ray_PlayerPos : MonoBehaviour
         cc.enabled = false;  // 캐릭터 콜라이더도 끄기\
         playerCol.enabled = false;
         print("저장 ");
-        MovePosition();
+        StartCoroutine(MovePosition());
     }
 
+    //손을 떼면
     public void ClearHand()  //그립버튼에서 손을 떼거나 제한시간이 지나면
     {
 
         currentHand = null;  //현재 손 초기화
         moveScript.enabled = true;  //이동 가능
-        cc.enabled = true;
-        playerCol.enabled = true;
+        cc.enabled = true;  // 캐릭터 콜라이더 켜기
+        playerCol.enabled = true;  // 캡슐 콜라이더도 켜기
     }
 }

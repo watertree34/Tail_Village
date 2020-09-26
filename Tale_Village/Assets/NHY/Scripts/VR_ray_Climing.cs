@@ -10,9 +10,9 @@ public class VR_ray_Climing : MonoBehaviour
     LayerMask spiderLayer;
     Renderer grabMat;
 
-    public Transform handPoint;   //granpoint 위치
-    public Transform playerHandPoint;//granpoint 플레이어 손 위치
-    Transform grabPoint;
+    //public Transform handPoint;   //granpoint 위치
+    //public Transform playerHandPoint;//granpoint 플레이어 손 위치
+    public Transform grabPoint;
     bool click;  //암벽 클릭
 
     float grabTime = 8;  // 잡고있는 최대시간
@@ -25,7 +25,7 @@ public class VR_ray_Climing : MonoBehaviour
     {
         grabPointLayer = LayerMask.NameToLayer("GrabPoint");
         spiderLayer = LayerMask.NameToLayer("Spider");
- 
+
     }
 
 
@@ -44,8 +44,8 @@ public class VR_ray_Climing : MonoBehaviour
             LifeManager.Instance.LIFE -= 0.1f; //플레이어 라이프 감소
         }
 
-        //pc용 클라이밍
-        if (Physics.SphereCast(ray, 1f, out hit, 5f, 1 << grabPointLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
+        //클라이밍
+        if (Physics.SphereCast(ray, 1f, out hit, 4f, 1 << grabPointLayer)) //만약 grabPoint가 레이에 검출되면
         {
 
             //파란색으로 색을 바꾸고
@@ -55,17 +55,18 @@ public class VR_ray_Climing : MonoBehaviour
             //그립   버튼을 누르면
             if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))  // vr
             {
-                
+
 
                 grabPoint = hit.transform;  //grabPoint 에 위치저장
-                nowForward = hit.normal;
+                grabPoint.forward = hit.normal;
                 grabTime = 8;
                 click = true;
+                VR_ray_PlayerPos.Instance.SetHand(this);
 
                 print("잡았다!");
             }
 
-
+             
         }
 
 
@@ -83,10 +84,9 @@ public class VR_ray_Climing : MonoBehaviour
             UIText.Instance.uiText.enabled = true;
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
             grabMat.material.color = Color.green;
-            handPoint.position = grabPoint.position;
-            handPoint.forward = nowForward;
-            VR_ray_PlayerPos.Instance.SetHand(this);
-           
+            //handPoint.position = grabPoint.position;
+            //handPoint.forward = nowForward;
+
 
 
 
