@@ -85,7 +85,7 @@ Material:
     - _OcclusionStrength: 1
     - _Offset1: 0
     - _Offset2: 0
-    - _Outline: 0.06
+    - _Outline: 0.47
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _RampSmooth: 0.394

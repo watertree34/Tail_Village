@@ -81,8 +81,8 @@ Material:
     - _Offset1: 0
     - _Offset2: 0
     - _Outline: -12.16
-    - _RampSmooth: 0.819
-    - _RampThreshold: 0.319
+    - _RampSmooth: 1
+    - _RampThreshold: 0.493
     - _RimPower: 1.06
     - _RimStrength: 1
     - _Shininess: 0.03
@@ -96,6 +96,6 @@ Material:
     - _HColor: {r: 0.81568635, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _RimColor: {r: 0.7109029, g: 0.49381453, b: 0.764151, a: 1}
-    - _SColor: {r: 0.2816839, g: 0.28268337, b: 0.2830189, a: 1}
+    - _SColor: {r: 0.21537913, g: 0.33315974, b: 0.3773585, a: 1}
     - _SecColor: {r: 0.45882356, g: 0.4705882, b: 0.6, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
