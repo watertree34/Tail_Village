@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Toenail_Diffuse
-  m_Shader: {fileID: 4800000, guid: 6782973e3ca8b2543beddb0a3dc3175e, type: 3}
-  m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
+  m_Shader: {fileID: 4800000, guid: 9ec7ccbd4289d0543939f61121224d93, type: 3}
+  m_ShaderKeywords: TCP2_SPEC_TOON _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -81,7 +81,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.8490566, g: 0.79798424, b: 0.6367924, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}
     - _SColor: {r: 0.195, g: 0.195, b: 0.195, a: 1}
