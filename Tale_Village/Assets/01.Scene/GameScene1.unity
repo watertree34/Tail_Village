@@ -196,6 +196,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25555962}
   m_CullTransparentMesh: 0
+--- !u!4 &50108959 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6355841563243253289, guid: 7016540e4916042449f3910f496fa5a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2127963357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &56194745
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +826,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b2f9b2cf020d6248b5919d49d1b07cf, type: 3}
+--- !u!4 &181280471 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6355841563176701702, guid: 7016540e4916042449f3910f496fa5a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2127963357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &195337710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1964,6 +1976,12 @@ CanvasRenderer:
 --- !u!1 &544104710 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6355841563243253290, guid: 7016540e4916042449f3910f496fa5a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6355841562678896083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &544104711 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6355841563243253289, guid: 7016540e4916042449f3910f496fa5a3,
     type: 3}
   m_PrefabInstance: {fileID: 6355841562678896083}
   m_PrefabAsset: {fileID: 0}
@@ -12682,6 +12700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 1
+  handPoint: {fileID: 544104711}
+  playerHandPoint: {fileID: 502016725}
   grabPoint: {fileID: 0}
   beforeAfterDir: {x: 0, y: 0, z: 0}
 --- !u!114 &725685702035504785
@@ -12697,6 +12717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 2
+  handPoint: {fileID: 50108959}
+  playerHandPoint: {fileID: 181280471}
   grabPoint: {fileID: 0}
   beforeAfterDir: {x: 0, y: 0, z: 0}
 --- !u!114 &725685702035504786
