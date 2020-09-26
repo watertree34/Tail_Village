@@ -132,7 +132,7 @@ Material:
     - _SquashAmount: 1
     - _TranslucencyViewDependency: 0.2
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.1738163, g: 0.1892867, b: 0.5849056, a: 1}
     - _TranslucencyColor: {r: 0.4541523, g: 0.9191176, b: 0.13516438, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}

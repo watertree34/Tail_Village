@@ -114,7 +114,7 @@ Material:
     - _SColor: {r: 0.195, g: 0.195, b: 0.195, a: 1}
     - _SkyTint: {r: 0, g: 0.97254896, b: 1, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Tint: {r: 1, g: 1, b: 1, a: 0.5}
+    - _Tint: {r: 1, g: 1, b: 1, a: 0.59607846}
 --- !u!114 &5627549310046989673
 MonoBehaviour:
   m_ObjectHideFlags: 11
