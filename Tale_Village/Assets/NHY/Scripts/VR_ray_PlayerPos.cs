@@ -2,10 +2,7 @@
 using OVRTouchSample;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.PlayerLoop;
 
 public class VR_ray_PlayerPos : MonoBehaviour
