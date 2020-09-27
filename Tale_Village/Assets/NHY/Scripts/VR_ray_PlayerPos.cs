@@ -14,9 +14,8 @@ public class VR_ray_PlayerPos : MonoBehaviour
     public Transform leftHand;
     public Transform rightHand;
     CharacterController cc;
-    bool handMove;
-    Vector3 handMoveDir;
-    Collider playerCol;
+   
+   // Collider playerCol;
 
     OVRPlayerController moveScript;
 
@@ -43,9 +42,24 @@ public class VR_ray_PlayerPos : MonoBehaviour
         moveScript = GetComponent<OVRPlayerController>();
         moveScript.enabled = true;
         cc = GetComponent<CharacterController>();
-        playerCol = GetComponent<CapsuleCollider>();
+      //  playerCol = GetComponent<CapsuleCollider>();
     }
 
+    //private void Update()
+    //{
+    //    if (currentHand != null)
+    //    {
+    //        transform.position = Vector3.Lerp(transform.position, (currentHand.grabPoint.position + currentHand.grabPoint.forward * 3), 5 * Time.deltaTime);   // 타겟으로 러프이동
+    //                                                                                                                                                           // transform.position = Vector3.Lerp(transform.position, currentHand.playerHandPoint.position, currentTime / warpTime);   // 타겟으로 러프이동
+
+    //        print("이동");
+    //        //handMove = true;
+    //    }
+    //    else
+    //    {
+    //        print("currentHand가 없습니다");
+    //    }
+    //}
     //그랩포인트 앞으로 이동하기(워프로)
     IEnumerator MovePosition()
     {
@@ -56,11 +70,10 @@ public class VR_ray_PlayerPos : MonoBehaviour
         {
             if (currentHand != null)
             {
-                //transform.position = Vector3.Lerp(transform.position, (currentHand.grabPoint.position + currentHand.grabPoint.forward * 5), currentTime / warpTime);   // 타겟으로 러프이동
-                transform.position = Vector3.Lerp(transform.position, currentHand.playerHandPoint.position, currentTime / warpTime);   // 타겟으로 러프이동
-
+                transform.position = Vector3.Lerp(transform.position, (currentHand.grabPoint.position + currentHand.grabPoint.forward * 5), currentTime / warpTime);   // 타겟으로 러프이동
+               
                 print("이동");
-                handMove = true;
+               
                 yield return null;
             }
             //transform.position = currentHand.grabPoint.position + currentHand.grabPoint.forward * 5;
@@ -85,9 +98,9 @@ public class VR_ray_PlayerPos : MonoBehaviour
         currentHand = hand;      //새로운 손을 현재 손에 갱신저장
         moveScript.enabled = false;   //이동 스크립트는 끄기
         cc.enabled = false;  // 캐릭터 콜라이더도 끄기\
-        playerCol.enabled = false;
-        print("저장 ");
-        StartCoroutine(MovePosition());
+        //playerCol.enabled = false;
+      
+         StartCoroutine(MovePosition());
     }
 
     //손을 떼면
@@ -97,6 +110,6 @@ public class VR_ray_PlayerPos : MonoBehaviour
         currentHand = null;  //현재 손 초기화
         moveScript.enabled = true;  //이동 가능
         cc.enabled = true;  // 캐릭터 콜라이더 켜기
-        playerCol.enabled = true;  // 캡슐 콜라이더도 켜기
+      //  playerCol.enabled = true;  // 캡슐 콜라이더도 켜기
     }
 }
