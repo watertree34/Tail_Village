@@ -349,7 +349,7 @@ public class RaycastFind : MonoBehaviour
             }
         }
 
-
+        #region pc클라이밍
         ////////////////////////클라이밍////////////////////////////
 
         ////손(마우스)
@@ -369,7 +369,7 @@ public class RaycastFind : MonoBehaviour
         //    grabMat = mouseHit.transform.gameObject.GetComponent<Renderer>();
         //    grabMat.material.color = Color.blue;
 
-           
+
         //    //클릭을 누르면 
         //    if (Input.GetButtonDown("Fire1"))  // pc
         //    {
@@ -411,5 +411,6 @@ public class RaycastFind : MonoBehaviour
         //{
         //    moveScript.enabled = true;  //제힌시간 지나거나 스페이스바 누르면 켜짐
         //}
+        #endregion
     }
 }

@@ -23,7 +23,7 @@ public class VRHandCtrl : MonoBehaviour
 
     void Update()
     {
-
+        /////레이저
         //layser.SetPosition(0, ARAVRInput.RHandPosition); // 첫번째 시작점 위치
         // 업데이트에 넣어 줌으로써, 플레이어가 이동하면 이동을 따라가게 된다.
         if(controller==OVRInput.Controller.LTouch)

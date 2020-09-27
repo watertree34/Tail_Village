@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent (typeof(CharacterController))]
+using UnityEngine.SceneManagement;
+
+[RequireComponent(typeof(CharacterController))]
 public class Butterfly : MonoBehaviour
 {
     public static Butterfly Instance;
@@ -14,11 +16,15 @@ public class Butterfly : MonoBehaviour
     public Transform[] bugTarget;
     Vector3 dir;
     int i = 0;
-    public GameObject guideText;
+    public TextMesh guideText;
     CharacterController controller;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+    }
+    private void FixedUpdate()
+    {
+        guideText.text = "";
     }
     void Update()
     {
@@ -38,11 +44,20 @@ public class Butterfly : MonoBehaviour
 
         //플레이어 레이에서 받아온 글자
         if (look)
-            guideText.SetActive(true);
-        else
-            guideText.SetActive(false);
+        {
+
+            if (SceneManager.GetActiveScene().name == "GameScene1") //씬이름으로 현재씬 찾기
+            {
+                guideText.text = "콩나무를 타고 거인의 집에 가야해!";
+            }
+            if (SceneManager.GetActiveScene().name == "GameScene2") //씬이름으로 현재씬 찾기
+            {
+                guideText.text = "쉿! 자고있는 거인을 피해서 \n거위를 구해오자!";
+            }
+
+        }
+
+
 
     }
-
-   
 }

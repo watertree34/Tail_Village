@@ -177,7 +177,7 @@ public class VrUIManager : MonoBehaviour
             case 4:
                 OpeningImg[3].enabled = false;
                 OpeningImg[0].enabled = false;
-                OpeningTxt.text = "다행히도 다친 사람은 없었지만 소중한 거위를 빼앗겼으니 큰일이에요.\n자 그럼, 거인이 잠든 틈을 타 거위를 구출하러 가볼까요?";
+                OpeningTxt.text = "다행히도 다친 사람은 없었지만 \n소중한 거위를 빼앗겼으니 큰일이에요.\n자 그럼, 거인이 잠든 틈을 타 거위를 구출하러 가볼까요?";
                 break;
         }
     }
