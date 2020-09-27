@@ -9,11 +9,13 @@ public class VrUIManager : MonoBehaviour
     public GameObject GameTitleUI;     //게임타이틀UI
     public GameObject InvertedSphere;  //게임스크립트배경
     public Text OpeningTxt;            //오프닝텍스트
+    public Image[] OpeningImg;   // 오프닝 이미지
+
     public GameObject Btn_OpeningSkip; //오프닝 스킵 버튼
     public GameObject GamePlayUI;      //게임플레이중UI
     public GameObject lifeGage;        //라이프게이지
     public GameObject GameOverUI;      //게임오버UI
-    
+
     bool isOpeningEnd = false;         //스크립트 엔딩 판별
     bool isFadeMax = false;            //글자 알파값 판별
     bool timeToTxtChange = false;      //스크립트 변경
@@ -31,6 +33,10 @@ public class VrUIManager : MonoBehaviour
             InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
             OpeningTxt.color = new Color(OpeningTxt.color.r, OpeningTxt.color.g, OpeningTxt.color.b, 0);
+
+            for (int i = 0; i < OpeningImg.Length; i++)
+                OpeningImg[i].enabled = false;
+
             Btn_OpeningSkip.SetActive(false);
             GamePlayUI.SetActive(false);
             lifeGage.SetActive(false);
@@ -56,6 +62,7 @@ public class VrUIManager : MonoBehaviour
             GameTitleUI.SetActive(false);
             InvertedSphere.SetActive(true);
             OpeningTxt.enabled = true;
+            OpeningImg[0].enabled = true;
             Btn_OpeningSkip.SetActive(true);
             if (isFadeMax == false)
             {
@@ -91,6 +98,9 @@ public class VrUIManager : MonoBehaviour
         {
             InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
+            for (int i = 0; i < OpeningImg.Length; i++)
+                OpeningImg[i].enabled = false;
+
             Btn_OpeningSkip.SetActive(false);
             GamePlayUI.SetActive(true);
             lifeGage.SetActive(true);
@@ -146,19 +156,28 @@ public class VrUIManager : MonoBehaviour
         switch (idx)
         {
             default:
+               
                 OpeningTxt.text = "어느날 마을 한구석에 자라난\n거대한 콩나무.";
                 break;
             case 1:
+                OpeningImg[0].enabled = false;
+                OpeningImg[1].enabled = true;
                 OpeningTxt.text = "길게 뻗은 콩나무는\n하늘에 있는 거인의 집까지 닿았고,";
                 break;
             case 2:
-                OpeningTxt.text = "이를 발견한 거인은 마을에 내려와 난동을 피우다\n황금알을 낳는 거위를 훔쳐가버렸어요.";
+                OpeningImg[1].enabled = false;
+                OpeningImg[2].enabled = true;
+                OpeningTxt.text = "이를 발견한 거인은 마을에 내려와 난동을 피우다가";
                 break;
             case 3:
-                OpeningTxt.text = "다행히도 다친 사람은 없었지만\n소중한 거위를 빼앗겼으니 큰일이에요.";
+                OpeningImg[2].enabled = false;
+                OpeningImg[3].enabled = true;
+                OpeningTxt.text = "황금알을 낳는 거위를 훔쳐가버렸어요.";
                 break;
             case 4:
-                OpeningTxt.text = "자 그럼, 거인이 잠든 틈을 타 거위를 구출하러 가볼까요?";
+                OpeningImg[3].enabled = false;
+                OpeningImg[0].enabled = false;
+                OpeningTxt.text = "다행히도 다친 사람은 없었지만 소중한 거위를 빼앗겼으니 큰일이에요.\n자 그럼, 거인이 잠든 틈을 타 거위를 구출하러 가볼까요?";
                 break;
         }
     }
