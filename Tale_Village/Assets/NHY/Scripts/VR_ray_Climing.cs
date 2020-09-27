@@ -10,8 +10,8 @@ public class VR_ray_Climing : MonoBehaviour
     LayerMask spiderLayer;
     Renderer grabMat;
 
-    //public Transform handPoint;   //granpoint 위치
-    //public Transform playerHandPoint;//granpoint 플레이어 손 위치
+    public Transform handPoint;   //granpoint 위치
+    public Transform playerHandPoint;//granpoint 플레이어 손 위치
     public Transform grabPoint;
     bool click;  //암벽 클릭
 
@@ -58,10 +58,10 @@ public class VR_ray_Climing : MonoBehaviour
 
 
                 grabPoint = hit.transform;  //grabPoint 에 위치저장
-                grabPoint.forward = hit.normal;
+                //grabPoint.forward = hit.normal;
+                nowForward = hit.normal;
                 grabTime = 8;
                 click = true;
-                VR_ray_PlayerPos.Instance.SetHand(this);
 
                 print("잡았다!");
             }
@@ -84,11 +84,12 @@ public class VR_ray_Climing : MonoBehaviour
             UIText.Instance.uiText.enabled = true;
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
             grabMat.material.color = Color.green;
-            //handPoint.position = grabPoint.position;
-            //handPoint.forward = nowForward;
+            handPoint.position = grabPoint.position;
+            handPoint.forward = nowForward;
 
 
 
+            VR_ray_PlayerPos.Instance.SetHand(this);
 
 
             //* 버튼에서 두 손 다 떼면 떨어지기 *
@@ -99,8 +100,7 @@ public class VR_ray_Climing : MonoBehaviour
         }
         else
         {
-            //VR_ray_PlayerPos.Instance.ClearHand();  // 플레이어 손 클리어
-            VR_ray_PlayerPos.Instance.ClearHand();
+            VR_ray_PlayerPos.Instance.ClearHand();  // 플레이어 손 클리어
         }
     }
 }

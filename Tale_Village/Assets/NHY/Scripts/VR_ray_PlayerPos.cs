@@ -50,27 +50,28 @@ public class VR_ray_PlayerPos : MonoBehaviour
     IEnumerator MovePosition()
     {
         currentTime = 0;
-        if (currentHand != null)
-        {
-            while (currentTime < warpTime)
-            {
-                currentTime += Time.deltaTime;
+        currentTime += Time.deltaTime;
 
-                transform.position = Vector3.Lerp(transform.position, (currentHand.grabPoint.position + currentHand.grabPoint.forward * 5), currentTime / warpTime);   // 타겟으로 러프이동
+        while (currentTime < warpTime)
+        {
+            if (currentHand != null)
+            {
+                //transform.position = Vector3.Lerp(transform.position, (currentHand.grabPoint.position + currentHand.grabPoint.forward * 5), currentTime / warpTime);   // 타겟으로 러프이동
+                transform.position = Vector3.Lerp(transform.position, currentHand.playerHandPoint.position, currentTime / warpTime);   // 타겟으로 러프이동
 
                 print("이동");
                 handMove = true;
+                yield return null;
             }
-            yield return null;
-            transform.position = currentHand.grabPoint.position + currentHand.grabPoint.forward * 5;
-        }
+            //transform.position = currentHand.grabPoint.position + currentHand.grabPoint.forward * 5;
 
-        else
-        {
-            print("currentHand가 없습니다");
-            
-        }
 
+            else
+            {
+                print("currentHand가 없습니다");
+                yield return null;
+            }
+        }
     }
 
     //손 스크립트를 통해 손 받아오기

@@ -89,7 +89,7 @@ public class TeleportCurve : MonoBehaviour
         {
             // 주어진 길이크기의 커브를 만들고 싶다.
             MakeLines();
-            UIText.Instance.UITEXT =  "텔레포트를 사용하면 라이프가 10만큼 차감됩니다.";
+            UIText.Instance.UITEXT =  "텔레포트를 사용하면 \n라이프가 10만큼 차감됩니다.";
             UIText.Instance.uiText.enabled = true;
         }
     }
