@@ -26,6 +26,22 @@ public class ButtonManager : MonoBehaviour
         Soundmanager.Instance.ButtonSound();
     }
 
+    /*--------------------게임방법버튼 클릭--------------------*/
+    public bool clickHTP = false;
+    public void OnClickHowToPlay()
+    {
+        clickHTP = true;
+        Soundmanager.Instance.ButtonSound();
+    }
+
+    /*--------------------타이틀로 돌아가기 버튼 클릭--------------------*/
+    public bool clickBTT = false;
+    public void OnClickBackToStart()
+    {
+        clickBTT = true;
+        Soundmanager.Instance.ButtonSound();
+    }
+
     /*--------------------스킵버튼 클릭-------------------*/
     public bool clickSkip = false;
     public void OnClickSkip()
@@ -46,10 +62,8 @@ public class ButtonManager : MonoBehaviour
     }
 
     /////다시시작///
-   
     public void OnClickRestart()
     {
         SceneManager.LoadScene("GameScene1");
-       
     }
 }

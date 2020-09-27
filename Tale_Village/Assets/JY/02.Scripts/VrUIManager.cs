@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class VrUIManager : MonoBehaviour
 {
     public GameObject GameTitleUI;     //게임타이틀UI
+    public GameObject HowToPlayUI;     //게임타이틀UI
     public GameObject InvertedSphere;  //게임스크립트배경
     public Text OpeningTxt;            //오프닝텍스트
-    public Image[] OpeningImg;   // 오프닝 이미지
+    public Image[] OpeningImg;         //오프닝 이미지
 
     public GameObject Btn_OpeningSkip; //오프닝 스킵 버튼
     public GameObject GamePlayUI;      //게임플레이중UI
@@ -30,6 +31,7 @@ public class VrUIManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameScene1") //씬이름으로 현재씬 찾기
         {
             GameTitleUI.SetActive(true);
+            HowToPlayUI.SetActive(false);
             InvertedSphere.SetActive(false);
             OpeningTxt.enabled = false;
             OpeningTxt.color = new Color(OpeningTxt.color.r, OpeningTxt.color.g, OpeningTxt.color.b, 0);
@@ -45,6 +47,7 @@ public class VrUIManager : MonoBehaviour
         else
         {
             GameTitleUI = null;
+            HowToPlayUI = null;
             InvertedSphere = null;
             OpeningTxt = null;
             Btn_OpeningSkip = null;
@@ -56,6 +59,21 @@ public class VrUIManager : MonoBehaviour
 
     void Update()
     {
+        /*--------------------게임방법 버튼 누르면--------------------*/
+        if (ButtonManager.Instance.clickHTP == true)
+        {
+            GameTitleUI.SetActive(false);
+            HowToPlayUI.SetActive(true);
+            ButtonManager.Instance.clickHTP = false;
+        }
+
+        /*--------------------게임방법 버튼 누르면--------------------*/
+        if (ButtonManager.Instance.clickBTT == true)
+        {
+            GameTitleUI.SetActive(true);
+            HowToPlayUI.SetActive(false);
+            ButtonManager.Instance.clickBTT = false;
+        }
 
         /*--------------------스타트 버튼 누르면--------------------*/
         if (ButtonManager.Instance.clickStart == true)
@@ -82,7 +100,7 @@ public class VrUIManager : MonoBehaviour
             txtLineIdx += 1;
             ChangeTxt(txtLineIdx);
             timeToTxtChange = false;
-            if (txtLineIdx > 4)
+            if (txtLineIdx > 5)
             {
                 isOpeningEnd = true;
             }
@@ -180,7 +198,10 @@ public class VrUIManager : MonoBehaviour
             case 4:
                 OpeningImg[3].enabled = false;
                 OpeningImg[0].enabled = false;
-                OpeningTxt.text = "다행히도 다친 사람은 없었지만 \n소중한 거위를 빼앗겼으니 큰일이에요.\n자 그럼, 거인이 잠든 틈을 타 거위를 구출하러 가볼까요?";
+                OpeningTxt.text = "다행히도 다친 사람은 없었지만\n소중한 거위를 빼앗겼으니 큰일이에요.";
+                break;
+            case 5:
+                OpeningTxt.text = "자 그럼, 거인이 잠든 틈을 타 거위를 구출하러 가볼까요?";
                 break;
         }
     }
