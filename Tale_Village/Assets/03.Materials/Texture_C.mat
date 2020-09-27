@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Texture_C
   m_Shader: {fileID: 4800000, guid: 35b7c6ba7e7041445a6bcfab3a36db38, type: 3}
-  m_ShaderKeywords: OUTLINE_BLENDING TCP2_ZSMOOTH_ON
+  m_ShaderKeywords: OUTLINE_BLENDING TCP2_COLORS_AS_NORMALS TCP2_ZSMOOTH_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -73,7 +73,7 @@ Material:
     - _OcclusionStrength: 1
     - _Offset1: 0
     - _Offset2: 0
-    - _Outline: 0.56
+    - _Outline: 1.26
     - _Parallax: 0.02
     - _RampSmooth: 0.381
     - _RampThreshold: 0.358

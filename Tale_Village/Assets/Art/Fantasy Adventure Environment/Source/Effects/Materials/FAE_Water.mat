@@ -97,7 +97,7 @@ Material:
     - _Surfacehightlightsize: 0
     - _TesselationEdgeLengt: 0.15
     - _Tiling: 10
-    - _Transparency: 0.761
+    - _Transparency: 0.67
     - _UVSec: 0
     - _UseIntersectionHighlight: 1
     - _Wavesspeed: 0.37
