@@ -14113,8 +14113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 1
-  handPoint: {fileID: 726718624}
-  playerHandPoint: {fileID: 466763741}
   grabPoint: {fileID: 0}
   beforeAfterDir: {x: 0, y: 0, z: 0}
 --- !u!114 &725685702035504785
@@ -14130,8 +14128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 2
-  handPoint: {fileID: 651755652}
-  playerHandPoint: {fileID: 1313889182}
   grabPoint: {fileID: 0}
   beforeAfterDir: {x: 0, y: 0, z: 0}
 --- !u!114 &725685702035504786
@@ -59444,6 +59440,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3032814012639447308, guid: 78cb475049108944f8e884d5e5f5f603,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 554f4a32e9ba3104f805c63f1551d1e8, type: 2}
+    - target: {fileID: 3032814012639447308, guid: 78cb475049108944f8e884d5e5f5f603,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 554f4a32e9ba3104f805c63f1551d1e8, type: 2}
     - target: {fileID: 3092946281780332528, guid: 78cb475049108944f8e884d5e5f5f603,
         type: 3}
       propertyPath: m_IsActive
@@ -59529,6 +59535,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4147672819714321199, guid: 78cb475049108944f8e884d5e5f5f603,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 715bffcde660e0a4db2212dbd3b4d990, type: 2}
+    - target: {fileID: 5641968718273130253, guid: 78cb475049108944f8e884d5e5f5f603,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 245a55912dcd452489f7be8f762e97b1, type: 2}
     - target: {fileID: 7585215767619369801, guid: 78cb475049108944f8e884d5e5f5f603,
         type: 3}
       propertyPath: bugTarget.Array.data[0]
