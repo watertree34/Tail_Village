@@ -49,7 +49,7 @@ public class VR_ray_PlayerPos : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, currentHand.grabPoint.position, 5 * Time.deltaTime);   // 타겟으로 러프이동
 
-            print("이동");
+           // print("이동");
 
         }
     }

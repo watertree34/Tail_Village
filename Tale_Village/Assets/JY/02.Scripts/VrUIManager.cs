@@ -56,6 +56,7 @@ public class VrUIManager : MonoBehaviour
 
     void Update()
     {
+
         /*--------------------스타트 버튼 누르면--------------------*/
         if (ButtonManager.Instance.clickStart == true)
         {
@@ -64,6 +65,7 @@ public class VrUIManager : MonoBehaviour
             OpeningTxt.enabled = true;
             OpeningImg[0].enabled = true;
             Btn_OpeningSkip.SetActive(true);
+            
             if (isFadeMax == false)
             {
                 FadeIn(OpeningTxt);
@@ -110,6 +112,7 @@ public class VrUIManager : MonoBehaviour
         /*--------------------라이프 0되면 게임오버창 띄우기--------------------*/
         if (LifeManager.Instance.LIFE == 0)
         {
+            
             GamePlayUI.SetActive(false);
             GameOverUI.SetActive(true);
         }
@@ -156,7 +159,7 @@ public class VrUIManager : MonoBehaviour
         switch (idx)
         {
             default:
-               
+
                 OpeningTxt.text = "어느날 마을 한구석에 자라난\n거대한 콩나무.";
                 break;
             case 1:

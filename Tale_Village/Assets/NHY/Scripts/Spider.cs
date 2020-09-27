@@ -19,34 +19,28 @@ public class Spider : MonoBehaviour
     }
     void Update()
     {
-        if (attacked)
+
+        //벌레 패트롤 하기
+
+        dir = bugTarget[i].position - transform.position;
+        if (dir.magnitude < 2)
         {
-            controller.Move(Vector3.up * gravity * Time.deltaTime); // 떨어짐
-
+            if (i >= bugTarget.Length - 1)
+                i = 0;
+            else
+                i++;
         }
-        else
-        {
-            //벌레 패트롤 하기
+        dir.Normalize();
+        transform.forward = -dir;
 
-            dir = bugTarget[i].position - transform.position;
-            if (dir.magnitude < 2)
-            {
-                if (i >= bugTarget.Length - 1)
-                    i = 0;
-                else
-                    i++;
-            }
-            dir.Normalize();
-            transform.forward = -dir;
+        controller.Move(dir * speed * Time.deltaTime);
 
-            controller.Move(dir * speed * Time.deltaTime);
-        }
     }
 
     void OnControllerColliderHit(ControllerColliderHit other)
     {
         //벌레 공격 당함
-        if (other.gameObject.tag.Contains("tool"))
+        if (other.gameObject.CompareTag("tool"))
         {
             attacked = true;
             Destroy(gameObject);
