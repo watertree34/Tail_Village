@@ -28,7 +28,7 @@ public class LifeManager : MonoBehaviour
 
     public Text lifeText;
     public Slider lifeUI;
-    static float playerLife = 40;
+    static float playerLife = 50;
 
 
     public float LIFE
