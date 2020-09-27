@@ -49,9 +49,9 @@ public class Spider : MonoBehaviour
         if (other.gameObject.tag.Contains("tool"))
         {
             attacked = true;
-            Destroy(gameObject, 3);
+            Destroy(gameObject);
         }
-        //if (other.gameObject.tag.Contains("Player"))   ==> RaycastFind에서 마우스에 닿으면 안되는걸로
+        //if (other.gameObject.tag.Contains("Player"))   ==> playerTouch 닿으면 안되는걸로
         //{
 
         //    LifeManager.Instance.LIFE -= 1; //플레이어 라이프 감소

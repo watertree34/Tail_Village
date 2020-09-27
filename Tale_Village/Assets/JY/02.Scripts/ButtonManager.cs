@@ -22,6 +22,7 @@ public class ButtonManager : MonoBehaviour
     public void OnClickStart()
     {
         clickStart = true;
+        SoundManager.Instance.ButtonSound();
     }
 
     /*--------------------스킵버튼 클릭-------------------*/
@@ -29,6 +30,7 @@ public class ButtonManager : MonoBehaviour
     public void OnClickSkip()
     {
         clickSkip = true;
+        SoundManager.Instance.ButtonSound();
     }
 
     /*--------------------엑시트버튼 클릭--------------------*/
@@ -36,6 +38,7 @@ public class ButtonManager : MonoBehaviour
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+        SoundManager.Instance.ButtonSound();
 #else
           Application.Quit();
 #endif

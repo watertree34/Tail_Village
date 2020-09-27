@@ -7,7 +7,7 @@ public class VR_ray_Climing : MonoBehaviour
 
     public OVRInput.Controller controller = OVRInput.Controller.None;
     LayerMask grabPointLayer;
-    LayerMask spiderLayer;
+    
     Renderer grabMat;
 
    
@@ -23,8 +23,7 @@ public class VR_ray_Climing : MonoBehaviour
     void Start()
     {
         grabPointLayer = LayerMask.NameToLayer("GrabPoint");
-        spiderLayer = LayerMask.NameToLayer("Spider");
-
+        
     }
 
 
@@ -37,11 +36,6 @@ public class VR_ray_Climing : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
-        //거미 마우스 포인트(손)이 닿았을때
-        if (Physics.SphereCast(ray, 0.5f, out hit, 5f, 1 << spiderLayer)) //만약 grabPoint가 마우스 위치의 레이에 검출되면
-        {
-            LifeManager.Instance.LIFE -= 1f; //플레이어 라이프 감소
-        }
 
         //클라이밍
         if (Physics.Raycast(ray, out hit, 7f, 1 << grabPointLayer)) //만약 grabPoint가 레이에 검출되면

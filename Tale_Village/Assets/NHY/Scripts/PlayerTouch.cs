@@ -9,10 +9,12 @@ public class PlayerTouch : MonoBehaviour
     CharacterController cc;
     float delayTime;
     bool mouseTouch;
-
+    LayerMask spiderLayer;
     private void Start()
     {
         cc = gameObject.GetComponent<CharacterController>();
+        spiderLayer = LayerMask.NameToLayer("Spider");
+
     }
 
     private void Update()
@@ -41,14 +43,20 @@ public class PlayerTouch : MonoBehaviour
         if (other.gameObject.CompareTag("mouse"))  // 쥐에 닿으면
         {
             mouseTouch = true;
-          
-            
+
+            SoundManager.Instance.MouseSound();
             LifeManager.Instance.LIFE -= 5f; //플레이어 라이프 감소
         }
 
         if (other.gameObject.CompareTag("GiantHouseEntry"))   // 플레이어가 거인의 집 입구에 닿으면
         {
             SceneManager.LoadScene("GameScene2");   // 게임씬1->게임씬2전환
+        }
+
+        //거미 마우스 포인트(손)이 닿았을때
+        if (other.gameObject.layer== LayerMask.NameToLayer("Spider")) //만약 grabPoint가 마우스 위치의 레이에 검출되면
+        {
+            LifeManager.Instance.LIFE -=0.1f; //플레이어 라이프 감소
         }
     }
 }

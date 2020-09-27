@@ -100,6 +100,7 @@ public class RaycastFind : MonoBehaviour
                 if (item != null)
                 {
                     Inventory.Instance.AddItem(item);
+                    SoundManager.Instance.ItemSound();
                 }
                 //인벤토리
                 Destroy(hit.transform.gameObject);
@@ -139,6 +140,7 @@ public class RaycastFind : MonoBehaviour
                 {
                     Inventory.Instance.AddItem(item);
                     pickUpAxe = true;
+                    SoundManager.Instance.ItemSound();
                 }
                 axe = hit.transform.gameObject;
                 axe.transform.parent = vrToolPos;
@@ -194,6 +196,7 @@ public class RaycastFind : MonoBehaviour
                     if (item != null)
                     {
                         Inventory.Instance.AddItem(item);
+                        SoundManager.Instance.ItemSound();
                     }
                     hit.transform.gameObject.SetActive(false);
                 }
@@ -227,6 +230,7 @@ public class RaycastFind : MonoBehaviour
                     {
                         Inventory.Instance.AddItem(item);
                         pickUpKey = true;
+                        SoundManager.Instance.ItemSound();
                     }
                     keyObj = hit.transform.gameObject;
                     keyObj.transform.parent = vrToolPos;
@@ -297,6 +301,7 @@ public class RaycastFind : MonoBehaviour
                 {
                     Inventory.Instance.AddItem(item);
                     pickUpCheese = true;
+                    SoundManager.Instance.ItemSound();
                 }
                 cheeseObj = hit.transform.gameObject;
                 cheeseObj.transform.parent = vrToolPos;
