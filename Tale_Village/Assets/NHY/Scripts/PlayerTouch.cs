@@ -23,7 +23,7 @@ public class PlayerTouch : MonoBehaviour
         {
             delayTime += Time.deltaTime;
 
-            if (delayTime <= 1)  //뒤로 살짝 밀려나기
+            if (delayTime <= 0.5f)  //뒤로 살짝 밀려나기
             {
                 cc.Move( Vector3.Lerp(transform.position,-Camera.main.transform.forward, 1));
             }
@@ -56,7 +56,10 @@ public class PlayerTouch : MonoBehaviour
         //거미 마우스 포인트(손)이 닿았을때
         if (other.gameObject.layer== LayerMask.NameToLayer("Spider")) //만약 grabPoint가 마우스 위치의 레이에 검출되면
         {
-            LifeManager.Instance.LIFE -=0.1f; //플레이어 라이프 감소
+            mouseTouch = true;
+
+            SoundManager.Instance.MouseSound();
+            LifeManager.Instance.LIFE -=5f; //플레이어 라이프 감소
         }
     }
 }
