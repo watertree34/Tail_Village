@@ -42,7 +42,7 @@ public class LifeManager : MonoBehaviour
 
             lifeUI.value = (playerLife);
             lifeText.text = ((int)(lifeUI.value)).ToString() + " / 100";
-            SoundManager.Instance.LifeSound();
+            Soundmanager.Instance.LifeSound();
         }
     }
 

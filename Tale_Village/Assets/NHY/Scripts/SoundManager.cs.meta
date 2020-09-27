@@ -3,7 +3,15 @@ guid: 83b9ad07ef477b341aa64ef8af057ef0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - mouseSound: {fileID: 8300000, guid: 265c95a3cedf5834a883e1a831d521a8, type: 3}
+  - buttonSound: {fileID: 8300000, guid: 93f23126da06506448bb442ac9e00fbb, type: 3}
+  - teleportSound: {fileID: 8300000, guid: 81121a209aedb7b40b4d2f1bea8dab32, type: 3}
+  - lifeSound: {fileID: 8300000, guid: d2a40476fc7943d4994ee1f23a643eed, type: 3}
+  - itemSound: {fileID: 8300000, guid: df0e9427871494944bede246aab8d48f, type: 3}
+  - giantWalk: {fileID: 8300000, guid: 6dc10bbd36422214891d7678b79ff02c, type: 3}
+  - giantSleep: {fileID: 8300000, guid: cd0fef7b34951494ca0e6c17a1030d14, type: 3}
+  - giantScream: {fileID: 8300000, guid: 3c7f4dab4cd1fea4b86f9a17ea158f4b, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -44,7 +44,7 @@ public class PlayerTouch : MonoBehaviour
         {
             mouseTouch = true;
 
-            SoundManager.Instance.MouseSound();
+            Soundmanager.Instance.MouseSound();
             LifeManager.Instance.LIFE -= 5f; //플레이어 라이프 감소
         }
 
@@ -58,7 +58,7 @@ public class PlayerTouch : MonoBehaviour
         {
             mouseTouch = true;
 
-            SoundManager.Instance.MouseSound();
+            Soundmanager.Instance.MouseSound();
             LifeManager.Instance.LIFE -=5f; //플레이어 라이프 감소
         }
     }

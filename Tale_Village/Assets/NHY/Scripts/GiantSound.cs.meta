@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f61a103945a41c745a7dd4b83a918f6d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - giantWalk: {fileID: 8300000, guid: 6dc10bbd36422214891d7678b79ff02c, type: 3}
+  - giantSleep: {fileID: 8300000, guid: cd0fef7b34951494ca0e6c17a1030d14, type: 3}
+  - giantScream: {fileID: 8300000, guid: 3c7f4dab4cd1fea4b86f9a17ea158f4b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

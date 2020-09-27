@@ -58,7 +58,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.36787742
+        functionName: GiantWalkSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f61a103945a41c745a7dd4b83a918f6d,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7541123
+        functionName: GiantWalkSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f61a103945a41c745a7dd4b83a918f6d,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

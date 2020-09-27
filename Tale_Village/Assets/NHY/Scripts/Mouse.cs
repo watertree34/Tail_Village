@@ -25,7 +25,7 @@ public class Mouse : MonoBehaviour
             cc.Move(cheeseDir * 1 * Time.deltaTime);
             transform.forward = cheeseDir;
 
-            if(cheeseDir.magnitude<=1)
+            if(cheeseDir.magnitude<=2)
             {
                 playerRay.mouseGo = false;
 

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class Soundmanager : MonoBehaviour
 {
-    public static SoundManager Instance;  //싱글톤
+    public static Soundmanager Instance;  //싱글톤
     private void Awake()
     {
         if (Instance == null)
@@ -22,6 +22,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip teleportSound;
     public AudioClip lifeSound;
     public AudioClip itemSound;
+   
+   
+
     private void Start()
     {
         ear = GetComponent<AudioSource>();
@@ -48,4 +51,5 @@ public class SoundManager : MonoBehaviour
     {
         ear.PlayOneShot(itemSound);
     }
+ 
 }
