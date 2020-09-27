@@ -10,7 +10,8 @@ Material:
   m_Name: screwnail
   m_Shader: {fileID: 4800000, guid: d6a8acbf22ad87b468b8f2b8aa8ec97e, type: 3}
   m_ShaderKeywords: OUTLINE_BLENDING TCP2_OUTLINE_TEXTURED TCP2_SPEC_TOON TCP2_ZSMOOTH_ON
-  m_LightmapFlags: 4
+    _EMISSION
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -89,7 +90,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
     - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}
     - _OutlineColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _SColor: {r: 0.195, g: 0.195, b: 0.195, a: 1}

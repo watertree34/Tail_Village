@@ -45,47 +45,44 @@ public class VR_ray_PlayerPos : MonoBehaviour
       //  playerCol = GetComponent<CapsuleCollider>();
     }
 
-    //private void Update()
-    //{
-    //    if (currentHand != null)
-    //    {
-    //        transform.position = Vector3.Lerp(transform.position, (currentHand.grabPoint.position + currentHand.grabPoint.forward * 3), 5 * Time.deltaTime);   // 타겟으로 러프이동
-    //                                                                                                                                                           // transform.position = Vector3.Lerp(transform.position, currentHand.playerHandPoint.position, currentTime / warpTime);   // 타겟으로 러프이동
+    private void Update()
+    {
+        if (currentHand != null)
+        {
+            transform.position = Vector3.Lerp(transform.position, currentHand.grabPoint.position, 5*Time.deltaTime);   // 타겟으로 러프이동
+    
+            print("이동");
 
-    //        print("이동");
-    //        //handMove = true;
-    //    }
-    //    else
+        }
+        
+
+    }
+    ////그랩포인트 앞으로 이동하기(워프로)
+    //IEnumerator MovePosition()
+    //{
+    //    currentTime = 0;
+    //    currentTime += Time.deltaTime;
+
+    //    while (currentTime < warpTime)
     //    {
-    //        print("currentHand가 없습니다");
+    //        if (currentHand != null)
+    //        {
+    //            transform.position = Vector3.Lerp(transform.position, currentHand.grabPoint.position , currentTime / warpTime);   // 타겟으로 러프이동
+    //            transform.forward = -currentHand.grabPoint.forward;
+    //            print("이동");
+               
+    //            yield return null;
+    //        }
+    //        //transform.position = currentHand.grabPoint.position + currentHand.grabPoint.forward * 5;
+
+
+    //        else
+    //        {
+    //            print("currentHand가 없습니다");
+    //            yield return null;
+    //        }
     //    }
     //}
-    //그랩포인트 앞으로 이동하기(워프로)
-    IEnumerator MovePosition()
-    {
-        currentTime = 0;
-        currentTime += Time.deltaTime;
-
-        while (currentTime < warpTime)
-        {
-            if (currentHand != null)
-            {
-                transform.position = Vector3.Lerp(transform.position, (currentHand.grabPoint.position + currentHand.grabPoint.forward * 5), currentTime / warpTime);   // 타겟으로 러프이동
-               
-                print("이동");
-               
-                yield return null;
-            }
-            //transform.position = currentHand.grabPoint.position + currentHand.grabPoint.forward * 5;
-
-
-            else
-            {
-                print("currentHand가 없습니다");
-                yield return null;
-            }
-        }
-    }
 
     //손 스크립트를 통해 손 받아오기
     public void SetHand(VR_ray_Climing hand)
@@ -100,7 +97,7 @@ public class VR_ray_PlayerPos : MonoBehaviour
         cc.enabled = false;  // 캐릭터 콜라이더도 끄기\
         //playerCol.enabled = false;
       
-         StartCoroutine(MovePosition());
+       //  StartCoroutine(MovePosition());
     }
 
     //손을 떼면

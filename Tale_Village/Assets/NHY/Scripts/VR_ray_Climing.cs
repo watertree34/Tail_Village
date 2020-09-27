@@ -45,7 +45,7 @@ public class VR_ray_Climing : MonoBehaviour
         }
 
         //클라이밍
-        if (Physics.SphereCast(ray, 1f, out hit, 8f, 1 << grabPointLayer)) //만약 grabPoint가 레이에 검출되면
+        if (Physics.Raycast(ray, out hit, 7f, 1 << grabPointLayer)) //만약 grabPoint가 레이에 검출되면
         {
             UIText.Instance.UITEXT = "오르기를 하려면 레이저를 쏘며 \n그립버튼(중지 손가락)을 누르세요";
             //파란색으로 색을 바꾸고
@@ -59,6 +59,7 @@ public class VR_ray_Climing : MonoBehaviour
 
                 grabPoint.position = hit.transform.position;  //grabPoint 에 위치저장
                 grabPoint.forward = hit.normal;
+                grabPoint.position = grabPoint.position + grabPoint.forward * 3;
                // nowForward = hit.normal;
                 grabTime = 8;
                 click = true;
