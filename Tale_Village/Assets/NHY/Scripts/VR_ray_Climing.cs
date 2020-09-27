@@ -10,8 +10,7 @@ public class VR_ray_Climing : MonoBehaviour
     LayerMask spiderLayer;
     Renderer grabMat;
 
-    //public Transform handPoint;   //granpoint 위치
-    //public Transform playerHandPoint;//granpoint 플레이어 손 위치
+   
     public Transform grabPoint;
     bool click;  //암벽 클릭
 
@@ -85,8 +84,7 @@ public class VR_ray_Climing : MonoBehaviour
             UIText.Instance.uiText.enabled = true;
             //초록으로 바뀐 후 손의 위치가 grabPoint 위치로 이동한다
             grabMat.material.color = Color.green;
-            //handPoint.position = grabPoint.position;
-            //handPoint.forward = nowForward;
+           
 
 
             VR_ray_PlayerPos.Instance.SetHand(this);

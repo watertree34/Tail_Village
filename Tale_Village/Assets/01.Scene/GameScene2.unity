@@ -2238,7 +2238,8 @@ GameObject:
   - component: {fileID: 252211508}
   - component: {fileID: 252211510}
   - component: {fileID: 252211509}
-  m_Layer: 0
+  - component: {fileID: 252211511}
+  m_Layer: 10
   m_Name: Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2306,6 +2307,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252211507}
   m_Mesh: {fileID: -7339156889538999099, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &252211511
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252211507}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.98466676, y: 0.89833, z: 0.38573226}
+  m_Center: {x: -0.00000086426735, y: -9.436896e-16, z: 0.0000014156103}
 --- !u!1 &256918878
 GameObject:
   m_ObjectHideFlags: 0
@@ -6176,7 +6190,8 @@ GameObject:
   - component: {fileID: 600003751}
   - component: {fileID: 600003753}
   - component: {fileID: 600003752}
-  m_Layer: 0
+  - component: {fileID: 600003754}
+  m_Layer: 10
   m_Name: Grab3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6244,6 +6259,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600003750}
   m_Mesh: {fileID: -6004396399219533193, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &600003754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600003750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0373024, y: 0.89833045, z: 0.08293465}
+  m_Center: {x: 0.0000018775463, y: -0.0000009536743, z: -0.0000038035214}
 --- !u!1 &612631272
 GameObject:
   m_ObjectHideFlags: 0
@@ -6387,7 +6415,8 @@ GameObject:
   - component: {fileID: 616504061}
   - component: {fileID: 616504063}
   - component: {fileID: 616504062}
-  m_Layer: 0
+  - component: {fileID: 616504064}
+  m_Layer: 10
   m_Name: Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6455,6 +6484,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616504060}
   m_Mesh: {fileID: -7339156889538999099, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &616504064
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616504060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9846668, y: 0.8983301, z: 0.38573232}
+  m_Center: {x: 0.0000019967556, y: 0.0000019073486, z: -0.000007644296}
 --- !u!1001 &627360149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6684,7 +6726,8 @@ GameObject:
   - component: {fileID: 668591892}
   - component: {fileID: 668591894}
   - component: {fileID: 668591893}
-  m_Layer: 0
+  - component: {fileID: 668591895}
+  m_Layer: 10
   m_Name: Grab3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6752,6 +6795,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668591891}
   m_Mesh: {fileID: -6004396399219533193, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &668591895
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668591891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0373025, y: 0.89833045, z: 0.082934596}
+  m_Center: {x: -0.0000009834766, y: 4.440892e-16, z: 0.0000028721988}
 --- !u!1 &669389276
 GameObject:
   m_ObjectHideFlags: 0
@@ -7274,7 +7330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714646481}
   m_LocalRotation: {x: -0.49999997, y: -0.50000006, z: -0.5000001, w: 0.49999997}
-  m_LocalPosition: {x: 2.7860003, y: -2.987, z: -11.684}
+  m_LocalPosition: {x: 2.7860003, y: -2.939, z: -11.684}
   m_LocalScale: {x: 1.2488399, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 939083142}
@@ -10526,7 +10582,8 @@ GameObject:
   - component: {fileID: 970035523}
   - component: {fileID: 970035525}
   - component: {fileID: 970035524}
-  m_Layer: 0
+  - component: {fileID: 970035526}
+  m_Layer: 10
   m_Name: Grab3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10594,6 +10651,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970035522}
   m_Mesh: {fileID: -6004396399219533193, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &970035526
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970035522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0373021, y: 0.8983303, z: 0.08293451}
+  m_Center: {x: -0.000000029802322, y: 0.0000019073486, z: 0.000000011175872}
 --- !u!1 &982771687
 GameObject:
   m_ObjectHideFlags: 0
@@ -10605,7 +10675,8 @@ GameObject:
   - component: {fileID: 982771688}
   - component: {fileID: 982771690}
   - component: {fileID: 982771689}
-  m_Layer: 0
+  - component: {fileID: 982771691}
+  m_Layer: 10
   m_Name: Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10673,6 +10744,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982771687}
   m_Mesh: {fileID: -7339156889538999099, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &982771691
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982771687}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.98466724, y: 0.8983301, z: 0.38573238}
+  m_Center: {x: -0.00000086426735, y: 3.9412917e-15, z: -0.000000014901167}
 --- !u!1 &987654842
 GameObject:
   m_ObjectHideFlags: 0
@@ -11772,7 +11856,8 @@ GameObject:
   - component: {fileID: 1109412414}
   - component: {fileID: 1109412416}
   - component: {fileID: 1109412415}
-  m_Layer: 0
+  - component: {fileID: 1109412417}
+  m_Layer: 10
   m_Name: Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11840,6 +11925,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109412413}
   m_Mesh: {fileID: -7339156889538999099, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &1109412417
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109412413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.98466706, y: 0.89833015, z: 0.3857323}
+  m_Center: {x: -0.0000013411045, y: -0.0000019073486, z: 0.0000076144934}
 --- !u!1 &1113617723
 GameObject:
   m_ObjectHideFlags: 0
@@ -12139,7 +12237,8 @@ GameObject:
   - component: {fileID: 1157716916}
   - component: {fileID: 1157716918}
   - component: {fileID: 1157716917}
-  m_Layer: 0
+  - component: {fileID: 1157716919}
+  m_Layer: 10
   m_Name: Grab2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12207,6 +12306,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157716915}
   m_Mesh: {fileID: 7141865579929564181, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &1157716919
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157716915}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.77894276, y: 0.8983306, z: 0.717063}
+  m_Center: {x: 0.000001937151, y: -0.0000019073486, z: -0.0000018179417}
 --- !u!1 &1158651981
 GameObject:
   m_ObjectHideFlags: 0
@@ -14664,6 +14776,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431665665}
   m_Mesh: {fileID: 4300000, guid: d337268290d0fbb40b7a37afce8f59b2, type: 3}
+--- !u!1 &1437609281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1437609282}
+  m_Layer: 0
+  m_Name: GrabPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1437609282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437609281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.795212, y: 6.242569, z: 26.04166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1443000296
 GameObject:
   m_ObjectHideFlags: 0
@@ -15545,7 +15687,8 @@ GameObject:
   - component: {fileID: 1533362688}
   - component: {fileID: 1533362690}
   - component: {fileID: 1533362689}
-  m_Layer: 0
+  - component: {fileID: 1533362691}
+  m_Layer: 10
   m_Name: Grab2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15613,6 +15756,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533362687}
   m_Mesh: {fileID: 7141865579929564181, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &1533362691
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533362687}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.77894247, y: 0.8983302, z: 0.7170631}
+  m_Center: {x: -0.0000018775463, y: 0.0000009536743, z: 0.0000039041042}
 --- !u!1 &1535531616
 GameObject:
   m_ObjectHideFlags: 0
@@ -17794,7 +17950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013435742366, guid: b93286b7dfa93834caec88d1044606c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.83
+      value: -37.73
       objectReference: {fileID: 0}
     - target: {fileID: 4000013435742366, guid: b93286b7dfa93834caec88d1044606c2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19872,7 +20028,8 @@ GameObject:
   - component: {fileID: 1887445299}
   - component: {fileID: 1887445301}
   - component: {fileID: 1887445300}
-  m_Layer: 0
+  - component: {fileID: 1887445302}
+  m_Layer: 10
   m_Name: Grab3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19940,6 +20097,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887445298}
   m_Mesh: {fileID: -6004396399219533193, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &1887445302
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887445298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0373024, y: 0.89833045, z: 0.08293461}
+  m_Center: {x: 0.00000044703484, y: 0.000005722046, z: 0.0000009648502}
 --- !u!1 &1901623095
 GameObject:
   m_ObjectHideFlags: 0
@@ -22206,7 +22376,8 @@ GameObject:
   - component: {fileID: 2138485689}
   - component: {fileID: 2138485691}
   - component: {fileID: 2138485690}
-  m_Layer: 0
+  - component: {fileID: 2138485692}
+  m_Layer: 10
   m_Name: Grab3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22274,6 +22445,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138485688}
   m_Mesh: {fileID: -6004396399219533193, guid: 6cf7603dfad368440a8ddd464bc1840f, type: 3}
+--- !u!65 &2138485692
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138485688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0373024, y: 0.89833033, z: 0.08293448}
+  m_Center: {x: -0.000001937151, y: -0.0000019073486, z: 0.0000019185245}
 --- !u!1 &2146804141
 GameObject:
   m_ObjectHideFlags: 0
@@ -23047,7 +23231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 1
-  grabPoint: {fileID: 0}
+  grabPoint: {fileID: 1437609282}
   beforeAfterDir: {x: 0, y: 0, z: 0}
 --- !u!114 &725685702035504785
 MonoBehaviour:
@@ -23062,7 +23246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: 2
-  grabPoint: {fileID: 0}
+  grabPoint: {fileID: 1437609282}
   beforeAfterDir: {x: 0, y: 0, z: 0}
 --- !u!114 &725685702035504786
 MonoBehaviour:
@@ -29483,13 +29667,27 @@ GameObject:
   - component: {fileID: 6997772930551027450}
   - component: {fileID: 8832332326595740933}
   - component: {fileID: 8118905813795141563}
-  m_Layer: 0
+  - component: {fileID: 2543236376762386714}
+  m_Layer: 10
   m_Name: Grab3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &2543236376762386714
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543236376762386713}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0373024, y: 0.8983306, z: 0.08293468}
+  m_Center: {x: -0.0000014603138, y: -0.00000047683716, z: 0.0000019185245}
 --- !u!224 &2575710306585550836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30569,13 +30767,27 @@ GameObject:
   - component: {fileID: 3019872464507462525}
   - component: {fileID: 1877012981516780779}
   - component: {fileID: 4524849236964033858}
-  m_Layer: 0
+  - component: {fileID: 3923253886767750182}
+  m_Layer: 10
   m_Name: Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &3923253886767750182
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3923253886767750181}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.98466676, y: 0.89833003, z: 0.38573226}
+  m_Center: {x: -0.0000018179417, y: 0.000005722046, z: -0.000000014901157}
 --- !u!4 &4037680476183322467
 Transform:
   m_ObjectHideFlags: 0
@@ -30878,13 +31090,27 @@ GameObject:
   - component: {fileID: 1767186301526759171}
   - component: {fileID: 1017213669272905177}
   - component: {fileID: 3057048611487758816}
-  m_Layer: 0
+  - component: {fileID: 4416746598733457519}
+  m_Layer: 10
   m_Name: Grab2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &4416746598733457519
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416746598733457518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.77894247, y: 0.8983302, z: 0.71706307}
+  m_Center: {x: 0.000005275011, y: -0.0000009536743, z: 0.0000019967556}
 --- !u!23 &4418712154727293473
 MeshRenderer:
   m_ObjectHideFlags: 0
