@@ -48,7 +48,7 @@ public class RaycastFind : MonoBehaviour
     Transform grabPoint;
     bool click;  //암벽 클릭
     pcPlayerMove moveScript;  //움직이는 스크립트
-    float grabTime = 8;  // 잡고있는 최대시간
+   // float grabTime = 8;  // 잡고있는 최대시간
 
     public GameObject cheeseObj;  // 치즈
     bool pickUpCheese = false; // 치즈 주웠는지 판별
