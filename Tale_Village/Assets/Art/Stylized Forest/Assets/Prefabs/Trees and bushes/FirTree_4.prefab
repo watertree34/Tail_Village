@@ -187,7 +187,7 @@ Material:
     - _TranslucencyViewDependency: 0.2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _TranslucencyColor: {r: 0.6125812, g: 0.9044118, b: 0.16625217, a: 1}
+    - _TranslucencyColor: {r: 0.4491176, g: 0.6792453, b: 0.0993236, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
 --- !u!43 &43000013785763460

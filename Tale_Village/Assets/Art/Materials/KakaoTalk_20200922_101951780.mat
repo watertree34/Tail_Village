@@ -72,10 +72,10 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RampSmooth: 0.1
-    - _RampThreshold: 0.5
-    - _Shininess: 0.5
+    - _RampThreshold: 0.71
+    - _Shininess: 0.28
     - _SmoothnessTextureChannel: 0
-    - _SpecSmooth: 0.491
+    - _SpecSmooth: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
@@ -85,4 +85,4 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 0.8854092, g: 0.8962264, b: 0.78208435, a: 1}
     - _SColor: {r: 0.195, g: 0.195, b: 0.195, a: 1}
-    - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _SpecColor: {r: 0.55019194, g: 0.5660378, b: 0.509968, a: 1}
