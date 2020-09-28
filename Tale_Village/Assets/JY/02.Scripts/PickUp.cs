@@ -10,7 +10,7 @@ public class PickUp : MonoBehaviour
     {
         // pick이 뭐냐에 따라서 아이템 처리를 하고싶다.
         print(" [" + item.itemName.ToString() + "] Click");
-        
+
         //아이템타입이 푸드면
         if (item.itemType == Item.ItemType.Food)
         {
@@ -38,6 +38,7 @@ public class PickUp : MonoBehaviour
         if (item.itemName == "Axe")
         {
             Inventory.Instance.isAxeUsed = !Inventory.Instance.isAxeUsed;
+            Soundmanager.Instance.ItemSound();
         }
 
         //아이템이 열쇠면
