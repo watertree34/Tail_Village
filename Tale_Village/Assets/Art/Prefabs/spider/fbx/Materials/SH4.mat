@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SH3
+  m_Name: SH4
   m_Shader: {fileID: 4800000, guid: 9ec7ccbd4289d0543939f61121224d93, type: 3}
   m_ShaderKeywords: TCP2_SPEC_TOON _ALPHATEST_ON
   m_LightmapFlags: 4
@@ -81,7 +81,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.05490196, g: 0.06711145, b: 0.18039216, a: 1}
+    - _Color: {r: 0.1792453, g: 0.054957286, b: 0.054957286, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}
     - _SColor: {r: 0.195, g: 0.195, b: 0.195, a: 1}
